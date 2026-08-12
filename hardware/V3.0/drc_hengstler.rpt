@@ -1,0 +1,61 @@
+** Drc report for vogelstimmen_v3.0.kicad_pcb **
+** Created on 2026-08-06T10:03:00 **
+** Report includes: Errors, Warnings **
+
+** Found 11 DRC violations **
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(163.5000 mm, 98.5000 mm): Footprint R10
+    @(166.5000 mm, 100.0000 mm): Footprint D14
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(163.5000 mm, 98.5000 mm): Footprint R10
+    @(161.4375 mm, 99.9500 mm): Footprint Q6
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(156.9900 mm, 116.5000 mm): Footprint R6
+    @(157.0000 mm, 119.0000 mm): Footprint R7
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(163.0000 mm, 111.0000 mm): Footprint D12
+    @(162.5000 mm, 108.5000 mm): Footprint R1
+[lib_footprint_mismatch]: Footprint "DY-SV17F" stimmt nicht mit Kopie in Bibliothek "vogelstimmen" überein.
+    Local override; warning
+    @(141.0000 mm, 106.0000 mm): Footprint U2
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(193.3500 mm, 86.5000 mm): Reference field of D23
+    @(193.0000 mm, 87.5700 mm): Reference field of C20
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(193.0000 mm, 87.5700 mm): Reference field of C20
+    @(194.3500 mm, 88.1100 mm): Segment of D23 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(192.8900 mm, 98.7500 mm): Segment of D10 on F.Silkscreen
+    @(191.5000 mm, 99.6000 mm): Reference field of D10
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(146.5000 mm, 118.0700 mm): Reference field of R3
+    @(154.0000 mm, 117.5000 mm): Segment of U2 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(196.5000 mm, 97.8000 mm): Reference field of J5
+    @(197.5625 mm, 97.4500 mm): Pad 2 [/GND] of Q7 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(173.0000 mm, 113.0700 mm): Reference field of R12
+    @(171.8250 mm, 112.0000 mm): Pad 2 [/LATCH_SET] of R4 on F.Cu
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

@@ -1,0 +1,18 @@
+ERC report (2026-08-12T07:45:06, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(187.96 mm, 66.04 mm): Label 'SET_DRV'
+[lib_symbol_mismatch]: Symbol "Hengstler_0.635.128" stimmt nicht mit Kopie in Bibliothek "vogelstimmen" überein
+    ; warning
+    @(195.58 mm, 162.56 mm): Symbol J5 [Hengstler_0.635.128]
+
+ ** ERC messages: 2  Errors 0  Warnings 2
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

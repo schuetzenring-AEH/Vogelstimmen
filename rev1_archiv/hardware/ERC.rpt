@@ -1,0 +1,162 @@
+ERC report (2026-07-05T15:14:02, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(834 mils, 1919 mils): Symbol J1 Pin 1 [1, Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(834 mils, 2019 mils): Symbol #FLG03 Pin 1 [Stromausgang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1819 mils, 5456 mils): Symbol J3 Pin 1 [1, Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1969 mils, 2291 mils): Symbol R11 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2065 mils, 1969 mils): Symbol Q1 Pin 1 [G, Eingang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2756 mils, 1819 mils): Symbol F1 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2756 mils, 2119 mils): Symbol #FLG01 Pin 1 [Stromausgang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 5165 mils): Symbol R1 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 5362 mils): Symbol R2 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 5559 mils): Symbol R3 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 5756 mils): Symbol R4 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 5952 mils): Symbol R5 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 6149 mils): Symbol R6 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 6346 mils): Symbol R7 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3150 mils, 6543 mils): Symbol R8 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3228 mils, 2291 mils): Symbol D1 Pin 1 [K, Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3440 mils, 3050 mils): Symbol U5 Pin 1 [VCC, Stromversorgung, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 5215 mils): Symbol C10 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 5412 mils): Symbol C11 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 5609 mils): Symbol C12 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 5806 mils): Symbol C13 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 6002 mils): Symbol C14 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 6199 mils): Symbol C15 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 6396 mils): Symbol C16 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4134 mils, 6593 mils): Symbol C17 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4252 mils, 2341 mils): Symbol C1 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4374 mils, 1769 mils): Symbol U4 Pin 1 [VIN, Stromversorgung, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4449 mils, 2341 mils): Symbol C2 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5236 mils, 4850 mils): Symbol R12 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5456 mils, 5759 mils): Symbol U1 Pin 1 [P04/KEY4, Eingang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5709 mils, 4821 mils): Symbol C5 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6102 mils, 1819 mils): Symbol L1 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6102 mils, 2119 mils): Symbol #FLG02 Pin 1 [Stromausgang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6496 mils, 2341 mils): Symbol C3 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6693 mils, 2341 mils): Symbol C4 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6693 mils, 4850 mils): Symbol R9 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7724 mils, 7724 mils): Symbol J4 Pin 1 [1, Passiv, Linie]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(7724 mils, 7724 mils): Label 'USB_5V'
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8705 mils, 5459 mils): Symbol U2 Pin 1 [~{CS}, Eingang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8858 mils, 4939 mils): Symbol C6 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9843 mils, 5165 mils): Symbol R13 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10039 mils, 5491 mils): Symbol C9 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10433 mils, 5215 mils): Symbol C18 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12008 mils, 4821 mils): Symbol C7 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12402 mils, 4821 mils): Symbol C8 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12605 mils, 5659 mils): Symbol U3 Pin 1 [+OUTR, Ausgang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12795 mils, 9102 mils): Symbol R10 Pin 1 [Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12892 mils, 8858 mils): Symbol Q2 Pin 1 [G, Eingang, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14023 mils, 5462 mils): Symbol J2 Pin 1 [1, Passiv, Linie]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14023 mils, 8808 mils): Symbol J5 Pin 1 [1, Passiv, Linie]
+
+ ** ERC messages: 50  Errors 0  Warnings 50
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

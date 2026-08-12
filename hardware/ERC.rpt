@@ -1,0 +1,21 @@
+ERC report (2026-07-28T23:46:14, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(2400 mils, 6450 mils): Symbol U2 Pin 13 [V5, Stromversorgung, Linie]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(10200 mils, 1300 mils): Symbol U1 Pin 2 [VIN, Stromversorgung, Linie]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(10600 mils, 2100 mils): Symbol U1 Pin 1 [PGND, Stromversorgung, Linie]
+
+ ** ERC messages: 3  Errors 3  Warnings 0
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

@@ -1,0 +1,34 @@
+* Vogelstimmenkasten - Audio RC Filter Simulation
+* Simuliert den Tiefpassfilter zwischen WT588D PWM-Ausgang und PAM8403
+*
+* Schaltung: PWM_OUT -> R13(1k) -> Knoten_A -> C9(100n) -> GND
+*                                   Knoten_A -> C18(1u) -> PAM8403_INL
+*
+* Der Filter entfernt die PWM-Trägerfrequenz (typ. 32-64kHz)
+* und lässt die Audio-Nutzfrequenz (bis ~8kHz) durch.
+
+.param Vcc=3.3
+
+* PWM-Quelle (simuliert WT588D PWM-Ausgang bei 32kHz Träger, 1kHz Audio)
+V1 PWM_OUT 0 PULSE(0 {Vcc} 0 100n 100n 15.6u 31.25u)
+
+* RC-Tiefpassfilter
+R13 PWM_OUT FILT_NODE 1k
+C9 FILT_NODE 0 100n
+
+* Koppelkondensator (entfernt DC-Offset)
+C18 FILT_NODE AUDIO_IN 1u
+
+* Last (PAM8403 Eingangsimpedanz, ca. 20k)
+R_LOAD AUDIO_IN 0 20k
+
+* Simulation: Transient-Analyse (PWM-Filterung)
+* Fuer AC-Analyse: .tran auskommentieren und .ac einkommentieren
+.tran 0 5m 0 1u
+* .ac dec 100 10 100k
+
+* Messungen
+* .meas AC f3dB WHEN mag(V(AUDIO_IN))=mag(V(PWM_OUT))*0.707
+.meas TRAN Vripple PP V(FILT_NODE) FROM 2m TO 5m
+
+.end

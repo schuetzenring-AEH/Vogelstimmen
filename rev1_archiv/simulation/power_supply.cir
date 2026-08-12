@@ -1,0 +1,43 @@
+* Vogelstimmenkasten - Stromversorgung Simulation
+* Buck-Converter TPS62203: 12V -> 3.3V
+*
+* VEREINFACHUNG: Da der TPS62203 keine Feedback-Regelung in SPICE hat,
+* simulieren wir das Ausgangsfilter-Verhalten mit idealem Duty Cycle.
+* Die Ausgangsspannung wird durch die Last stabilisiert.
+
+.param Vin=12
+.param Vout=3.3
+.param Fsw=1Meg
+.param duty={Vout/Vin}
+
+* Eingangsspannung (Batterie)
+V_BAT VIN 0 {Vin}
+
+* Idealer Buck-Schaltknoten
+* Erzeugt Rechteck zwischen 0V und Vin mit korrektem Duty Cycle
+V_SW SW 0 PULSE(0 {Vin} 0 10n 10n {duty/Fsw} {1/Fsw})
+
+* Ausgangsinduktor L1 (10uH mit 0.2 Ohm Serienwiderstand)
+L1 SW VOUT_L 10u
+R_L1 VOUT_L VOUT 0.2
+
+* Ausgangskondensatoren C3 + C4 (2x 10uF)
+C3 VOUT 0 10u IC={Vout}
+C4 VOUT 0 10u IC={Vout}
+
+* === Lastszenario 1: Sleep-Modus (3uA) ===
+R_SLEEP VOUT 0 1Meg
+
+* === Lastszenario 2: Aktiv (WT588D + PAM8403, ca. 50mA Spitze) ===
+* Schaltet nach 2ms ein fuer 1ms
+I_ACTIVE VOUT 0 PULSE(0 50m 2m 10u 10u 1m 5m)
+
+* Simulation: 5ms Transient
+.tran 0 5m 0 10n
+
+* Messungen
+.meas TRAN Vout_avg AVG V(VOUT) FROM 1m TO 2m
+.meas TRAN Vout_ripple PP V(VOUT) FROM 1m TO 2m
+.meas TRAN Vout_drop MIN V(VOUT) FROM 2m TO 3.5m
+
+.end

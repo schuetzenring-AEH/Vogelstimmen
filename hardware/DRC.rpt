@@ -1,0 +1,62 @@
+** Drc report for vogelstimmen_v2.kicad_pcb **
+** Created on 2026-07-30T15:45:05 **
+** Report includes: Errors, Warnings **
+
+** Found 7 DRC violations **
+[starved_thermal]: Verbindung der Wärmefalle zur Zone unvollständig (Lage F.Cu; Zone min. Steganzahl 2; tatsächlich 1)
+    Local override; error
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+    @(165.6000 mm, 81.5000 mm): Pad 1 [/GND] of U1 on F.Cu
+[starved_thermal]: Verbindung der Wärmefalle zur Zone unvollständig (Lage F.Cu; Zone min. Steganzahl 2; tatsächlich 1)
+    Local override; error
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+    @(167.5000 mm, 83.0000 mm): Pad 5 [/GND] of U1 on F.Cu
+[starved_thermal]: Verbindung der Wärmefalle zur Zone unvollständig (Lage F.Cu; Zone min. Steganzahl 2; tatsächlich 1)
+    Local override; error
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+    @(185.5000 mm, 118.0000 mm): Pad 2 [/GND] of Q3 on F.Cu
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(123.5000 mm, 69.5000 mm): Rectangle on Edge.Cuts
+    @(127.5000 mm, 69.3500 mm): Reference field of H1
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(123.5000 mm, 69.5000 mm): Rectangle on Edge.Cuts
+    @(124.0000 mm, 92.0000 mm): Reference field of U2
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(123.5000 mm, 69.5000 mm): Rectangle on Edge.Cuts
+    @(206.0000 mm, 69.3500 mm): Reference field of H2
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(130.3400 mm, 81.8400 mm): Circle of U2 on F.Silkscreen
+    @(130.3400 mm, 81.8400 mm): PTH pad 1 [/IO0] of U2
+
+** Found 4 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+    @(165.6000 mm, 81.5000 mm): Pad 1 [/GND] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+    @(165.6000 mm, 83.0000 mm): Pad 4 [/GND] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(167.5000 mm, 83.0000 mm): Pad 5 [/GND] of U1 on F.Cu
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(185.5000 mm, 118.0000 mm): Pad 2 [/GND] of Q3 on F.Cu
+    @(123.5000 mm, 130.0000 mm): Zone [/GND] on F.Cu, priority 0
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

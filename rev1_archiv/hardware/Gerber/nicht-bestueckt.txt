@@ -1,0 +1,15 @@
+Vogelstimmenkasten - Nicht von JLCPCB bestuecken (manuell loeten)
+================================================================
+
+Diese Bauteile sind NICHT in vogelstimmen-bom.csv und vogelstimmen-cpl.csv enthalten.
+
+Ref   | Bauteil              | Hinweis
+------|----------------------|----------------------------------
+U1    | WT588D-16P           | DIP-16, mit IC-Sockel einloeten
+J1    | Batterie_12V         | 2-pol Stiftleiste / Schraubklemme
+J2    | Lautsprecher         | 2-pol Stiftleiste / Schraubklemme
+J3    | 8_Taster             | 10-pol Stiftleiste
+J4    | Prog_Header          | 4-pol Stiftleiste (Audio-Upload)
+J5    | Zaehler              | 2-pol Stiftleiste / Schraubklemme
+
+Bei JLCPCB Assembly: nur vogelstimmen-bom.csv und vogelstimmen-cpl.csv hochladen.

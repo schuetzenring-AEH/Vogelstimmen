@@ -1,0 +1,552 @@
+Hinweis: Verarbeite Symbol "C1:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C12:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "J3:Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical".
+Hinweis: Verarbeite Symbol "J2:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical".
+Hinweis: Verarbeite Symbol "C18:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C11:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "F1:Fuse:Fuse_1206_3216Metric".
+Hinweis: Verarbeite Symbol "C6:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C8:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C4:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "J4:Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical".
+Hinweis: Verarbeite Symbol "J1:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical".
+Hinweis: Verarbeite Symbol "C2:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "D1:Diode_SMD:D_SMA".
+Hinweis: Verarbeite Symbol "C10:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C15:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C14:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C16:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C13:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C7:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C5:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R3:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C3:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C9:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "C17:Capacitor_SMD:C_0805_2012Metric".
+Hinweis: Verarbeite Symbol "J5:Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical".
+Hinweis: Verarbeite Symbol "L1:Inductor_SMD:L_1210_3225Metric".
+Hinweis: Verarbeite Symbol "Q1:Package_TO_SOT_SMD:SOT-23".
+Hinweis: Verarbeite Symbol "Q2:Package_TO_SOT_SMD:SOT-23".
+Hinweis: Verarbeite Symbol "R1:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R2:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R4:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R5:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R6:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R7:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R8:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R9:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R10:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R11:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R12:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "R13:Resistor_SMD:R_0805_2012Metric".
+Hinweis: Verarbeite Symbol "U1:Package_DIP:DIP-16_W7.62mm".
+Hinweis: Verarbeite Symbol "U2:Package_SO:SOIC-8_3.9x4.9mm_P1.27mm".
+Hinweis: Verarbeite Symbol "U3:Package_SO:SOP-16_4.4x10.4mm_P1.27mm".
+Hinweis: Verarbeite Symbol "U4:Package_TO_SOT_SMD:SOT-23-5".
+Hinweis: Verarbeite Symbol "U5:Package_TO_SOT_SMD:SOT-23".
+Referenzbezeichner REF** in C3 geändert.
+Wert C3 von C_0805_2012Metric in 10u geändert.
+Symbolverknüpfung C3 von  nach /11000011-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C3 auf / aktualisiert.
+Blattname von C3 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /3V3 hinzufügen.
+C3 Pin 1 nach /3V3 verbunden.
+C3 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C3 aktualisiert.
+C4 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C4 geändert.
+Wert C4 von C_0805_2012Metric in 10u geändert.
+Symbolverknüpfung C4 von  nach /11000012-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C4 auf / aktualisiert.
+Blattname von C4 auf "vogelstimmen.kicad_sch" aktualisiert.
+C4 Pin 2 nach /GND verbunden.
+C4 Pin 1 nach /3V3 verbunden.
+Metadaten der Einheit C4 aktualisiert.
+C5 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C5 geändert.
+Wert C5 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C5 von  nach /21000002-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C5 auf / aktualisiert.
+Blattname von C5 auf "vogelstimmen.kicad_sch" aktualisiert.
+C5 Pin 1 nach /3V3 verbunden.
+C5 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C5 aktualisiert.
+C6 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C6 geändert.
+Wert C6 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C6 von  nach /31000002-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C6 auf / aktualisiert.
+Blattname von C6 auf "vogelstimmen.kicad_sch" aktualisiert.
+C6 Pin 2 nach /GND verbunden.
+C6 Pin 1 nach /3V3 verbunden.
+Metadaten der Einheit C6 aktualisiert.
+C7 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C7 geändert.
+Wert C7 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C7 von  nach /41000002-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C7 auf / aktualisiert.
+Blattname von C7 auf "vogelstimmen.kicad_sch" aktualisiert.
+C7 Pin 2 nach /GND verbunden.
+C7 Pin 1 nach /3V3 verbunden.
+Metadaten der Einheit C7 aktualisiert.
+C8 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C8 geändert.
+Wert C8 von C_0805_2012Metric in 10u geändert.
+Symbolverknüpfung C8 von  nach /41000003-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C8 auf / aktualisiert.
+Blattname von C8 auf "vogelstimmen.kicad_sch" aktualisiert.
+C8 Pin 1 nach /3V3 verbunden.
+C8 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C8 aktualisiert.
+C9 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C9 geändert.
+Wert C9 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C9 von  nach /41000006-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C9 auf / aktualisiert.
+Blattname von C9 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /AUDIO_FILT hinzufügen.
+C9 Pin 1 nach /AUDIO_FILT verbunden.
+C9 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C9 aktualisiert.
+C10 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C10 geändert.
+Wert C10 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C10 von  nach /51000020-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C10 auf / aktualisiert.
+Blattname von C10 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /KEY0 hinzufügen.
+C10 Pin 1 nach /KEY0 verbunden.
+C10 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C10 aktualisiert.
+C11 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C11 geändert.
+Wert C11 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C11 von  nach /51000021-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C11 auf / aktualisiert.
+Blattname von C11 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /KEY1 hinzufügen.
+C11 Pin 1 nach /KEY1 verbunden.
+C11 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C11 aktualisiert.
+C12 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C12 geändert.
+Wert C12 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C12 von  nach /51000022-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C12 auf / aktualisiert.
+Blattname von C12 auf "vogelstimmen.kicad_sch" aktualisiert.
+C12 Pin 2 nach /GND verbunden.
+Netz /KEY2 hinzufügen.
+C12 Pin 1 nach /KEY2 verbunden.
+Metadaten der Einheit C12 aktualisiert.
+C13 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C13 geändert.
+Wert C13 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C13 von  nach /51000023-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C13 auf / aktualisiert.
+Blattname von C13 auf "vogelstimmen.kicad_sch" aktualisiert.
+C13 Pin 2 nach /GND verbunden.
+Netz /KEY3 hinzufügen.
+C13 Pin 1 nach /KEY3 verbunden.
+Metadaten der Einheit C13 aktualisiert.
+C14 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C14 geändert.
+Wert C14 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C14 von  nach /51000024-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C14 auf / aktualisiert.
+Blattname von C14 auf "vogelstimmen.kicad_sch" aktualisiert.
+C14 Pin 2 nach /GND verbunden.
+Netz /KEY4 hinzufügen.
+C14 Pin 1 nach /KEY4 verbunden.
+Metadaten der Einheit C14 aktualisiert.
+C15 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C15 geändert.
+Wert C15 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C15 von  nach /51000025-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C15 auf / aktualisiert.
+Blattname von C15 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /KEY5 hinzufügen.
+C15 Pin 1 nach /KEY5 verbunden.
+C15 Pin 2 nach /GND verbunden.
+Metadaten der Einheit C15 aktualisiert.
+C16 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C16 geändert.
+Wert C16 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C16 von  nach /51000026-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C16 auf / aktualisiert.
+Blattname von C16 auf "vogelstimmen.kicad_sch" aktualisiert.
+C16 Pin 2 nach /GND verbunden.
+Netz /KEY6 hinzufügen.
+C16 Pin 1 nach /KEY6 verbunden.
+Metadaten der Einheit C16 aktualisiert.
+C17 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C17 geändert.
+Wert C17 von C_0805_2012Metric in 100n geändert.
+Symbolverknüpfung C17 von  nach /51000027-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C17 auf / aktualisiert.
+Blattname von C17 auf "vogelstimmen.kicad_sch" aktualisiert.
+C17 Pin 2 nach /GND verbunden.
+Netz /KEY7 hinzufügen.
+C17 Pin 1 nach /KEY7 verbunden.
+Metadaten der Einheit C17 aktualisiert.
+C18 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+Referenzbezeichner REF** in C18 geändert.
+Wert C18 von C_0805_2012Metric in 1u geändert.
+Symbolverknüpfung C18 von  nach /41000007-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt C18 auf / aktualisiert.
+Blattname von C18 auf "vogelstimmen.kicad_sch" aktualisiert.
+C18 Pin 1 nach /AUDIO_FILT verbunden.
+Netz /AUDIO_IN hinzufügen.
+C18 Pin 2 nach /AUDIO_IN verbunden.
+Metadaten der Einheit C18 aktualisiert.
+D1 hinzugefügt (Footprint "Diode_SMD:D_SMA").
+Referenzbezeichner REF** in D1 geändert.
+Wert D1 von D_SMA in SMAJ15A geändert.
+Symbolverknüpfung D1 von  nach /11000005-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt D1 auf / aktualisiert.
+Blattname von D1 auf "vogelstimmen.kicad_sch" aktualisiert.
+D1 Pin 2 nach /GND verbunden.
+D1 Pin 1 nach /V12_PROT verbunden.
+Metadaten der Einheit D1 aktualisiert.
+F1 hinzugefügt (Footprint "Fuse:Fuse_1206_3216Metric").
+Referenzbezeichner REF** in F1 geändert.
+Symbolverknüpfung F1 von  nach /11000004-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt F1 auf / aktualisiert.
+Blattname von F1 auf "vogelstimmen.kicad_sch" aktualisiert.
+F1 Pin 2 nach /V12_PROT verbunden.
+Netz /V12_UNFUSED hinzufügen.
+F1 Pin 1 nach /V12_UNFUSED verbunden.
+Metadaten der Einheit F1 aktualisiert.
+J1 hinzugefügt (Footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical").
+Referenzbezeichner REF** in J1 geändert.
+Wert J1 von PinHeader_1x02_P2.54mm_Vertical in Batterie_12V geändert.
+Symbolverknüpfung J1 von  nach /11000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt J1 auf / aktualisiert.
+Blattname von J1 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /V12_BAT hinzufügen.
+J1 Pin 1 nach /V12_BAT verbunden.
+J1 Pin 2 nach /GND verbunden.
+Metadaten der Einheit J1 aktualisiert.
+J2 hinzugefügt (Footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical").
+Referenzbezeichner REF** in J2 geändert.
+Wert J2 von PinHeader_1x02_P2.54mm_Vertical in Lautsprecher geändert.
+Symbolverknüpfung J2 von  nach /41000004-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt J2 auf / aktualisiert.
+Blattname von J2 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /SPK_P hinzufügen.
+J2 Pin 1 nach /SPK_P verbunden.
+Netz /SPK_N hinzufügen.
+J2 Pin 2 nach /SPK_N verbunden.
+Metadaten der Einheit J2 aktualisiert.
+J3 hinzugefügt (Footprint "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical").
+Referenzbezeichner REF** in J3 geändert.
+Wert J3 von PinHeader_1x10_P2.54mm_Vertical in 8_Taster geändert.
+Symbolverknüpfung J3 von  nach /51000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt J3 auf / aktualisiert.
+Blattname von J3 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /SW8 hinzufügen.
+J3 Pin 8 nach /SW8 verbunden.
+Netz /SW4 hinzufügen.
+J3 Pin 4 nach /SW4 verbunden.
+Netz /SW6 hinzufügen.
+J3 Pin 6 nach /SW6 verbunden.
+Netz /SW7 hinzufügen.
+J3 Pin 7 nach /SW7 verbunden.
+Netz /SW3 hinzufügen.
+J3 Pin 3 nach /SW3 verbunden.
+J3 Pin 9 nach /GND verbunden.
+Netz /SW2 hinzufügen.
+J3 Pin 2 nach /SW2 verbunden.
+Netz /SW5 hinzufügen.
+J3 Pin 5 nach /SW5 verbunden.
+J3 Pin 10 nach /3V3 verbunden.
+Netz /SW1 hinzufügen.
+J3 Pin 1 nach /SW1 verbunden.
+Metadaten der Einheit J3 aktualisiert.
+J4 hinzugefügt (Footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical").
+Referenzbezeichner REF** in J4 geändert.
+Wert J4 von PinHeader_1x04_P2.54mm_Vertical in Prog_Header geändert.
+Symbolverknüpfung J4 von  nach /61000004-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt J4 auf / aktualisiert.
+Blattname von J4 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /USB_5V hinzufügen.
+J4 Pin 1 nach /USB_5V verbunden.
+J4 Pin 2 nach /KEY6 verbunden.
+J4 Pin 4 nach /GND verbunden.
+Wert F1 von Fuse_1206_3216Metric in 500mA geändert.
+Metadaten der Einheit J4 aktualisiert.
+C1 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+J5 hinzugefügt (Footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical").
+Referenzbezeichner REF** in J5 geändert.
+Wert J5 von PinHeader_1x02_P2.54mm_Vertical in Zaehler geändert.
+Symbolverknüpfung J5 von  nach /61000003-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt J5 auf / aktualisiert.
+Blattname von J5 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /CNT_DRN hinzufügen.
+J5 Pin 2 nach /CNT_DRN verbunden.
+J5 Pin 1 nach /V12_PROT verbunden.
+Metadaten der Einheit J5 aktualisiert.
+Referenzbezeichner REF** in C1 geändert.
+L1 hinzugefügt (Footprint "Inductor_SMD:L_1210_3225Metric").
+Referenzbezeichner REF** in L1 geändert.
+Wert L1 von L_1210_3225Metric in 10uH geändert.
+Symbolverknüpfung L1 von  nach /11000010-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt L1 auf / aktualisiert.
+Blattname von L1 auf "vogelstimmen.kicad_sch" aktualisiert.
+L1 Pin 2 nach /3V3 verbunden.
+Netz /SW_NODE hinzufügen.
+L1 Pin 1 nach /SW_NODE verbunden.
+Metadaten der Einheit L1 aktualisiert.
+Wert C1 von C_0805_2012Metric in 10u geändert.
+Q1 hinzugefügt (Footprint "Package_TO_SOT_SMD:SOT-23").
+Referenzbezeichner REF** in Q1 geändert.
+Wert Q1 von SOT-23 in SI2301CDS geändert.
+Symbolverknüpfung Q1 von  nach /11000002-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt Q1 auf / aktualisiert.
+Blattname von Q1 auf "vogelstimmen.kicad_sch" aktualisiert.
+Q1 Pin 3 nach /V12_UNFUSED verbunden.
+Netz /Q1G hinzufügen.
+Q1 Pin 1 nach /Q1G verbunden.
+Q1 Pin 2 nach /V12_BAT verbunden.
+Metadaten der Einheit Q1 aktualisiert.
+Symbolverknüpfung C1 von  nach /11000007-0000-0000-0000-000000000001 aktualisiert.
+Q2 hinzugefügt (Footprint "Package_TO_SOT_SMD:SOT-23").
+Referenzbezeichner REF** in Q2 geändert.
+Wert Q2 von SOT-23 in 2N7002 geändert.
+Symbolverknüpfung Q2 von  nach /61000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt Q2 auf / aktualisiert.
+Blattname von Q2 auf "vogelstimmen.kicad_sch" aktualisiert.
+Q2 Pin 3 nach /GND verbunden.
+Netz /BUSY hinzufügen.
+Q2 Pin 1 nach /BUSY verbunden.
+Q2 Pin 2 nach /CNT_DRN verbunden.
+Metadaten der Einheit Q2 aktualisiert.
+Schaltplanblatt C1 auf / aktualisiert.
+R1 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R1 geändert.
+Wert R1 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R1 von  nach /51000010-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R1 auf / aktualisiert.
+Blattname von R1 auf "vogelstimmen.kicad_sch" aktualisiert.
+R1 Pin 1 nach /SW1 verbunden.
+R1 Pin 2 nach /KEY0 verbunden.
+Metadaten der Einheit R1 aktualisiert.
+Blattname von C1 auf "vogelstimmen.kicad_sch" aktualisiert.
+R2 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R2 geändert.
+Wert R2 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R2 von  nach /51000011-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R2 auf / aktualisiert.
+Blattname von R2 auf "vogelstimmen.kicad_sch" aktualisiert.
+R2 Pin 1 nach /SW2 verbunden.
+R2 Pin 2 nach /KEY1 verbunden.
+Metadaten der Einheit R2 aktualisiert.
+J4 Pin 3 nach /KEY7 verbunden.
+R3 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R3 geändert.
+Wert R3 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R3 von  nach /51000012-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R3 auf / aktualisiert.
+Blattname von R3 auf "vogelstimmen.kicad_sch" aktualisiert.
+R3 Pin 2 nach /KEY2 verbunden.
+R3 Pin 1 nach /SW3 verbunden.
+Metadaten der Einheit R3 aktualisiert.
+Netz /V12_PROT hinzufügen.
+R4 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R4 geändert.
+Wert R4 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R4 von  nach /51000013-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R4 auf / aktualisiert.
+Blattname von R4 auf "vogelstimmen.kicad_sch" aktualisiert.
+R4 Pin 1 nach /SW4 verbunden.
+R4 Pin 2 nach /KEY3 verbunden.
+Metadaten der Einheit R4 aktualisiert.
+C1 Pin 1 nach /V12_PROT verbunden.
+R5 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R5 geändert.
+Wert R5 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R5 von  nach /51000014-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R5 auf / aktualisiert.
+Blattname von R5 auf "vogelstimmen.kicad_sch" aktualisiert.
+R5 Pin 2 nach /KEY4 verbunden.
+R5 Pin 1 nach /SW5 verbunden.
+Metadaten der Einheit R5 aktualisiert.
+Netz /GND hinzufügen.
+R6 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R6 geändert.
+Wert R6 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R6 von  nach /51000015-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R6 auf / aktualisiert.
+Blattname von R6 auf "vogelstimmen.kicad_sch" aktualisiert.
+R6 Pin 2 nach /KEY5 verbunden.
+R6 Pin 1 nach /SW6 verbunden.
+Metadaten der Einheit R6 aktualisiert.
+C1 Pin 2 nach /GND verbunden.
+R7 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R7 geändert.
+Wert R7 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R7 von  nach /51000016-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R7 auf / aktualisiert.
+Blattname von R7 auf "vogelstimmen.kicad_sch" aktualisiert.
+R7 Pin 1 nach /SW7 verbunden.
+R7 Pin 2 nach /KEY6 verbunden.
+Metadaten der Einheit R7 aktualisiert.
+Metadaten der Einheit C1 aktualisiert.
+R8 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R8 geändert.
+Wert R8 von R_0805_2012Metric in 100 geändert.
+Symbolverknüpfung R8 von  nach /51000017-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R8 auf / aktualisiert.
+Blattname von R8 auf "vogelstimmen.kicad_sch" aktualisiert.
+R8 Pin 1 nach /SW8 verbunden.
+R8 Pin 2 nach /KEY7 verbunden.
+Metadaten der Einheit R8 aktualisiert.
+C2 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+R9 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R9 geändert.
+Wert R9 von R_0805_2012Metric in 10k geändert.
+Symbolverknüpfung R9 von  nach /21000004-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R9 auf / aktualisiert.
+Blattname von R9 auf "vogelstimmen.kicad_sch" aktualisiert.
+R9 Pin 1 nach /3V3 verbunden.
+R9 Pin 2 nach /BUSY verbunden.
+Metadaten der Einheit R9 aktualisiert.
+Referenzbezeichner REF** in C2 geändert.
+R10 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R10 geändert.
+Wert R10 von R_0805_2012Metric in 10k geändert.
+Symbolverknüpfung R10 von  nach /61000002-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R10 auf / aktualisiert.
+Blattname von R10 auf "vogelstimmen.kicad_sch" aktualisiert.
+R10 Pin 1 nach /BUSY verbunden.
+R10 Pin 2 nach /GND verbunden.
+Metadaten der Einheit R10 aktualisiert.
+Wert C2 von C_0805_2012Metric in 10u geändert.
+R11 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R11 geändert.
+Wert R11 von R_0805_2012Metric in 10k geändert.
+Symbolverknüpfung R11 von  nach /11000003-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R11 auf / aktualisiert.
+Blattname von R11 auf "vogelstimmen.kicad_sch" aktualisiert.
+R11 Pin 1 nach /Q1G verbunden.
+R11 Pin 2 nach /GND verbunden.
+Metadaten der Einheit R11 aktualisiert.
+Symbolverknüpfung C2 von  nach /11000008-0000-0000-0000-000000000001 aktualisiert.
+R12 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R12 geändert.
+Wert R12 von R_0805_2012Metric in 10k geändert.
+Symbolverknüpfung R12 von  nach /21000003-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R12 auf / aktualisiert.
+Blattname von R12 auf "vogelstimmen.kicad_sch" aktualisiert.
+Netz /RESET_N hinzufügen.
+R12 Pin 2 nach /RESET_N verbunden.
+R12 Pin 1 nach /3V3 verbunden.
+Metadaten der Einheit R12 aktualisiert.
+Schaltplanblatt C2 auf / aktualisiert.
+R13 hinzugefügt (Footprint "Resistor_SMD:R_0805_2012Metric").
+Referenzbezeichner REF** in R13 geändert.
+Wert R13 von R_0805_2012Metric in 1k geändert.
+Symbolverknüpfung R13 von  nach /41000005-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt R13 auf / aktualisiert.
+Blattname von R13 auf "vogelstimmen.kicad_sch" aktualisiert.
+R13 Pin 1 nach /KEY1 verbunden.
+R13 Pin 2 nach /AUDIO_FILT verbunden.
+Metadaten der Einheit R13 aktualisiert.
+Blattname von C2 auf "vogelstimmen.kicad_sch" aktualisiert.
+U1 hinzugefügt (Footprint "Package_DIP:DIP-16_W7.62mm").
+Referenzbezeichner REF** in U1 geändert.
+Wert U1 von DIP-16_W7.62mm in WT588D-16P geändert.
+Symbolverknüpfung U1 von  nach /21000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt U1 auf / aktualisiert.
+Blattname von U1 auf "vogelstimmen.kicad_sch" aktualisiert.
+U1 Pin 16 nach /KEY0 verbunden.
+Netz /SPI_CLK hinzufügen.
+U1 Pin 8 nach /SPI_CLK verbunden.
+U1 Pin 13 nach /KEY3 verbunden.
+Netz /SPI_MOSI hinzufügen.
+U1 Pin 9 nach /SPI_MOSI verbunden.
+U1 Pin 3 nach /KEY6 verbunden.
+U1 Pin 5 nach /GND verbunden.
+Netz /SPI_CS hinzufügen.
+U1 Pin 7 nach /SPI_CS verbunden.
+U1 Pin 12 nach /RESET_N verbunden.
+U1 Pin 1 nach /KEY4 verbunden.
+U1 Pin 4 nach /KEY7 verbunden.
+U1 Pin 11 nach /BUSY verbunden.
+U1 Pin 2 nach /KEY5 verbunden.
+Netz /SPI_MISO hinzufügen.
+U1 Pin 10 nach /SPI_MISO verbunden.
+U1 Pin 6 nach /3V3 verbunden.
+U1 Pin 15 nach /KEY1 verbunden.
+U1 Pin 14 nach /KEY2 verbunden.
+Metadaten der Einheit U1 aktualisiert.
+C2 Pin 2 nach /GND verbunden.
+U2 hinzugefügt (Footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm").
+Referenzbezeichner REF** in U2 geändert.
+Wert U2 von SOIC-8_3.9x4.9mm_P1.27mm in W25Q128JV geändert.
+Symbolverknüpfung U2 von  nach /31000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt U2 auf / aktualisiert.
+Blattname von U2 auf "vogelstimmen.kicad_sch" aktualisiert.
+U2 Pin 4 nach /GND verbunden.
+U2 Pin 8 nach /3V3 verbunden.
+U2 Pin 2 nach /SPI_MISO verbunden.
+U2 Pin 3 nach /3V3 verbunden.
+U2 Pin 1 nach /SPI_CS verbunden.
+U2 Pin 5 nach /SPI_MOSI verbunden.
+U2 Pin 7 nach /3V3 verbunden.
+U2 Pin 6 nach /SPI_CLK verbunden.
+Metadaten der Einheit U2 aktualisiert.
+C2 Pin 1 nach /V12_PROT verbunden.
+U3 hinzugefügt (Footprint "Package_SO:SOP-16_4.4x10.4mm_P1.27mm").
+Referenzbezeichner REF** in U3 geändert.
+Wert U3 von SOP-16_4.4x10.4mm_P1.27mm in PAM8403 geändert.
+Symbolverknüpfung U3 von  nach /41000001-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt U3 auf / aktualisiert.
+Blattname von U3 auf "vogelstimmen.kicad_sch" aktualisiert.
+U3 Pin 3 nach /3V3 verbunden.
+U3 Pin 16 nach /SPK_P verbunden.
+U3 Pin 15 nach /SPK_N verbunden.
+U3 Pin 9 nach /GND verbunden.
+U3 Pin 5 nach /3V3 verbunden.
+U3 Pin 10 nach /3V3 verbunden.
+Netz unconnected-(U3--OUTR-Pad2) hinzufügen.
+U3 Pin 2 nach unconnected-(U3--OUTR-Pad2) verbunden.
+U3 Pin 12 nach /3V3 verbunden.
+U3 Pin 11 nach /AUDIO_IN verbunden.
+Netz unconnected-(U3-+OUTR-Pad1) hinzufügen.
+U3 Pin 1 nach unconnected-(U3-+OUTR-Pad1) verbunden.
+U3 Pin 4 nach /GND verbunden.
+Metadaten der Einheit U3 aktualisiert.
+Metadaten der Einheit C2 aktualisiert.
+U4 hinzugefügt (Footprint "Package_TO_SOT_SMD:SOT-23-5").
+Referenzbezeichner REF** in U4 geändert.
+Wert U4 von SOT-23-5 in TPS62203 geändert.
+Symbolverknüpfung U4 von  nach /11000009-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt U4 auf / aktualisiert.
+Blattname von U4 auf "vogelstimmen.kicad_sch" aktualisiert.
+U4 Pin 1 nach /V12_PROT verbunden.
+Netz /UVLO_OUT hinzufügen.
+U4 Pin 3 nach /UVLO_OUT verbunden.
+U4 Pin 4 nach /SW_NODE verbunden.
+Netz unconnected-(U4-PG-Pad5) hinzufügen.
+U4 Pin 5 nach unconnected-(U4-PG-Pad5) verbunden.
+U4 Pin 2 nach /GND verbunden.
+Metadaten der Einheit U4 aktualisiert.
+C3 hinzugefügt (Footprint "Capacitor_SMD:C_0805_2012Metric").
+U5 hinzugefügt (Footprint "Package_TO_SOT_SMD:SOT-23").
+Referenzbezeichner REF** in U5 geändert.
+Wert U5 von SOT-23 in SGM809 geändert.
+Symbolverknüpfung U5 von  nach /11000006-0000-0000-0000-000000000001 aktualisiert.
+Schaltplanblatt U5 auf / aktualisiert.
+Blattname von U5 auf "vogelstimmen.kicad_sch" aktualisiert.
+U5 Pin 3 nach /UVLO_OUT verbunden.
+U5 Pin 1 nach /V12_PROT verbunden.
+U5 Pin 2 nach /GND verbunden.
+Metadaten der Einheit U5 aktualisiert.
+Warnung: Kein Netz für Komponente U3 Pad 7 gefunden (kein Pin 7 in Symbol).
+Warnung: Kein Netz für Komponente U3 Pad 8 gefunden (kein Pin 8 in Symbol).
+Warnung: Kein Netz für Komponente U3 Pad 14 gefunden (kein Pin 14 in Symbol).
+Warnung: Kein Netz für Komponente U3 Pad 13 gefunden (kein Pin 13 in Symbol).
+Warnung: Kein Netz für Komponente U3 Pad 6 gefunden (kein Pin 6 in Symbol).
+
+
+Hinweis: Warnungen insgesamt: 5, Fehler insgesamt: 0.

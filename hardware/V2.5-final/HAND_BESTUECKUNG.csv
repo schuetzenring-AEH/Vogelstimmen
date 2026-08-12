@@ -1,0 +1,9 @@
+Assembly,Reference,Part,Qty,Source,Notes
+HAND,U2,DY-SV17F MP3/WAV Modul,1,AliExpress / eBay,optional 2x9 Pin-Sockel; USB nur Latch aus / Modul ab
+HAND,J5,Kübler K07.90 (1.130.900.008),1,Fachhandel,4.5V-Typ an 5V-Rail; Anzeige oben
+HAND,J1,Phoenix MPT 0.5/2-2.54,1,Phoenix / Reichelt,Batterie 12V
+HAND,J2,Phoenix MPT 0.5/2-2.54,1,Phoenix / Reichelt,Lautsprecher BTL
+HAND,J6,Phoenix MPT 0.5/2-2.54,1,Phoenix / Reichelt,Taster-LEDs 12V_LED
+HAND,J3,Phoenix MPT 0.5/8-2.54 (z.B. 1725711),1,Phoenix / Reichelt,Taster IO1-IO8
+HAND,J4,Phoenix MPT 0.5/8-2.54 (z.B. 1725711),1,Phoenix / Reichelt,Taster GND x8
+DNP,TP1-TP5,Testpads (Kupfer),5,-,nicht bestuecken - nur Messpunkte

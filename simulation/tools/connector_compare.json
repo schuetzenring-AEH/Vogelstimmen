@@ -1,0 +1,282 @@
+{
+  "Stiftleiste 2.54 (aktuell J3/J4)": {
+    "file": "PinHeader_1x08_P2.54mm_Vertical.kicad_mod",
+    "pitch_mm": 2.54,
+    "drill_mm": 1.0,
+    "pad_size_mm": [
+      1.7,
+      1.7
+    ],
+    "courtyard_w_mm": 4.0,
+    "courtyard_h_mm": 21.78,
+    "courtyard_bbox": [
+      -2.0,
+      -2.0,
+      2.0,
+      19.78
+    ],
+    "pads_signal": [
+      {
+        "n": "1",
+        "x": 0.0,
+        "y": 0.0,
+        "drill": 1.0
+      },
+      {
+        "n": "2",
+        "x": 0.0,
+        "y": 2.54,
+        "drill": 1.0
+      },
+      {
+        "n": "3",
+        "x": 0.0,
+        "y": 5.08,
+        "drill": 1.0
+      },
+      {
+        "n": "4",
+        "x": 0.0,
+        "y": 7.62,
+        "drill": 1.0
+      },
+      {
+        "n": "5",
+        "x": 0.0,
+        "y": 10.16,
+        "drill": 1.0
+      },
+      {
+        "n": "6",
+        "x": 0.0,
+        "y": 12.7,
+        "drill": 1.0
+      },
+      {
+        "n": "7",
+        "x": 0.0,
+        "y": 15.24,
+        "drill": 1.0
+      },
+      {
+        "n": "8",
+        "x": 0.0,
+        "y": 17.78,
+        "drill": 1.0
+      }
+    ],
+    "fab_lines": [],
+    "desc": "Through hole straight pin header, 1x08, 2.54mm pitch, single row",
+    "note_0_5": null
+  },
+  "Klemme Phoenix MPT-0,5 (Raster 2.54)": {
+    "file": "TerminalBlock_Phoenix_MPT-0,5-8-2.54_1x08_P2.54mm_Horizontal.kicad_mod",
+    "pitch_mm": 2.54,
+    "drill_mm": 1.1,
+    "pad_size_mm": [
+      2.2,
+      2.2
+    ],
+    "courtyard_w_mm": 21.78,
+    "courtyard_h_mm": 4.0,
+    "courtyard_bbox": [
+      -2.0,
+      -2.0,
+      19.78,
+      2.0
+    ],
+    "pads_signal": [
+      {
+        "n": "1",
+        "x": 0.0,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "2",
+        "x": 2.54,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "3",
+        "x": 5.08,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "4",
+        "x": 7.62,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "5",
+        "x": 10.16,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "6",
+        "x": 12.7,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "7",
+        "x": 15.24,
+        "y": 0.0,
+        "drill": 1.1
+      },
+      {
+        "n": "8",
+        "x": 17.78,
+        "y": 0.0,
+        "drill": 1.1
+      }
+    ],
+    "fab_lines": [],
+    "desc": "Terminal Block Phoenix MPT-0,5-8-2.54, 8 pins, pitch 2.54mm, size 20.8x6.2mm, drill diameter 1.1mm, pad diameter 2.2mm, http://www.mouser.com/ds/2/324/ItemDetai",
+    "note_0_5": "MPT-0,5 = Querschnitt 0,5 mm\u00b2 Ader, Raster bleibt 2,54 mm"
+  },
+  "Klemme 3.5 mm Phoenix PT-1,5": {
+    "file": "TerminalBlock_Phoenix_PT-1,5-8-3.5-H_1x08_P3.50mm_Horizontal.kicad_mod",
+    "pitch_mm": 3.5,
+    "drill_mm": 1.2,
+    "pad_size_mm": [
+      2.4,
+      2.4
+    ],
+    "courtyard_w_mm": 28.5,
+    "courtyard_h_mm": 4.0,
+    "courtyard_bbox": [
+      -2.0,
+      -2.0,
+      26.5,
+      2.0
+    ],
+    "pads_signal": [
+      {
+        "n": "1",
+        "x": 0.0,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "2",
+        "x": 3.5,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "3",
+        "x": 7.0,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "4",
+        "x": 10.5,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "5",
+        "x": 14.0,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "6",
+        "x": 17.5,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "7",
+        "x": 21.0,
+        "y": 0.0,
+        "drill": 1.2
+      },
+      {
+        "n": "8",
+        "x": 24.5,
+        "y": 0.0,
+        "drill": 1.2
+      }
+    ],
+    "fab_lines": [],
+    "desc": "Terminal Block Phoenix PT-1,5-8-3.5-H, 8 pins, pitch 3.5mm, size 28x7.6mm, drill diameter 1.2mm, pad diameter 2.4mm, ",
+    "note_0_5": null
+  },
+  "Klemme 5.0 mm Phoenix PT-1,5": {
+    "file": "TerminalBlock_Phoenix_PT-1,5-8-5.0-H_1x08_P5.00mm_Horizontal.kicad_mod",
+    "pitch_mm": 5.0,
+    "drill_mm": 1.3,
+    "pad_size_mm": [
+      2.6,
+      2.6
+    ],
+    "courtyard_w_mm": 39.0,
+    "courtyard_h_mm": 4.0,
+    "courtyard_bbox": [
+      -2.0,
+      -2.0,
+      37.0,
+      2.0
+    ],
+    "pads_signal": [
+      {
+        "n": "1",
+        "x": 0.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "2",
+        "x": 5.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "3",
+        "x": 10.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "4",
+        "x": 15.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "5",
+        "x": 20.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "6",
+        "x": 25.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "7",
+        "x": 30.0,
+        "y": 0.0,
+        "drill": 1.3
+      },
+      {
+        "n": "8",
+        "x": 35.0,
+        "y": 0.0,
+        "drill": 1.3
+      }
+    ],
+    "fab_lines": [],
+    "desc": "Terminal Block Phoenix PT-1,5-8-5.0-H, 8 pins, pitch 5mm, size 40x9mm, drill diameter 1.3mm, pad diameter 2.6mm, http://www.mouser.com/ds/2/324/ItemDetail_19351",
+    "note_0_5": null
+  }
+}

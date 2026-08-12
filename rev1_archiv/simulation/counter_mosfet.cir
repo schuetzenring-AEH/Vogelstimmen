@@ -1,0 +1,42 @@
+* Vogelstimmenkasten - Impulszaehler MOSFET Simulation
+* Simuliert Q2 (2N7002) geschaltet durch BUSY-Signal
+*
+* Wenn BUSY HIGH (3.3V) -> Q2 leitet -> Strom durch Zaehler-Spule
+* Zaehler-Spule: ca. 100 Ohm DC-Widerstand, geschaltet mit 12V
+*
+* Erwarteter Strom: 12V / 100 Ohm = 120mA (kurzer Puls genuegt)
+
+.param Vcc=3.3
+.param V12=12
+
+* 12V Versorgung fuer Zaehler
+V_12V V12_PROT 0 {V12}
+
+* BUSY-Signal (HIGH waehrend Wiedergabe, typ. 10s)
+V_BUSY BUSY_SIG 0 PULSE(0 {Vcc} 1m 1u 1u 100m 200m)
+
+* Gate-Pulldown (R10 = 10k)
+R10 BUSY_SIG 0 10k
+
+* MOSFET Q2 (2N7002 N-Channel)
+* Pinreihenfolge NMOS: Drain Gate Source Bulk
+M1 DRAIN BUSY_SIG 0 0 NMOS W=1 L=1
+.model NMOS NMOS (VTO=1.5 KP=0.1 LAMBDA=0.01)
+
+* Zaehler-Spule (modelliert als Widerstand + Induktivitaet)
+* 12V -> L_COUNTER -> R_COUNTER -> DRAIN -> M1 -> GND
+L_COUNTER V12_PROT CNT_MID 50m
+R_COUNTER CNT_MID DRAIN 100
+
+* Freilaufdiode (Schutz gegen Spannungsspitze beim Abschalten)
+D1 0 DRAIN D_FLYBACK
+.model D_FLYBACK D (IS=1e-14 N=1)
+
+* Simulation: 500ms Transient
+.tran 0 500m 0 100u
+
+* Messungen
+.meas TRAN I_peak MAX I(R_COUNTER) FROM 1m TO 150m
+.meas TRAN V_drain_off MAX V(DRAIN) FROM 101m TO 110m
+
+.end

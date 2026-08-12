@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <title>Vogelstimmen — MBSE / V-Modell Showcase</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav-brand" href="#/home">Vogelstimmen</a>
+      <p class="nav-sub">MBSE · V-Modell · Rev 2.5</p>
+
+      <div class="nav-sec">Einstieg</div>
+      <a href="#/home" data-route="home">Start</a>
+      <a href="#/vmodell" data-route="vmodell">V-Modell &amp; Abdeckung</a>
+
+      <div class="nav-sec">Links spezifizieren</div>
+      <a href="#/stakeholder" data-route="stakeholder">Stakeholder</a>
+      <a href="#/requirements" data-route="requirements">Anforderungen</a>
+      <a href="#/usecases" data-route="usecases">Use Cases</a>
+      <a href="#/functions" data-route="functions">Funktionen</a>
+      <a href="#/architektur" data-route="architektur">Architektur</a>
+      <a href="#/sysml" data-route="sysml">SysML-Sicht</a>
+      <a href="#/interfaces" data-route="interfaces">PBS &amp; ICD</a>
+      <a href="#/entscheidungen" data-route="entscheidungen">ADRs</a>
+      <a href="#/risiko" data-route="risiko">Risiko / FMEA</a>
+
+      <div class="nav-sec">Unten implementieren</div>
+      <a href="#/design" data-route="design">Detaildesign</a>
+      <a href="#/twin" data-route="twin">Digitaler Zwilling</a>
+
+      <div class="nav-sec">Rechts verifizieren</div>
+      <a href="#/thread" data-route="thread">Digital Thread</a>
+      <a href="#/trace" data-route="trace">Traceability</a>
+      <a href="#/vv" data-route="vv">V&amp;V Testplan</a>
+      <a href="#/fertigung" data-route="fertigung">Fertigung</a>
+      <a href="#/service" data-route="service">Service &amp; CM</a>
+
+      <div class="nav-sec">Daten</div>
+      <a href="#/bibliothek" data-route="bibliothek">Dokumenten-Bibliothek</a>
+    </nav>
+
+    <main class="main">
+      <!-- HOME -->
+      <section id="page-home" class="page">
+        <header class="hero">
+          <div class="hero-inner">
+            <h1>Vogelstimmen</h1>
+            <p class="tagline">
+              Volles SE-/MBSE-Programm am realen Produkt: Stakeholder → Requirements →
+              Architektur → Design → Twin → Trace → V&amp;V → Fertigung — ohne Business-Schicht.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#/vmodell">V-Modell öffnen</a>
+              <a class="btn" href="#/twin">Simulation</a>
+              <a class="btn" href="#/bibliothek">27 Dokumente</a>
+            </div>
+            <div class="pill-row">
+              <span class="pill on">Rev 2.5</span>
+              <span class="pill on">Lasten + Pflichten</span>
+              <span class="pill on">FMEA light</span>
+              <span class="pill on">Digital Thread</span>
+              <span class="pill warn">Proto-Tests offen</span>
+            </div>
+          </div>
+        </header>
+        <div class="content content-wide">
+          <h2>Was dieses Projekt zeigt</h2>
+          <p class="lead">
+            Nicht nur eine JLCPCB-Platine — sondern die Artefaktkette, die in Automotive/Bahn
+            oft 50–200 Dokumente umfasst. Hier: <strong>passend skalierte</strong> Variante
+            für ein Lehrpfad-Gerät. Business, APQP, CE-Vollakte und CAD/FEM bewusst weggelassen.
+          </p>
+          <div class="grid-2">
+            <a class="tile" href="#/vmodell"><h4>Abdeckungskarte</h4><p>Was vorhanden / teilweise / weggelassen / offen</p><div class="meta">mbse_reise.md</div></a>
+            <a class="tile" href="#/stakeholder"><h4>Links den V</h4><p>Stakeholder → Spec → Architektur → Design</p><div class="meta">Spezifikation</div></a>
+            <a class="tile" href="#/vv"><h4>Rechts den V</h4><p>Unit → Integration → Twin → Systemtest → Abnahme</p><div class="meta">V&amp;V</div></a>
+            <a class="tile" href="#/thread"><h4>Digital Thread</h4><p>SH → Req → UC → Funktion → Block → Test</p><div class="meta">Rückverfolgbarkeit</div></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- V-MODELL -->
+      <section id="page-vmodell" class="page">
+        <div class="content content-wide">
+          <h2>V-Modell Gesamtübersicht</h2>
+          <p class="lead">Links spezifizieren &amp; entwickeln · rechts verifizieren &amp; validieren. Klick öffnet die Station.</p>
+
+          <div class="vmodel" aria-label="V-Modell">
+            <div class="v-col left">
+              <a class="v-node" href="#/stakeholder">Stakeholder / Needs<span class="st">HAVE</span><small>stakeholder.md</small></a>
+              <a class="v-node" href="#/requirements">Lastenheft + Pflichtenheft<span class="st">HAVE</span><small>F/E/U/H/M · SYS-01…08</small></a>
+              <a class="v-node" href="#/usecases">Use Cases &amp; Szenarien<span class="st">HAVE</span><small>UC-01…05</small></a>
+              <a class="v-node" href="#/functions">Funktionsstruktur<span class="st">HAVE</span><small>SF-Baum</small></a>
+              <a class="v-node" href="#/architektur">Systemarchitektur B1–B8<span class="st">HAVE</span><small>+ PBS / ICD</small></a>
+              <a class="v-node" href="#/risiko">Risiko / Design-FMEA<span class="st">HAVE</span><small>light — kein HARA</small></a>
+              <a class="v-node" href="#/design">Detaildesign KiCad<span class="st">HAVE</span><small>Implementierung PCB</small></a>
+            </div>
+            <div class="vmodel-mid" aria-hidden="true"></div>
+            <div class="v-col right">
+              <a class="v-node" href="#/vv">Abnahme / Validierung<span class="st open">OPEN</span><small>Betreiber — Proto</small></a>
+              <a class="v-node" href="#/vv">Systemtest<span class="st open">OPEN</span><small>Idle, BUSY, R12, 5V</small></a>
+              <a class="v-node" href="#/vv">Teilsystem / Twin<span class="st">HAVE</span><small>Sim + Review</small></a>
+              <a class="v-node" href="#/vv">Integrationstest<span class="st">HAVE</span><small>F-01…F-05 pcbnew</small></a>
+              <a class="v-node" href="#/vv">Unit / DRC·ERC·BOM<span class="st">HAVE</span><small>TC-U01…U03</small></a>
+              <a class="v-node" href="#/fertigung">Fertigungspaket<span class="st">HAVE</span><small>Gerber · BOM · CPL</small></a>
+              <a class="v-node" href="#/service">Service &amp; Baseline<span class="st">HAVE</span><small>IBN · CM light</small></a>
+            </div>
+          </div>
+
+          <h3>Abdeckungsfilter</h3>
+          <div class="cov-filters">
+            <button type="button" data-cov-filter="all" class="active">Alle</button>
+            <button type="button" data-cov-filter="have">Vorhanden</button>
+            <button type="button" data-cov-filter="partial">Teilweise</button>
+            <button type="button" data-cov-filter="skip">Weggelassen</button>
+            <button type="button" data-cov-filter="open">Offen</button>
+          </div>
+          <table class="data">
+            <thead><tr><th>Bereich</th><th>Status</th><th>Artefakt</th></tr></thead>
+            <tbody>
+              <tr data-cov="skip"><td>Business Case / Markt / ROI / MRD</td><td class="status-skip">weggelassen</td><td>—</td></tr>
+              <tr data-cov="have"><td>Stakeholder</td><td class="status-have">vorhanden</td><td>stakeholder.md</td></tr>
+              <tr data-cov="have"><td>Lastenheft + Pflichtenheft</td><td class="status-have">vorhanden</td><td>anforderungen · pflichtenheft</td></tr>
+              <tr data-cov="have"><td>Use Cases / Funktionen / SysML</td><td class="status-have">vorhanden</td><td>use_cases · funktionsstruktur · mbse_sysml</td></tr>
+              <tr data-cov="have"><td>Architektur · PBS · ICD · ADR</td><td class="status-have">vorhanden</td><td>systemarchitektur · pbs_icd · entscheidungen</td></tr>
+              <tr data-cov="partial"><td>Risiko / FMEA (kein HARA/FTA)</td><td class="status-partial">teilweise</td><td>risiko_fmea.md</td></tr>
+              <tr data-cov="skip"><td>Mechanik CAD / FEM</td><td class="status-skip">nicht Scope</td><td>Gehäuse Bestand</td></tr>
+              <tr data-cov="have"><td>E/E Schaltplan / PCB / Twin</td><td class="status-have">vorhanden</td><td>KiCad · simulation/</td></tr>
+              <tr data-cov="skip"><td>App-Software SRS/SDS</td><td class="status-skip">n/a</td><td>Modul-Firmware fremd</td></tr>
+              <tr data-cov="partial"><td>V&amp;V (Plan fertig, Proto offen)</td><td class="status-partial">teilweise</td><td>vv_testplan.md</td></tr>
+              <tr data-cov="skip"><td>APQP / PPAP / Six Sigma</td><td class="status-skip">weggelassen</td><td>—</td></tr>
+              <tr data-cov="skip"><td>CE-Vollakte / ISO 26262</td><td class="status-skip">weggelassen</td><td>Hinweis in Service</td></tr>
+              <tr data-cov="have"><td>Fertigung · Montage · Service · CM</td><td class="status-have">vorhanden</td><td>V2.5-final · montage · service · baseline</td></tr>
+              <tr data-cov="open"><td>Feldmessung / Abnahme</td><td class="status-open">offen</td><td>TC-S* / TC-A*</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/mbse_reise">Vollständige Abdeckungskarte</a>
+          <a class="btn btn-primary" href="#/stakeholder">Tour starten: Stakeholder →</a>
+        </div>
+      </section>
+
+      <!-- STAKEHOLDER -->
+      <section id="page-stakeholder" class="page">
+        <div class="content">
+          <h2>Stakeholder &amp; Needs</h2>
+          <p class="lead">Wer braucht was — ohne Marketing/Investor. Rekonstruiert für den Showcase.</p>
+          <table class="data">
+            <thead><tr><th>ID</th><th>Rolle</th><th>Kern-Interesse</th></tr></thead>
+            <tbody>
+              <tr><td>SH-01</td><td>Besucher</td><td>Taste → Stimme, einfach</td></tr>
+              <tr><td>SH-02</td><td>Betreiber</td><td>Zuverlässig, Batterie hält, Zähler</td></tr>
+              <tr><td>SH-03</td><td>Wartung</td><td>USB-Audio, Tausch, Service</td></tr>
+              <tr><td>SH-04</td><td>Entwicklung</td><td>Spec, Review, Trace, Fertigung</td></tr>
+              <tr><td>SH-05</td><td>Fertigung</td><td>BOM/CPL/Gerber klar</td></tr>
+              <tr><td>SH-06</td><td>Reviewer</td><td>Blocker vor Serie finden</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Need „Jahr ohne Batteriewechsel“ → E02/E03/Latch · Need „nicht nochmal Rev‑1“ → M01/M04/Review.</p>
+          <a class="btn" href="#/bibliothek/stakeholder">stakeholder.md</a>
+          <a class="btn btn-primary" href="#/requirements">Weiter: Anforderungen →</a>
+        </div>
+      </section>
+
+      <!-- REQUIREMENTS -->
+      <section id="page-requirements" class="page">
+        <div class="content">
+          <h2>Anforderungen</h2>
+          <p class="lead">Lastenheft (Kunden-/Stakeholder-Sicht) + Pflichtenheft (SYS-Implementierung).</p>
+          <h3>Lastenheft-Gruppen</h3>
+          <table class="data">
+            <thead><tr><th>Gruppe</th><th>Beispiele</th><th>Kern</th></tr></thead>
+            <tbody>
+              <tr><td><code>F01–F11</code></td><td>8 Taster, USB-Audio, Zähler, LEDs</td><td>Funktion</td></tr>
+              <tr><td><code>E01–E06</code></td><td>Idle &lt;100 µA, Auto-Off, 12 V</td><td>Energie</td></tr>
+              <tr><td><code>U01–U05</code></td><td>−10…+60 °C, feucht, wartungsarm</td><td>Umgebung</td></tr>
+              <tr><td><code>H01–H07</code></td><td>Kübler, MPT, M3, VGS-Schutz</td><td>Hardware</td></tr>
+              <tr><td><code>M01–M04</code></td><td>BOM-Gate, Spannungscheck, Review</td><td>Methode</td></tr>
+            </tbody>
+          </table>
+          <h3>Pflichtenheft — Systemanforderungen (Auszug)</h3>
+          <table class="data">
+            <thead><tr><th>SYS</th><th>Aussage</th></tr></thead>
+            <tbody>
+              <tr><td>SYS-02</td><td>Idle: 12V_SW und 5V abgetrennt</td></tr>
+              <tr><td>SYS-03</td><td>Kaltstart SET ohne 5 V (Q6)</td></tr>
+              <tr><td>SYS-05</td><td>Modul-IOs sehen kein 12‑V‑OR (D15–D22)</td></tr>
+              <tr><td>SYS-06</td><td>5 V im Kübler-Fenster (R5=0R)</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/anforderungen">Lastenheft</a>
+          <a class="btn" href="#/bibliothek/pflichtenheft">Pflichtenheft</a>
+          <a class="btn btn-primary" href="#/usecases">Weiter: Use Cases →</a>
+        </div>
+      </section>
+
+      <!-- USE CASES -->
+      <section id="page-usecases" class="page">
+        <div class="content">
+          <h2>Use Cases &amp; Szenarien</h2>
+          <p class="lead">Verhalten aus Akteurssicht — Grundlage für Activity/State und Twin-Szenarien.</p>
+          <table class="data">
+            <thead><tr><th>UC</th><th>Name</th><th>Akteur</th></tr></thead>
+            <tbody>
+              <tr><td>UC-01</td><td>Vogelstimme starten</td><td>Besucher</td></tr>
+              <tr><td>UC-02</td><td>Stimme während Play wechseln</td><td>Besucher</td></tr>
+              <tr><td>UC-03</td><td>Nutzungszähler ablesen</td><td>Betreiber</td></tr>
+              <tr><td>UC-04</td><td>Audiodateien aktualisieren</td><td>Wartung</td></tr>
+              <tr><td>UC-05</td><td>Batterie warten</td><td>Wartung</td></tr>
+            </tbody>
+          </table>
+          <div class="v-steps">
+            <div class="v-step"><strong>UC-01 Happy Path</strong><p>Taste → SET → Buck/Boot → Track → BUSY Release → Idle</p></div>
+            <div class="v-step"><strong>Constraint UC-04</strong><p>USB nur Latch AUS oder Modul abgezogen (F-09)</p></div>
+          </div>
+          <a class="btn" href="#/bibliothek/use_cases">use_cases.md</a>
+          <a class="btn btn-primary" href="#/functions">Weiter: Funktionen →</a>
+        </div>
+      </section>
+
+      <!-- FUNCTIONS -->
+      <section id="page-functions" class="page">
+        <div class="content">
+          <h2>Funktionsstruktur</h2>
+          <p class="lead">Blackbox: Energie rein · Taster-Events · Audio/LEDs/Zähler raus. Dann Funktionsbaum.</p>
+          <pre class="mono" style="background:#0a100c;padding:1rem;border-radius:6px;border:1px solid var(--line);overflow:auto">Hauptfunktion: Vogelstimme auf Tastendruck wiedergeben
+├─ SF-Energie   Latch, Buck, Idle-Trennung
+├─ SF-Trigger   Taster → IO / BTN_OR / SET
+├─ SF-Audio     Modul Mode0, BUSY, SPK
+├─ SF-Feedback  LEDs 12V_LED
+└─ SF-Nutzung   Kübler-Impuls</pre>
+          <a class="btn" href="#/bibliothek/funktionsstruktur">funktionsstruktur.md</a>
+          <a class="btn btn-primary" href="#/architektur">Weiter: Architektur →</a>
+        </div>
+      </section>
+
+      <!-- ARCHITEKTUR -->
+      <section id="page-architektur" class="page">
+        <div class="content">
+          <h2>Systemarchitektur</h2>
+          <p class="lead">Logische Blöcke B1–B8 mit Trace zu Requirements — Logical → Physical im PBS.</p>
+          <table class="data">
+            <thead><tr><th>Block</th><th>Rolle</th><th>Req-Trace</th></tr></thead>
+            <tbody>
+              <tr><td>B1</td><td>Eingangsschutz</td><td>E01, H07</td></tr>
+              <tr><td>B2</td><td>Hardware-Latch</td><td>E02, E04, E05</td></tr>
+              <tr><td>B3</td><td>Buck 12→5 V</td><td>E01, E03</td></tr>
+              <tr><td>B4</td><td>DY-SV17F Audio</td><td>F01–F09</td></tr>
+              <tr><td>B5</td><td>Kübler-Zähler</td><td>F10, H01</td></tr>
+              <tr><td>B6</td><td>Taster-Interface</td><td>F01, F02</td></tr>
+              <tr><td>B7</td><td>Lautsprecher BTL</td><td>F05, F09</td></tr>
+              <tr><td>B8</td><td>Taster-LEDs</td><td>F11</td></tr>
+            </tbody>
+          </table>
+          <div class="v-steps">
+            <div class="v-step"><strong>DOMÄNEN</strong><p>12V_PROT · 12V_SW · 5V · IOx vs IOx_M</p></div>
+            <div class="v-step"><strong>ZUSTÄNDE</strong><p>Idle → SET → Boot → Play → Release → Idle</p></div>
+          </div>
+          <a class="btn" href="#/bibliothek/systemarchitektur">Architektur-Dokument</a>
+          <a class="btn btn-primary" href="#/sysml">Weiter: SysML →</a>
+        </div>
+      </section>
+
+      <!-- SYSML -->
+      <section id="page-sysml" class="page">
+        <div class="content">
+          <h2>MBSE / SysML-Sicht</h2>
+          <p class="lead">Kein Cameo — dokumentierte SysML-Äquivalente (Mermaid/Tabellen) mit denselben Diagrammrollen.</p>
+          <table class="data">
+            <thead><tr><th>Diagramm</th><th>Inhalt hier</th></tr></thead>
+            <tbody>
+              <tr><td>Requirement</td><td>Lasten/Pflichten + Traceability</td></tr>
+              <tr><td>BDD</td><td>Blöcke B1–B8, Produktstruktur</td></tr>
+              <tr><td>IBD</td><td>Schnittstellen, Spannungsdomänen</td></tr>
+              <tr><td>Use Case</td><td>UC-01…05</td></tr>
+              <tr><td>Activity / Sequence</td><td>UC-Abläufe, Twin-Phasen</td></tr>
+              <tr><td>State Machine</td><td>Idle/Betrieb/Release</td></tr>
+              <tr><td>Parametric</td><td>teilweise: Idle-µA, R12-Leistung (Twin/ANA)</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/mbse_sysml">mbse_sysml.md</a>
+          <a class="btn btn-primary" href="#/interfaces">Weiter: PBS &amp; ICD →</a>
+        </div>
+      </section>
+
+      <!-- PBS ICD -->
+      <section id="page-interfaces" class="page">
+        <div class="content">
+          <h2>PBS &amp; Interface Control</h2>
+          <p class="lead">Product Breakdown + ICD: elektrische, mechanische und Audio-Schnittstellen.</p>
+          <pre class="mono" style="background:#0a100c;padding:1rem;border-radius:6px;border:1px solid var(--line);overflow:auto">System Vogelstimmen
+├─ Elektronik PCB Rev 2.5
+├─ Audio-Modul DY-SV17F
+├─ Kübler-Zähler
+├─ Bestand: Gehäuse / 8× Taster+LED / SPK / 12V-Batt
+└─ Fertigungsdaten (Gerber, BOM, CPL)</pre>
+          <p>ICD deckt u. a. J1–J6 (MPT), USB-Constraint, SPK BTL, Taster-GND, 12V_LED ab.</p>
+          <a class="btn" href="#/bibliothek/pbs_icd">pbs_icd.md</a>
+          <a class="btn btn-primary" href="#/entscheidungen">Weiter: ADRs →</a>
+        </div>
+      </section>
+
+      <!-- ENTSCHEIDUNGEN -->
+      <section id="page-entscheidungen" class="page">
+        <div class="content">
+          <h2>Designentscheidungen (ADR)</h2>
+          <p class="lead">Kritische Wahlen versioniert begründet — Review-fähig.</p>
+          <table class="data">
+            <thead><tr><th>ID</th><th>Entscheidung</th><th>Treiber</th></tr></thead>
+            <tbody>
+              <tr><td><code>E-LATCH-01/02</code></td><td>HW-Latch + P-FET-Kaltstart</td><td>E02 Idle ≈0 µA</td></tr>
+              <tr><td><code>E-RPP-01</code></td><td>R6 = 470 kΩ</td><td>~12 µA Idle</td></tr>
+              <tr><td><code>E-VGS-01</code></td><td>Zener 6,2 V an P-FETs</td><td>SI2301 ±8 V</td></tr>
+              <tr><td><code>E-CNT-01</code></td><td>Kübler @ 5 V-Rail</td><td>Spec −10/+20 %</td></tr>
+              <tr><td><code>E-CONN-01</code></td><td>Phoenix MPT</td><td>Einzelleitungen</td></tr>
+              <tr><td><code>E-RESPIN-01</code></td><td>F-01…F-05 Respin</td><td>Adversarial</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/entscheidungen">Alle ADRs</a>
+          <a class="btn btn-primary" href="#/risiko">Weiter: Risiko →</a>
+        </div>
+      </section>
+
+      <!-- RISIKO -->
+      <section id="page-risiko" class="page">
+        <div class="content">
+          <h2>Risiko- &amp; Sicherheitsmanagement</h2>
+          <p class="lead">Design-FMEA light. Kein HARA/HAZOP/FTA — nicht Automotive/Medizin.</p>
+          <table class="data">
+            <thead><tr><th>Thema</th><th>Maßnahme</th></tr></thead>
+            <tbody>
+              <tr><td>12 V auf Modul-IO</td><td>D15–D22 Serie (F-01)</td></tr>
+              <tr><td>VOS / Kübler-Fenster</td><td>R5 = 0 Ω (F-02)</td></tr>
+              <tr><td>BUSY Kill beim Boot</td><td>R13+C4 Blanking (F-03)</td></tr>
+              <tr><td>R12 thermisch</td><td>Auflage A-02 Proto messen</td></tr>
+              <tr><td>USB vs Board-5V</td><td>IBN-Regel + Service</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/risiko_fmea">risiko_fmea.md</a>
+          <a class="btn btn-primary" href="#/design">Weiter: Detaildesign →</a>
+        </div>
+      </section>
+
+      <!-- DESIGN -->
+      <section id="page-design" class="page">
+        <div class="content">
+          <h2>Detaildesign &amp; Implementierung</h2>
+          <p class="lead">E/E: Schaltplan → PCB → Fertigungsdaten. Mechanik/CAD bewusst Bestand.</p>
+          <div class="v-steps">
+            <div class="v-step"><strong>M01 BOM-GATE</strong><p>LCSC vor Layout (<code>bom_verfuegbarkeit.md</code>)</p></div>
+            <div class="v-step"><strong>SCHALTPLAN</strong><p>B1–B8, VGS, Latch, Respin F-01…F-05</p></div>
+            <div class="v-step"><strong>PCB REV 2.5</strong><p>2L 86,6×60,6 mm · 47 SMD · DRC/ERC 0</p></div>
+            <div class="v-step"><strong>SW</strong><p>Keine App — nur Modul Mode 0 + Dateinamen</p></div>
+          </div>
+          <div class="grid-2">
+            <a class="tile" href="#/bibliothek/schaltplan"><h4>Schaltplan-Doku</h4><p>Netze, Blöcke, BOM</p><div class="meta">docs/schaltplan.md</div></a>
+            <a class="tile" href="#/bibliothek/kicad_anleitung"><h4>KiCad</h4><p>Projekt öffnen</p><div class="meta">kicad_anleitung.md</div></a>
+          </div>
+          <a class="btn btn-primary" href="#/twin">Weiter: Digitaler Zwilling →</a>
+        </div>
+      </section>
+
+      <!-- TWIN -->
+      <section id="page-twin" class="page">
+        <div class="content content-wide">
+          <h2>Digitaler Zwilling</h2>
+          <p class="lead">Verhaltensmodell: Taster → Latch → Buck → Play → Ströme/Spannungen auf dem Layout.</p>
+          <a class="btn" href="../simulation/index.html" target="_blank" rel="noopener">Simulation in neuem Tab</a>
+          <a class="btn" href="#/bibliothek/digitaler_zwilling">Zwilling-Dokumentation</a>
+          <div class="iframe-wrap" style="margin-top:1rem">
+            <iframe id="sim-frame" title="Platinen-Simulation Rev 2.5"></iframe>
+          </div>
+          <p class="note" style="margin-top:1rem">Sim ≠ Proto-Oszi — prüft Logik/Idle/Phasen vor Kupferbestellung.</p>
+          <a class="btn btn-primary" href="#/thread">Weiter: Digital Thread →</a>
+        </div>
+      </section>
+
+      <!-- THREAD -->
+      <section id="page-thread" class="page">
+        <div class="content">
+          <h2>Digital Thread</h2>
+          <p class="lead">State-of-the-Art-Idee, dokumentenbasiert rückverfolgbar verknüpft — kein PLM-Tool.</p>
+          <div class="thread">
+            <strong>Stakeholder</strong> (SH-01…06)<br />
+            ↓ Needs<br />
+            <strong>Requirements</strong> (F/E/U/H/M + SYS)<br />
+            ↓<br />
+            <strong>Use Cases</strong> (UC-01…05)<br />
+            ↓<br />
+            <strong>Funktionen</strong> (SF-*)<br />
+            ↓<br />
+            <strong>Logische Architektur</strong> (B1–B8)<br />
+            ↓<br />
+            <strong>Physisch</strong> (PCB / Modul / BOM)<br />
+            ↓<br />
+            <strong>Tests</strong> (TC-U / I / T / S / A)<br />
+            ↓<br />
+            <strong>Nachweise / Freigabe</strong> (Review · Auflagen · Proto)
+          </div>
+          <a class="btn" href="#/bibliothek/digital_thread">digital_thread.md</a>
+          <a class="btn btn-primary" href="#/trace">Weiter: Traceability →</a>
+        </div>
+      </section>
+
+      <!-- TRACE -->
+      <section id="page-trace" class="page">
+        <div class="content">
+          <h2>Traceability (RTM)</h2>
+          <p class="lead">Jedes Element: Anforderung → Funktion → Komponente → Testfall → Ergebnis.</p>
+          <pre class="mono" style="background:#0a100c;padding:1rem;border-radius:6px;border:1px solid var(--line);overflow:auto">F02 Taster→Stimme
+  → SF-Trigger / SF-Audio
+  → B4, B6 · U2 IOx_M · D15–D22
+  → TC-T01 / V-FUN · Sim PASS
+  → TC-S02 Proto OFFEN</pre>
+          <table class="data">
+            <thead><tr><th>Methode</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td><code>V-FUN</code></td><td>Funktionaler Test</td></tr>
+              <tr><td><code>V-MES</code></td><td>Messung</td></tr>
+              <tr><td><code>V-ANA</code></td><td>Analyse</td></tr>
+              <tr><td><code>V-INS</code></td><td>Inspektion</td></tr>
+              <tr><td><code>V-REV</code></td><td>Review</td></tr>
+              <tr><td><code>V-SIM</code></td><td>Simulation</td></tr>
+            </tbody>
+          </table>
+          <a class="btn" href="#/bibliothek/traceability">Vollständige Matrix</a>
+          <a class="btn btn-primary" href="#/vv">Weiter: V&amp;V →</a>
+        </div>
+      </section>
+
+      <!-- V&V -->
+      <section id="page-vv" class="page">
+        <div class="content">
+          <h2>Verifikation &amp; Validierung</h2>
+          <p class="lead">Rechte Seite des V — ehrlich: Design-V weitgehend done, System/Abnahme Proto offen.</p>
+          <table class="data">
+            <thead><tr><th>Ebene</th><th>Status</th><th>Beispiele</th></tr></thead>
+            <tbody>
+              <tr><td>Unit</td><td class="status-have">PASS</td><td>DRC/ERC, BOM↔CPL</td></tr>
+              <tr><td>Integration</td><td class="status-have">PASS</td><td>F-01…F-05 in PCB</td></tr>
+              <tr><td>Teilsystem</td><td class="status-have">PASS</td><td>Twin UC-01, Review</td></tr>
+              <tr><td>System</td><td class="status-open">OFFEN</td><td>Idle real, BUSY Oszi, R12</td></tr>
+              <tr><td>Abnahme</td><td class="status-open">OFFEN</td><td>Betreiber am Lehrpfad</td></tr>
+            </tbody>
+          </table>
+          <div class="pill-row">
+            <span class="pill on">DRC 0</span>
+            <span class="pill on">ERC 0</span>
+            <span class="pill on">F-01…F-05</span>
+            <span class="pill warn">FREIGABE MIT AUFLAGEN</span>
+          </div>
+          <a class="btn" href="#/bibliothek/vv_testplan">vv_testplan.md</a>
+          <a class="btn" href="#/bibliothek/adversarial_v25">Adversarial Review</a>
+          <a class="btn btn-primary" href="#/fertigung">Weiter: Fertigung →</a>
+        </div>
+      </section>
+
+      <!-- FERTIGUNG -->
+      <section id="page-fertigung" class="page">
+        <div class="content">
+          <h2>Fertigung &amp; Manufacturing Engineering</h2>
+          <p class="lead">JLCPCB-Paket + Montage/IBN. Kein APQP/PPAP — Proto-Fertigung.</p>
+          <table class="data">
+            <thead><tr><th>Artefakt</th><th>Pfad</th></tr></thead>
+            <tbody>
+              <tr><td>Gerber-ZIP</td><td><code>hardware/V2.5-final/vogelstimmen_v2.5-Gerber.zip</code></td></tr>
+              <tr><td>BOM / CPL</td><td><code>JLCPCB_BOM.csv</code> · <code>*-cpl.csv</code></td></tr>
+              <tr><td>PDFs / KiCad</td><td>Schematic · PCB · Quellen</td></tr>
+              <tr><td>Montage / IBN</td><td><code>docs/montage_ibn.md</code></td></tr>
+            </tbody>
+          </table>
+          <h3>Auflagen vor Serie</h3>
+          <ol>
+            <li>Passives LCSC nachziehen (A-01)</li>
+            <li>1–2 Proto messen: BUSY, R12, 5 V (A-02/A-03)</li>
+            <li>USB nur Modul abgezogen / Latch aus (A-04)</li>
+          </ol>
+          <a class="btn" href="#/bibliothek/fertigung_readme">Fertigung README</a>
+          <a class="btn" href="#/bibliothek/montage_ibn">Montage &amp; IBN</a>
+          <a class="btn btn-primary" href="#/service">Weiter: Service &amp; CM →</a>
+        </div>
+      </section>
+
+      <!-- SERVICE -->
+      <section id="page-service" class="page">
+        <div class="content">
+          <h2>Service, Betrieb &amp; Konfiguration</h2>
+          <p class="lead">Wartung, Audio-Update, Ersatz — plus Baseline/CM light.</p>
+          <div class="v-steps">
+            <div class="v-step"><strong>SERVICE</strong><p>Batterie, USB-Dateien, Zählerablesen, Modul-Tausch — <code>service_betrieb.md</code></p></div>
+            <div class="v-step"><strong>BASELINE</strong><p>Rev 2.5 = Gerber+BOM+CPL+Docs Stand Freigabe — <code>konfiguration_baseline.md</code></p></div>
+            <div class="v-step"><strong>COMPLIANCE</strong><p>Keine CE-Vollakte; intern/Lehrpfad — Annahme dokumentiert</p></div>
+          </div>
+          <a class="btn" href="#/bibliothek/service_betrieb">Service</a>
+          <a class="btn" href="#/bibliothek/konfiguration_baseline">Baseline</a>
+          <a class="btn btn-primary" href="#/bibliothek">Zur Dokumenten-Bibliothek →</a>
+        </div>
+      </section>
+
+      <!-- BIBLIOTHEK -->
+      <section id="page-bibliothek" class="page">
+        <div class="content content-wide">
+          <h2>Dokumenten-Bibliothek</h2>
+          <p class="lead">Alle Kern-Artefakte offline gerendert — vom Abdeckungsblatt bis Fertigung.</p>
+          <div class="md-toolbar">
+            <label for="doc-select" class="mono" style="color:var(--muted)">Dokument</label>
+            <select id="doc-select"></select>
+            <span id="md-status" class="mono" style="color:var(--muted);font-size:0.7rem"></span>
+          </div>
+          <div id="md-out" class="md-view"><p>Dokument wählen …</p></div>
+          <div class="footer-bar">
+            Quelle: Projektordner auf diesem Stick · Server: START.bat · Kolping / interner Gebrauch
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/marked.min.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

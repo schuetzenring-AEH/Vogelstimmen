@@ -1,0 +1,16 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\Users\Schue\Projects\Vogelstimmen\simulation\counter_mosfet.cir
+Start Time: Sun Jul  5 15:29:33 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.108 seconds.
+
+Files loaded:
+C:\Users\Schue\Projects\Vogelstimmen\simulation\counter_mosfet.cir
+
+i_peak: MAX(I(R_COUNTER) )=0.112078756094 FROM 0.001 TO 0.15
+v_drain_off: MAX(V(DRAIN) )=824375.1875 FROM 0.101 TO 0.11

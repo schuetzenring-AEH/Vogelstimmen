@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Vogelstimmenkasten – Projektdokumentation</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: #1a1a1a;
+      max-width: 180mm;
+      margin: 0 auto;
+      padding: 0;
+    }
+    h1 { font-size: 22pt; color: #1b4332; margin: 0 0 4mm; }
+    h2 {
+      font-size: 13pt; color: #2d6a4f; border-bottom: 1.5px solid #95d5b2;
+      padding-bottom: 2mm; margin: 8mm 0 4mm; page-break-after: avoid;
+    }
+    h3 { font-size: 11pt; color: #40916c; margin: 5mm 0 2mm; page-break-after: avoid; }
+    p { margin: 0 0 3mm; }
+    .subtitle { font-size: 12pt; color: #555; margin-bottom: 6mm; }
+    .meta { font-size: 9pt; color: #666; margin-bottom: 8mm; }
+    .cover {
+      text-align: center;
+      padding: 20mm 0 10mm;
+      page-break-after: always;
+    }
+    .cover img {
+      max-width: 100%;
+      max-height: 110mm;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 8mm 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+      margin: 3mm 0 5mm;
+      page-break-inside: avoid;
+    }
+    th, td { border: 1px solid #b7b7b7; padding: 2.5mm 3mm; text-align: left; vertical-align: top; }
+    th { background: #d8f3dc; font-weight: 600; }
+    tr:nth-child(even) td { background: #f8faf8; }
+    .status-done { color: #1b4332; font-weight: 600; }
+    .status-open { color: #b5651d; font-weight: 600; }
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 7.5pt;
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 4mm;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.3;
+      page-break-inside: avoid;
+    }
+    ul, ol { margin: 2mm 0 4mm; padding-left: 6mm; }
+    li { margin-bottom: 1.5mm; }
+    .page-break { page-break-before: always; }
+    .footer-note {
+      font-size: 8.5pt; color: #777; margin-top: 8mm;
+      border-top: 1px solid #ddd; padding-top: 3mm;
+    }
+    .two-col { display: flex; gap: 6mm; }
+    .two-col > div { flex: 1; }
+    .badge {
+      display: inline-block; background: #2d6a4f; color: #fff;
+      font-size: 8pt; padding: 1mm 3mm; border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="cover">
+  <span class="badge">Waldlehrpfad Kolpingfamilie</span>
+  <h1>Vogelstimmenkasten</h1>
+  <p class="subtitle">Projektdokumentation – Elektronik-Neubau</p>
+  <p class="meta">Stand: 5. Juli 2026 &nbsp;|&nbsp; Architektur: Option D (WT588D)</p>
+  <img src="assets/pcb-3d-render.png" alt="3D-Ansicht der Leiterplatte">
+  <p><strong>KiCad-Platine</strong> – 2 Layer, SMD-Bestückung via JLCPCB, Through-Hole manuell</p>
+</section>
+
+<h2>1. Projektüberblick</h2>
+<p>
+  Neubau der Elektronik eines Vogelstimmenkastens am Waldlehrpfad. Besucher drücken einen von
+  <strong>8 Tastern</strong> und hören die zugeordnete Vogelstimme (~10 s). Betrieb über
+  <strong>12-V-Bleibatterie</strong> mit extrem niedrigem Ruhestrom. Gehäuse, Taster und Lautsprecher
+  aus dem Bestand werden weiterverwendet.
+</p>
+
+<h3>Funktionen (Auszug)</h3>
+<table>
+  <tr><th>ID</th><th>Anforderung</th></tr>
+  <tr><td>F01–F02</td><td>8 Taster, je eine feste Vogelstimme</td></tr>
+  <tr><td>F03</td><td>Wiedergabe startet innerhalb 0,5 s</td></tr>
+  <tr><td>F06</td><td>Sounds per PC-Tool austauschbar (USB/J4)</td></tr>
+  <tr><td>F10</td><td>Elektromechanischer Impulszähler (Gesamtzähler)</td></tr>
+  <tr><td>E01–E03</td><td>12-V-Batterie, Ruhestrom &lt;10 µA, ~1 Jahr Laufzeit</td></tr>
+</table>
+
+<h2>2. Architekturentscheidung</h2>
+<p>
+  Von vier geprüften Optionen wurde <strong>Option D: WT588D-16P ohne Mikrocontroller</strong> gewählt.
+  Keine Firmware-Entwicklung, geringste Bauteilanzahl, schnellste Reaktionszeit (~50 ms),
+  Ruhestrom ~1–3 µA.
+</p>
+
+<h3>Blockschaltbild</h3>
+<pre>
+  12V Batterie ──→ Verpolung (Q1) ──→ PTC (F1) ──→ TVS (D1)
+                        │
+                        ├── UVLO (U5 SGM809) ──→ Enable Buck
+                        │
+                        └── Buck U4 TPS62203 ──→ 3,3 V
+                                    │
+        ┌───────────────────────────┼───────────────────────────┐
+        │                           │                           │
+   WT588D U1 ◄──SPI──► W25Q128 U2   │   PAM8403 U3 ──► Lautsprecher
+   KEY0–7 ◄── 8 Taster (J3)         │        ▲
+   PWM ── RC-Filter ────────────────┘        │
+   BUSY ── Q2 2N7002 ──► Impulszähler (J5)   │
+</pre>
+
+<h3>Hauptbauteile</h3>
+<table>
+  <tr><th>Funktion</th><th>Bauteil</th><th>LCSC</th></tr>
+  <tr><td>Audio-IC</td><td>WT588D-16P (DIP, manuell)</td><td>—</td></tr>
+  <tr><td>Flash</td><td>W25Q128JVSIQ</td><td>C97521</td></tr>
+  <tr><td>Verstärker</td><td>PAM8403DR-H</td><td>C17337</td></tr>
+  <tr><td>Buck 12→3,3 V</td><td>TPS62203DBVR</td><td>C9051</td></tr>
+  <tr><td>UVLO</td><td>SGM809</td><td>C699615</td></tr>
+  <tr><td>Verpolung</td><td>SI2301CDS (P-MOSFET)</td><td>C10487</td></tr>
+  <tr><td>Zähler-Treiber</td><td>2N7002 (BUSY-Signal)</td><td>C8545</td></tr>
+  <tr><td>TVS / PTC</td><td>SMAJ15A / BSMD1206 500 mA</td><td>C23424 / C7202014</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>3. Funktion der Platine</h2>
+<p>
+  Die Platine ist das zentrale Steuer- und Wiedergabemodul des Vogelstimmenkastens. Sie verbindet
+  die <strong>12-V-Batterie</strong>, die <strong>8 Taster</strong> am Gehäuse, den
+  <strong>Lautsprecher</strong> und den <strong>Impulszähler</strong> zu einer Einheit. Es gibt
+  keinen separaten Mikrocontroller und keine Firmware – der WT588D übernimmt Tastererkennung,
+  Audio-Dekodierung und Wiedergabe in einem Chip.
+</p>
+
+<h3>3.1 Betriebsablauf (Normalbetrieb)</h3>
+<ol>
+  <li>Die 12-V-Batterie versorgt die Platine dauerhaft. Im Ruhezustand verbraucht die Elektronik nur wenige Mikroampere.</li>
+  <li>Ein Besucher drückt einen der 8 Taster. Der Taster schließt den zugehörigen Eingang gegen Masse (GND).</li>
+  <li>Der WT588D (U1) erkennt den Tastendruck binnen ~50 ms und liest die zugeordnete Audiodatei aus dem SPI-Flash (U2).</li>
+  <li>Das Audio wird als PWM-Signal ausgegeben, über einen RC-Filter in ein Analogsignal umgewandelt und vom Class-D-Verstärker (U3) verstärkt.</li>
+  <li>Der Lautsprecher an J2 gibt die Vogelstimme wieder (~10 s, Mono).</li>
+  <li>Während der Wiedergabe geht das BUSY-Signal von U1 auf HIGH. Der MOSFET Q2 schaltet und löst einen Impuls am Zähler (J5) aus.</li>
+  <li>Nach Ende der Wiedergabe kehrt die Platine in den Energiesparmodus zurück.</li>
+</ol>
+<p>
+  Drückt der Besucher während einer laufenden Wiedergabe einen anderen (oder denselben) Taster,
+  bricht der WT588D die aktuelle Tonsequenz ab und startet den neuen Sound – es gibt keine
+  gleichzeitige Wiedergabe mehrerer Stimmen.
+</p>
+
+<h3>3.2 Baugruppen auf der Platine</h3>
+<p>
+  Die Platine ist in fünf funktionale Bereiche gegliedert. Auf dem 3D-Bild entsprechen diese
+  den markierten Bauteilgruppen (U1–U5, J1–J5, Q1–Q2, R/C-Bänke).
+</p>
+
+<h3>Baugruppe A – Stromversorgung und Schutz (oben links / Mitte)</h3>
+<p><strong>Aufgabe:</strong> Sichere Versorgung der gesamten Elektronik aus der 12-V-Batterie und Erzeugung der 3,3-V-Betriebsspannung für alle Halbleiter.</p>
+<table>
+  <tr><th>Bauteil</th><th>Funktion im Betrieb</th></tr>
+  <tr><td><strong>J1</strong> (Batterie)</td><td>Anschluss der 12-V-Bleibatterie (+/−). Zentrale Einspeisung aller Leistung.</td></tr>
+  <tr><td><strong>Q1</strong> (SI2301, P-MOSFET)</td><td>Verpolungsschutz: Bei falscher Polung am Batterieanschluss bleibt der Stromkreis unterbrochen – die Platine wird nicht beschädigt.</td></tr>
+  <tr><td><strong>F1</strong> (PTC 500 mA)</td><td>Rücksetzende Überstromsicherung. Begrenzt Kurzschlussströme und stellt sich nach Abkühlen selbst wieder her.</td></tr>
+  <tr><td><strong>D1</strong> (SMAJ15A TVS)</td><td>Überspannungsschutz am 12-V-Eingang (z. B. induktive Spannungsspitzen, ESD). Leitet Störimpulse sicher ab.</td></tr>
+  <tr><td><strong>U5</strong> (SGM809 UVLO)</td><td>Tiefentladeschutz der Batterie: Fällt die Batteriespannung unter die Schwelle (~10,5 V), wird der Buck-Converter abgeschaltet. Schützt den Akku vor Schäden.</td></tr>
+  <tr><td><strong>U4 + L1</strong> (TPS62203)</td><td>Abwärtswandler (Buck) von 12 V auf 3,3 V. Versorgt WT588D, Flash, Verstärker. Sehr geringer Eigenverbrauch (~1 µA im Standby).</td></tr>
+  <tr><td><strong>C1–C4, C8</strong></td><td>Ein- und Ausgangskondensatoren des Buck-Wandlers sowie Puffer am Verstärker. Stabilisieren die Spannung bei Lastsprüngen (Audio-Anlauf).</td></tr>
+</table>
+<p>
+  <strong>Signalweg:</strong> J1 → Q1 → F1 → V12_PROT → [U5 überwacht] → U4/L1 → 3,3 V → alle ICs.
+  Der Impulszähler wird direkt aus V12_PROT (12 V) versorgt, da seine Spule 12 V benötigt.
+</p>
+
+<h3>Baugruppe B – Audio-Wiedergabe (Mitte / rechts)</h3>
+<p><strong>Aufgabe:</strong> Speichern, Abspielen und Verstärken der Vogelstimmen.</p>
+<table>
+  <tr><th>Bauteil</th><th>Funktion im Betrieb</th></tr>
+  <tr><td><strong>U1</strong> (WT588D-16P)</td><td>Herzstück der Platine. 8 Key-Eingänge, SPI-Schnittstelle zum Flash, PWM-Audioausgang, BUSY-Ausgang. Kein Programmcode nötig – Konfiguration erfolgt einmalig per PC-Tool.</td></tr>
+  <tr><td><strong>U2</strong> (W25Q128)</td><td>128 Mbit SPI-Flash (16 MB). Speichert bis zu 8 Audiodateien im WT588D-Format. Keine SD-Karte – robust gegen Feuchtigkeit und Vibration.</td></tr>
+  <tr><td><strong>R13, C9, C18</strong></td><td>RC-Tiefpassfilter + Koppelkondensator: Wandeln das PWM-Signal des WT588D in ein analoges Audiosignal um und entfernen den Gleichspannungsanteil.</td></tr>
+  <tr><td><strong>U3</strong> (PAM8403)</td><td>Class-D-Verstärker (Mono über linken Kanal). Treibt den Lautsprecher mit 2–3 W bei 3,3 V Versorgung. BTL-Ausgang an J2 – keine Ausgangsseite darf mit GND verbunden werden.</td></tr>
+  <tr><td><strong>C5–C7</strong></td><td>Abblockkondensatoren direkt an U1, U2 und U3. Unterdrücken Hochfrequenz-Störungen und verbessern die Signalqualität.</td></tr>
+  <tr><td><strong>J2</strong> (Lautsprecher)</td><td>Anschluss des Gehäuse-Lautsprechers (4–8 Ω, 2–3 W empfohlen).</td></tr>
+</table>
+<p>
+  <strong>Signalweg Audio:</strong> Taster → U1 liest U2 → PWM → R13/C9/C18 → U3 → J2 → Lautsprecher.
+</p>
+
+<div class="page-break"></div>
+
+<h3>Baugruppe C – Taster-Eingänge (unten / links)</h3>
+<p><strong>Aufgabe:</strong> Anbindung der 8 externen Taster am Gehäuse-Panel an die Key-Eingänge des WT588D.</p>
+<table>
+  <tr><th>Bauteil</th><th>Funktion im Betrieb</th></tr>
+  <tr><td><strong>J3</strong> (1×10)</td><td>Pin 1–8: Signalleitungen zu den 8 Tastern. Pin 9: gemeinsame Masse (GND). Pin 10: optional 3,3 V (z. B. für LED-Anzeige).</td></tr>
+  <tr><td><strong>R1–R8</strong> (je 100 Ω)</td><td>Serienwiderstände zwischen Stecker und WT588D. Begrenzen Strom bei Kurzschluss und schützen die Eingänge vor ESD.</td></tr>
+  <tr><td><strong>C10–C17</strong> (je 100 nF)</td><td>Entprell-Kondensatoren pro Taster (RC-Glied mit R1–R8). Filtern mechanisches Prellen der Taster (~10 µs Zeitkonstante).</td></tr>
+</table>
+<p>
+  Jeder Taster ist ein <strong>Schließer gegen Masse</strong>: Im Ruhezustand liegt am WT588D-Eingang
+  HIGH (interner Pull-Up). Beim Drücken wird der Pin auf LOW gezogen – der WT588D startet den
+  zugeordneten Sound. Die Zuordnung Taster → Vogelstimme wird beim Programmieren im PC-Tool festgelegt.
+</p>
+
+<h3>Baugruppe D – Impulszähler (unten rechts)</h3>
+<p><strong>Aufgabe:</strong> Erfassung jeder abgespielten Vogelstimme über einen elektromechanischen Gesamtzähler.</p>
+<table>
+  <tr><th>Bauteil</th><th>Funktion im Betrieb</th></tr>
+  <tr><td><strong>U1 BUSY</strong> (Pin 11)</td><td>Geht während jeder Wiedergabe auf HIGH, sonst LOW. Dient als zuverlässiges „Ton läuft“-Signal.</td></tr>
+  <tr><td><strong>Q2</strong> (2N7002, N-MOSFET)</td><td>Schaltet bei BUSY = HIGH und leitet Strom durch die Zählerspule. R10 (10 kΩ) hält das Gate im Ruhezustand sicher auf LOW.</td></tr>
+  <tr><td><strong>J5</strong> (1×2)</td><td>Pin 1: 12 V (V12_PROT) zur Zählerspule. Pin 2: Schalterkontakt über Q2 nach GND. Pro Wiedergabe ein Zählimpuls (~120 mA, simuliert bestätigt).</td></tr>
+</table>
+<p>
+  <strong>Vorteil der BUSY-Lösung:</strong> Es werden nur echte Wiedergaben gezählt, nicht einzelne
+  Taster-Prellimpulse oder Fehlbetätigungen ohne Ton.
+</p>
+
+<h3>Baugruppe E – Programmierung (oben rechts)</h3>
+<p><strong>Aufgabe:</strong> Einmaliges (oder wiederholtes) Laden der Vogelstimmen auf den WT588D/Flash.</p>
+<table>
+  <tr><th>Bauteil</th><th>Funktion im Betrieb</th></tr>
+  <tr><td><strong>J4</strong> (1×4)</td><td>Stiftleiste für den Hersteller-USB-Programmieradapter. Im Normalbetrieb nicht belegt. Ermöglicht das Brennen neuer Audiodateien ohne Löten.</td></tr>
+  <tr><td><strong>U1</strong> (im Sockel)</td><td>WT588D wird im IC-Sockel montiert, damit er bei Defekt oder Sound-Update leicht getauscht werden kann.</td></tr>
+</table>
+<p>
+  Audioformat für das PC-Tool: <strong>16 kHz, Mono, 16 Bit WAV</strong>. Modus:
+  <strong>Key Trigger</strong> (One Key One Voice), 8 Dateien.
+</p>
+
+<h3>3.3 Ruhestrom und Energieverhalten</h3>
+<p>
+  Der WT588D benötigt im Standby nur ~1–3 µA. Der TPS62203 hat ebenfalls extrem niedrigen
+  Quiescent Current. Zusammen mit dem UVLO-Schutz ergibt sich eine Batterielebensdauer von
+  etwa einem Jahr ohne Nachladen – abhängig von Besucherfrequenz und Batteriekapazität.
+  Während der Wiedergabe steigt der Strom kurzzeitig an (Flash-Lesen, Verstärker, Lautsprecher);
+  der Buck-Wandler hält 3,3 V dabei stabil (LTspice-Simulation bestätigt).
+</p>
+
+<div class="page-break"></div>
+
+<h2>4. Leiterplatte &amp; Anschlüsse</h2>
+<p>
+  KiCad 8, 2-Lagen-Platine (~80×60 mm), GND-Flächen F.Cu + B.Cu, Freerouting.
+  Prüfungen: <strong>ERC 0 Fehler</strong>, <strong>DRC 0 Fehler</strong>.
+</p>
+
+<h3>Stecker auf der Platine (2,54 mm Stiftleisten)</h3>
+<table>
+  <tr><th>Ref</th><th>Belegung</th><th>Anschluss extern</th></tr>
+  <tr><td>J1</td><td>1×2</td><td>12-V-Batterie (+/−)</td></tr>
+  <tr><td>J2</td><td>1×2</td><td>Lautsprecher (BTL, keine Seite an GND!)</td></tr>
+  <tr><td>J3</td><td>1×10</td><td>Pin 1–8: Taster, Pin 9: GND, Pin 10: 3V3</td></tr>
+  <tr><td>J4</td><td>1×4</td><td>WT588D-Programmierung (PC-Tool)</td></tr>
+  <tr><td>J5</td><td>1×2</td><td>Impulszähler 12 V (Pin 1: +12 V, Pin 2: Schalter)</td></tr>
+  <tr><td>U1</td><td>DIP-16</td><td>WT588D im IC-Sockel (manuell einlöten)</td></tr>
+</table>
+
+<h3>Taster-Zuordnung (J3)</h3>
+<table>
+  <tr><th>Taste</th><th>J3 Pin</th><th>WT588D</th><th>Sound</th></tr>
+  <tr><td>1</td><td>1</td><td>KEY0</td><td>Vogel 1</td></tr>
+  <tr><td>2</td><td>2</td><td>KEY1</td><td>Vogel 2</td></tr>
+  <tr><td>3</td><td>3</td><td>KEY2</td><td>Vogel 3</td></tr>
+  <tr><td>4</td><td>4</td><td>KEY3</td><td>Vogel 4</td></tr>
+  <tr><td>5</td><td>5</td><td>KEY4</td><td>Vogel 5</td></tr>
+  <tr><td>6</td><td>6</td><td>KEY5</td><td>Vogel 6</td></tr>
+  <tr><td>7</td><td>7</td><td>KEY6</td><td>Vogel 7</td></tr>
+  <tr><td>8</td><td>8</td><td>KEY7</td><td>Vogel 8</td></tr>
+</table>
+
+<h3>Fertigung</h3>
+<table>
+  <tr><th>Position</th><th>Details</th></tr>
+  <tr><td>JLCPCB</td><td>5 Platinen, SMT Assembly Top, Paket: <code>hardware/Gerber/vogelstimmen-jlcpcb.zip</code></td></tr>
+  <tr><td>Manuell löten</td><td>U1 WT588D, J1–J5 (siehe <code>nicht-bestueckt.txt</code>)</td></tr>
+  <tr><td>Simulation</td><td>LTspice: Versorgung, Audiofilter, Zähler (~120 mA Impuls bestätigt)</td></tr>
+</table>
+
+<h2>5. Aktueller Projektstand</h2>
+<table>
+  <tr><th>Phase</th><th>Status</th></tr>
+  <tr><td>Anforderungen &amp; Architektur</td><td class="status-done">✓ abgeschlossen</td></tr>
+  <tr><td>Schaltplan KiCad (ERC)</td><td class="status-done">✓ 0 Fehler</td></tr>
+  <tr><td>PCB-Layout (DRC)</td><td class="status-done">✓ 0 Fehler</td></tr>
+  <tr><td>LTspice-Simulation</td><td class="status-done">✓ durchgeführt</td></tr>
+  <tr><td>Gerber / BOM / CPL</td><td class="status-done">✓ exportiert</td></tr>
+  <tr><td>JLCPCB-Bestellung</td><td class="status-done">✓ bestellt (Platine + SMT)</td></tr>
+  <tr><td>Handlöt-Teile (WT588D, Stecker)</td><td class="status-open">○ ausstehend</td></tr>
+  <tr><td>Vogelstimmen programmieren</td><td class="status-open">○ ausstehend</td></tr>
+  <tr><td>Einbau &amp; Inbetriebnahme</td><td class="status-open">○ ausstehend</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>6. Nächste Schritte</h2>
+
+<h3>Schritt 1 – JLCPCB-Lieferung (1–3 Wochen)</h3>
+<ul>
+  <li>Bestellstatus auf jlcpcb.com verfolgen</li>
+  <li>Platine visuell prüfen (Lötstop, Beschriftung, Bohrungen)</li>
+</ul>
+
+<h3>Schritt 2 – Handlöt-Teile bestellen (parallel)</h3>
+<table>
+  <tr><th>Teil</th><th>Bezugsquelle</th></tr>
+  <tr><td>WT588D-16P DIP + IC-Sockel 16-pol</td><td>AliExpress</td></tr>
+  <tr><td>Stiftleisten 1×2, 1×4, 1×10 (2,54 mm)</td><td>Reichelt / Amazon</td></tr>
+  <tr><td>Impulszähler 12 V DC, 6-stellig</td><td>Amazon</td></tr>
+  <tr><td>Lautsprecher 4–8 Ω (falls neu)</td><td>Reichelt / Amazon</td></tr>
+</table>
+
+<h3>Schritt 3 – Platine fertigstellen</h3>
+<ol>
+  <li>Stiftleisten J1–J5 einlöten</li>
+  <li>WT588D in IC-Sockel stecken (Chip nicht direkt löten)</li>
+  <li>Kurzschlussprüfung mit Multimeter (12 V, 3,3 V)</li>
+</ol>
+
+<h3>Schritt 4 – Vogelstimmen vorbereiten</h3>
+<p>Audio konvertieren: <strong>16 kHz, Mono, 16 Bit WAV</strong></p>
+<pre>scripts\convert-vogelstimmen.ps1 -InputDir "..." -OutputDir "..."</pre>
+<p>8 Dateien: vogel1.wav … vogel8.wav</p>
+
+<h3>Schritt 5 – WT588D programmieren</h3>
+<ol>
+  <li>WT588D-PC-Tool (Waytronic / WTV020 USB Download)</li>
+  <li>Key-Trigger-Modus, 8 Sounds laden, auf SPI-Flash brennen</li>
+  <li>Anschluss über J4, 3,3 V Versorgung aktiv</li>
+</ol>
+
+<h3>Schritt 6 – Einbau im Gehäuse</h3>
+<p>Vor Ort klären: Lautsprecher-Impedanz, Einbauraum, Kabellängen, Befestigung, Feuchtigkeitsschutz.</p>
+
+<h3>Schritt 7 – Test (Kurz-Checkliste)</h3>
+<table>
+  <tr><th>Prüfung</th><th>Erwartung</th></tr>
+  <tr><td>12 V / 3,3 V</td><td>Kein Kurzschluss, 3,3 V am WT588D</td></tr>
+  <tr><td>8 Taster</td><td>Je Sound innerhalb 0,5 s</td></tr>
+  <tr><td>Lautstärke</td><td>2–3 m Entfernung gut hörbar</td></tr>
+  <tr><td>Impulszähler</td><td>+1 pro Wiedergabe (BUSY-Signal)</td></tr>
+  <tr><td>Ruhestrom</td><td>Batterie hält ~1 Jahr</td></tr>
+</table>
+
+<h2>7. Projektdateien</h2>
+<table>
+  <tr><th>Ordner / Datei</th><th>Inhalt</th></tr>
+  <tr><td><code>docs/</code></td><td>Lastenheft, Architektur, Bauteilliste, Anleitungen</td></tr>
+  <tr><td><code>hardware/</code></td><td>KiCad-Projekt, Gerber, BOM, CPL</td></tr>
+  <tr><td><code>simulation/</code></td><td>LTspice (.cir)</td></tr>
+  <tr><td><code>scripts/</code></td><td>Audio-Konvertierung für WT588D</td></tr>
+</table>
+
+<p class="footer-note">
+  Vogelstimmenkasten – Kolpingfamilie Waldlehrpfad &nbsp;|&nbsp;
+  Keine Firmware erforderlich (WT588D-Architektur) &nbsp;|&nbsp;
+  Vollständige Online-Dokumentation im Projektordner <code>docs/</code>
+</p>
+
+</body>
+</html>

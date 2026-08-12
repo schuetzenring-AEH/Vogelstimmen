@@ -1,0 +1,59 @@
+Platinenstatistik-Bericht
+=========================
+- Datum: 03.08.2026 08:03:18
+- Projekt: vogelstimmen_v2.5
+- Platinennname: vogelstimmen_v2.5
+
+Platine
+-----
+- Breite: 86,5000 mm
+- Höhe: 60,5000 mm
+- Fläche: 5233,25 mm²
+- Vorderseitige Kupferfläche: 4859,069 mm²
+- Rückseitige Kupferfläche: 4981,58 mm²
+- Min. Leiterbahnfreiraum: 0,2000 mm
+- Min. Leiterbahnbreite: 0,2000 mm
+- Min. Bohrdurchmesser: 0,3000 mm
+- Platinen Lagenaufbaudicke: 1,6000 mm
+
+- Vorderseitige Footprintfläche: 2690,829 mm²
+- Rückseitige Footprintfläche: 237,139 mm²
+- Vorderseitige Bauteildichte: 51,42 %
+- Rückseitige Bauteildichte: 4,53 %
+Pads
+----
+- Durchgehende Bohrung: 43
+- SMD: 116
+- Anschluss: 0
+- NPTH: 10
+- Castellated (Halbloch): 0
+- Einpress: 0
+
+Vias
+----
+- Durchkontaktierungen: 32
+- Blinde Vias: 0
+- Vergrabene Vias: 0
+- Mikro-Vias: 0
+
+Bauteile
+----------
+
+|             | Vorderseite | Rückseite | Insgesamt |
+|-------------|-------------|-----------|-----------|
+|Durchsteck:  |           7 |         0 |         7 |
+|SMD:         |          47 |         0 |        47 |
+|Unbestimmt:  |           9 |         0 |         9 |
+|Gesamt:      |          63 |         0 |        63 |
+
+Bohrlöcher
+-----------
+
+| Anzahl |    Form |   Größe X |   Größe Y | Metallisiert |            Via/Pad | Startlage | Endlage |
+|--------|---------|-----------|-----------|--------------|--------------------|-----------|---------|
+|     32 | Rundung | 0,3000 mm | 0,3000 mm |          PTH | Durchkontaktierung |      F.Cu |    B.Cu |
+|     22 | Rundung | 1,1000 mm | 1,1000 mm |          PTH |                Pad |      F.Cu |    B.Cu |
+|     18 | Rundung | 1,0000 mm | 1,0000 mm |          PTH |                Pad |      F.Cu |    B.Cu |
+|      6 | Rundung | 1,1000 mm | 1,1000 mm |         NPTH |                Pad |      F.Cu |    B.Cu |
+|      4 | Rundung | 3,2000 mm | 3,2000 mm |         NPTH |                Pad |      F.Cu |    B.Cu |
+|      3 | Rundung | 1,6000 mm | 1,6000 mm |          PTH |                Pad |      F.Cu |    B.Cu |

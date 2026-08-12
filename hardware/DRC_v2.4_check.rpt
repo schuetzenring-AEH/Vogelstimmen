@@ -1,0 +1,21 @@
+** Drc report for vogelstimmen_v2.4.kicad_pcb **
+** Created on 2026-08-01T23:09:33 **
+** Report includes: Errors, Warnings **
+
+** Found 1 DRC violations **
+[lib_footprint_mismatch]: Footprint "DY-SV17F" stimmt nicht mit Kopie in Bibliothek "vogelstimmen" überein.
+    Local override; warning
+    @(141.0000 mm, 106.0000 mm): Footprint U2
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

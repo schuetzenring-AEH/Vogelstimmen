@@ -1,0 +1,134 @@
+** Drc report for vogelstimmen_v3.0.kicad_pcb **
+** Created on 2026-08-06T09:33:00 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 30 DRC violations **
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(186.0500 mm, 100.0000 mm): Track [/CNT_LO] on F.Cu, length 17.7800 mm
+    @(183.9500 mm, 100.0000 mm): Track [/12V_SW] on F.Cu, length 7.1800 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(186.0500 mm, 100.0000 mm): Track [/CNT_LO] on F.Cu, length 17.7800 mm
+    @(191.1300 mm, 100.0000 mm): Track [/12V_SW] on F.Cu, length 16.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(186.0500 mm, 100.0000 mm): Track [/CNT_LO] on F.Cu, length 17.7800 mm
+    @(191.1300 mm, 100.0000 mm): Track [/12V_SW] on F.Cu, length 0.0000 mm
+[tracks_crossing]: Tracks crossing
+    Local override; error
+    @(186.0500 mm, 100.0000 mm): Track [/CNT_LO] on F.Cu, length 17.7800 mm
+    @(189.8600 mm, 84.0000 mm): Track [/12V_SW] on F.Cu, length 24.9800 mm
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(198.5000 mm, 96.5000 mm): Footprint Q7
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+    @(206.0000 mm, 126.0000 mm): Footprint H4
+[npth_inside_courtyard]: NPTH inside courtyard
+    Local override; error
+    @(206.0000 mm, 126.0000 mm): NPTH pad of H4
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+    @(185.0000 mm, 100.0000 mm): Footprint D10
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+    @(184.7300 mm, 124.1925 mm): Footprint J6
+[npth_inside_courtyard]: NPTH inside courtyard
+    Local override; error
+    @(184.7300 mm, 126.7325 mm): NPTH pad of J6
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[npth_inside_courtyard]: NPTH inside courtyard
+    Local override; error
+    @(187.2700 mm, 126.7325 mm): NPTH pad of J6
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(184.7300 mm, 124.1925 mm): PTH pad 1 [/12V_LED] of J6
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[pth_inside_courtyard]: PTH inside courtyard
+    Local override; error
+    @(187.2700 mm, 124.1925 mm): PTH pad 2 [/GND] of J6
+    @(197.4800 mm, 100.0000 mm): Footprint J5
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(166.5000 mm, 100.0000 mm): Footprint D14
+    @(163.5000 mm, 98.5000 mm): Footprint R10
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(163.0000 mm, 111.0000 mm): Footprint D12
+    @(162.5000 mm, 108.5000 mm): Footprint R1
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(157.0000 mm, 119.0000 mm): Footprint R7
+    @(156.9900 mm, 116.5000 mm): Footprint R6
+[courtyards_overlap]: Courtyards overlap
+    Rule: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(161.4375 mm, 99.9500 mm): Footprint Q6
+    @(163.5000 mm, 98.5000 mm): Footprint R10
+[solder_mask_bridge]: Vorderseitige Lötstoppöffnung über Elementen mit verschiedenen Netzen
+    Rule: Mindestbreite der Lötstoppmaske aus Platinenkonfiguration; error
+    @(186.0500 mm, 100.0000 mm): Track [/CNT_LO] on F.Cu, length 17.7800 mm
+    @(191.1300 mm, 100.0000 mm): PTH pad 1 [/12V_SW] of J5
+[solder_mask_bridge]: Vorderseitige Lötstoppöffnung über Elementen mit verschiedenen Netzen
+    Rule: Mindestbreite der Lötstoppmaske aus Platinenkonfiguration; error
+    @(183.9500 mm, 100.0000 mm): Track [/12V_SW] on F.Cu, length 7.1800 mm
+    @(186.0500 mm, 100.0000 mm): Pad 2 [/CNT_LO] of D10 on F.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(198.5300 mm, 107.3000 mm): Track [/CNT_LO] on F.Cu, length 6.5700 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(196.4300 mm, 107.3000 mm): Track [/12V_SW] on F.Cu, length 6.5700 mm
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(123.5000 mm, 69.5000 mm): Rectangle on Edge.Cuts
+    @(181.9800 mm, 97.0000 mm): Rectangle of J5 on F.Silkscreen
+[lib_footprint_mismatch]: Footprint "DY-SV17F" stimmt nicht mit Kopie in Bibliothek "vogelstimmen" überein.
+    Local override; warning
+    @(141.0000 mm, 106.0000 mm): Footprint U2
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (Einschränkungen aus Platinenkonfiguration zur Bestückungsdruckhöhe min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Rule: Einschränkungen aus Platinenkonfiguration zur Bestückungsdruckhöhe; warning
+    @(197.4800 mm, 118.0000 mm): Footprint text of J5 (MZ-602)
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(193.3500 mm, 86.5000 mm): Reference field of D23
+    @(193.0000 mm, 87.5700 mm): Reference field of C20
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(194.3500 mm, 88.1100 mm): Segment of D23 on F.Silkscreen
+    @(193.0000 mm, 87.5700 mm): Reference field of C20
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(181.9800 mm, 97.0000 mm): Rectangle of J5 on F.Silkscreen
+    @(199.2600 mm, 97.0600 mm): Segment of Q7 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(181.9800 mm, 97.0000 mm): Rectangle of J5 on F.Silkscreen
+    @(197.7400 mm, 96.8900 mm): Segment of Q7 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: Einschränkungen aus Platinenkonfiguration zum Bestückungsdruck; warning
+    @(154.0000 mm, 117.5000 mm): Segment of U2 on F.Silkscreen
+    @(146.5000 mm, 118.0700 mm): Reference field of R3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(173.0000 mm, 113.0700 mm): Reference field of R12
+    @(171.8250 mm, 112.0000 mm): Pad 2 [/LATCH_SET] of R4 on F.Cu
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

@@ -1,0 +1,13 @@
+Hinweis: X-Skalierung eingeschränkt.
+Hinweis: Y-Skalierung eingeschränkt.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-F_Cu.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-B_Cu.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-F_Paste.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-B_Paste.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-F_Silkscreen.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-B_Silkscreen.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-F_Mask.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-B_Mask.gbr" geschrieben.
+Plot in "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-Edge_Cuts.gbr" geschrieben.
+Gerber-Jobdatei "C:\Users\Schue\Projects\Vogelstimmen\hardware\Gerber\vogelstimmen-job.gbrjob" wurde erstellt.
+Hinweis: Fertig.
