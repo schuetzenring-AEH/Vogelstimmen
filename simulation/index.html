@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="sim-rev" content="3.0-adr" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vogelstimmenkasten — Platinen-Simulation Rev 3.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #1c2420;
+      --panel: #243029;
+      --ink: #e8efe6;
+      --muted: #9aada0;
+      --line: #3a4a40;
+      --accent: #d4a017;
+      --good: #6fbf8a;
+      --hot: #e07a3d;
+      --bad: #e35d5d;
+      --pcb: #2a3830;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      background:
+        radial-gradient(ellipse at 20% 0%, #2c3b32 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 100%, #1a221c 0%, var(--bg) 55%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.1rem 1.4rem 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    header p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0.9rem;
+      padding: 0.9rem 1.2rem 1.4rem;
+    }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: color-mix(in srgb, var(--panel) 92%, black);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.8rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.7rem;
+    }
+    .btn-bird, button.ctrl {
+      font-family: "IBM Plex Mono", monospace;
+      border: 1px solid var(--line);
+      background: #314338;
+      color: var(--ink);
+      padding: 0.45rem 0.7rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-bird:hover, button.ctrl:hover { border-color: var(--accent); }
+    .btn-bird.down {
+      background: var(--accent);
+      color: #1a1a12;
+      border-color: var(--accent);
+    }
+    #board {
+      background: #0e1411;
+      border-radius: 4px;
+      min-height: 360px;
+      overflow: hidden;
+    }
+    svg.pcb { width: 100%; height: 520px; display: block; }
+    .pcb-photo { pointer-events: none; }
+    .pcb-edge {
+      fill: none;
+      stroke: #8aa392;
+      stroke-width: 0.35;
+    }
+    .tracks .track {
+      fill: none;
+      /* stroke nur per JS — CSS würde Attribute überschreiben */
+      transition: opacity 0.12s linear;
+    }
+    .tracks .track.flow {
+      filter: drop-shadow(0 0 0.6px #fff8);
+    }
+    .tracks .track.hidden-cu {
+      stroke-dasharray: 0.85 0.65;
+    }
+    .tracks .via-outer {
+      fill: none;
+      stroke-width: 0.22;
+      transition: stroke 0.12s linear;
+    }
+    .tracks .via-inner {
+      fill: #1a221c;
+      pointer-events: none;
+    }
+    .legend-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin: 0.45rem 0 0.2rem;
+    }
+    .legend-flow i {
+      display: inline-block;
+      width: 1.1rem;
+      height: 0.35rem;
+      border-radius: 2px;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+    }
+    .fp { cursor: pointer; }
+    .fp rect {
+      fill: transparent;
+      stroke: #8aa392;
+      stroke-width: 0.28;
+    }
+    .fp-blue rect { stroke: #3a7ab8; }
+    .fp.active rect { stroke: var(--accent); stroke-width: 0.42; }
+    .fp.sel rect { stroke: #fff; stroke-width: 0.5; }
+    .fp.warn rect { stroke: var(--bad); }
+    .fp-photo { pointer-events: none; }
+    .cnt-drum {
+      fill: #111;
+      stroke: #3a3a3a;
+      stroke-width: 0.12;
+    }
+    .cnt-digit {
+      fill: #f4f4f0;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 600;
+      pointer-events: none;
+    }
+    .cnt-digit.cnt-tick {
+      animation: cnt-roll 0.18s ease-out;
+    }
+    @keyframes cnt-roll {
+      from { opacity: 0.2; transform: translateY(1.2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fp-label {
+      fill: #f4f7f2;
+      font-size: 1.45px;
+      font-family: "IBM Plex Mono", monospace;
+      pointer-events: none;
+      paint-order: stroke;
+      stroke: #121a16;
+      stroke-width: 0.35px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.45rem;
+      margin-bottom: 0.7rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+    }
+    .stats div, #nets div {
+      background: #1a221c;
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.5rem;
+      border-radius: 4px;
+    }
+    .stats span, #nets span { display: block; color: var(--muted); font-size: 0.7rem; }
+    #nets {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.35rem;
+      margin-bottom: 0.7rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+    }
+    #msg {
+      color: var(--muted);
+      min-height: 1.4em;
+      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 0.28rem 0.3rem;
+      text-align: left;
+    }
+    th { color: var(--muted); font-weight: 600; }
+    tr { cursor: pointer; }
+    tr.sel { background: #354a3b; }
+    tr.bad { color: var(--bad); }
+    .scroll { max-height: 280px; overflow: auto; }
+    #detail h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+    #detail h4 { margin: 0.7rem 0 0.3rem; font-size: 0.88rem; color: var(--accent); }
+    #detail ul { margin: 0.4rem 0 0; padding-left: 1.1rem; color: var(--muted); }
+    #detail .warn { color: var(--bad); }
+    .meta-block {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0.5rem 0;
+      font-size: 0.84rem;
+    }
+    .meta-block > div {
+      background: #1a221c;
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.55rem;
+      border-radius: 4px;
+    }
+    .meta-block .meta-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .meta-block span.label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .meta-block .meta-text { font-weight: 500; line-height: 1.4; color: var(--ink); }
+    button.help-btn {
+      flex: 0 0 auto;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+    }
+    button.help-btn:hover { background: var(--accent); color: #1a1a12; }
+    .help-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 10, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+      padding: 1rem;
+    }
+    .help-overlay.open { display: flex; }
+    .help-dialog {
+      background: #243029;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      max-width: 42rem;
+      width: 100%;
+      max-height: min(88vh, 780px);
+      overflow: auto;
+      padding: 1.1rem 1.25rem 1.25rem;
+      box-shadow: none;
+    }
+    .diag-wrap {
+      background: #1a221c;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.5rem 0.4rem 0.35rem;
+      margin: 0.35rem 0 0.6rem;
+      overflow-x: auto;
+    }
+    .diag-svg { width: 100%; height: auto; display: block; min-width: 280px; }
+    .diag-legend {
+      margin: 0.25rem 0 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .diag-legend .swatch {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 2px;
+      margin-right: 0.2rem;
+      vertical-align: -1px;
+      border: 1px solid #6e8a74;
+    }
+    .diag-legend .swatch.in { background: #24384a; border-color: #5a8ab0; }
+    .diag-legend .swatch.out { background: #3a3420; border-color: #c4a35a; }
+    .if-title {
+      margin: 0.55rem 0 0.3rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 600;
+    }
+    table.if-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      font-family: "IBM Plex Mono", monospace;
+      margin-bottom: 0.4rem;
+    }
+    table.if-table th, table.if-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 0.28rem 0.3rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.if-table th { color: var(--muted); font-weight: 600; }
+    .if-badge {
+      display: inline-block;
+      min-width: 2rem;
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-radius: 3px;
+      padding: 0.1rem 0.25rem;
+    }
+    tr.if-in .if-badge { background: #24384a; color: #9ec4e0; }
+    tr.if-out .if-badge { background: #3a3420; color: #e0c88a; }
+    .help-dialog h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.2rem;
+    }
+    .help-dialog .help-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0 0 0.9rem;
+    }
+    .help-dialog h4 {
+      margin: 0.9rem 0 0.35rem;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    .help-dialog p {
+      margin: 0 0 0.65rem;
+      line-height: 1.55;
+      font-size: 0.92rem;
+      white-space: pre-wrap;
+    }
+    .help-dialog em {
+      display: block;
+      margin-top: 0.55rem;
+      color: #c5d4c8;
+      font-style: italic;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .help-dialog .help-close {
+      float: right;
+      font-family: "IBM Plex Mono", monospace;
+      border: 1px solid var(--line);
+      background: #314338;
+      color: var(--ink);
+      border-radius: 4px;
+      padding: 0.25rem 0.55rem;
+      cursor: pointer;
+    }
+    .spec-list { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; }
+    table.spec-check { font-size: 0.7rem; margin-top: 0.3rem; }
+    table.spec-check tr.ok td:last-child { color: var(--good); }
+    table.spec-check tr.fail td:last-child { color: var(--bad); font-weight: 600; }
+    .comp-verdict { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; margin: 0.4rem 0 0; }
+    .comp-verdict.ok { color: var(--good); }
+    .comp-verdict.fail { color: var(--bad); }
+    .trace-block h4 { margin: 0.65rem 0 0.25rem; font-size: 0.88rem; color: var(--accent); }
+    .trace-links { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .trace-chip {
+      display: inline-block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      padding: 0.18rem 0.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .trace-chip.ds { background: #2a3d48; border-color: #4a7a98; color: #c5e4f4; }
+    .trace-chip.adr { background: #3d3420; border-color: #a88830; color: #f0d78a; }
+    .trace-chip.req { background: #2a3a2c; border-color: #4a7a58; color: #b8e0c4; }
+    .trace-chip.sf { background: #2a3040; border-color: #5a6a98; color: #c4cce8; }
+    .trace-chip:hover { border-color: var(--accent); }
+    .trace-hint { color: var(--muted); font-size: 0.78rem; margin-left: 0.25rem; }
+    .rfp-chain {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      margin: 0.2rem 0 0.45rem;
+    }
+    .rfp-chain a { color: #d4c07a; }
+    .trace-rfp {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .trace-rfp .label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+    .trace-adr, .trace-rfp { line-height: 1.55; }
+    .trace-adr-item { margin: 0 0 0.65rem; }
+    .trace-why { margin: 0.2rem 0 0; font-size: 0.84rem; color: var(--ink); opacity: 0.88; }
+    .trace-block h4 { margin: 0.65rem 0 0.25rem; font-size: 0.88rem; color: var(--accent); }
+    .trace-links { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .trace-chip {
+      display: inline-block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      padding: 0.18rem 0.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .trace-chip.ds { background: #2a3d48; border-color: #4a7a98; color: #c5e4f4; }
+    .trace-chip.adr { background: #3d3420; border-color: #a88830; color: #f0d78a; }
+    .trace-chip.req { background: #2a3a2c; border-color: #4a7a58; color: #b8e0c4; }
+    .trace-chip.sf { background: #2a3040; border-color: #5a6a98; color: #c4cce8; }
+    .trace-chip:hover { border-color: var(--accent); }
+    .trace-hint { color: var(--muted); font-size: 0.78rem; margin-left: 0.25rem; }
+    .rfp-chain {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      margin: 0.2rem 0 0.45rem;
+    }
+    .rfp-chain a { color: #d4c07a; }
+    .trace-rfp {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .trace-rfp .label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+    .trace-adr, .trace-rfp { line-height: 1.55; }
+    .legend-flow .blue-swatch { background: #3a7ab8; }
+    label.chk, label.rng {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: inline-flex;
+      gap: 0.35rem;
+      align-items: center;
+    }
+    input[type="range"] { width: 100px; }
+    .note {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vogelstimmenkasten</h1>
+    <p>Platinen-Simulation Rev&nbsp;3.0 — Ohm/FET/Zener real, Buck · DY-SV17F · Hengstler 0.635.128 mit One-Shot (C20/R20/R21/D23/Q7/D10). Werte in <code>js/parts.js</code>.</p>
+  </header>
+
+  <div class="layout">
+    <section class="panel">
+      <div class="row" id="buttons"></div>
+      <div class="row">
+        <button class="ctrl" id="reset" type="button">Reset</button>
+        <button class="ctrl" id="pause" type="button">Pause</button>
+        <label class="chk"><input type="checkbox" id="miss" checked /> Kurzdruck-Miss</label>
+        <label class="rng">Hold <input type="range" id="hold" min="50" max="1200" value="400" step="50" /> <span id="hold-val">400 ms</span></label>
+        <label class="rng">Tempo <input type="range" id="speed" min="0.5" max="20" value="4" step="0.5" /> <span id="speed-val">4.0×</span></label>
+      </div>
+      <p id="msg"></p>
+      <div class="stats">
+        <div><span>Phase</span><strong id="phase">—</strong></div>
+        <div><span>I<sub>BAT</sub></span><strong id="ibat">—</strong></div>
+        <div><span>Track</span><strong id="track">—</strong></div>
+        <div><span>Zähler</span><strong id="counter">0</strong></div>
+      </div>
+      <div class="legend-flow">
+        <span><i class="blue-swatch"></i>Rahmen blau = Passiv / Klemme</span>
+        <span><i style="background:#7a8c82"></i>Bahn grau ≈0</span>
+        <span><i style="background:#2ee66a"></i>grün &lt;1 mA</span>
+        <span><i style="background:#ffc107"></i>gelb &lt;50 mA</span>
+        <span><i style="background:#ff4d4d"></i>rot ≥50 mA</span>
+        <span>⋯ gepunktet = Unterseite oder unter Bauteil</span>
+        <span>⊙ Via</span>
+      </div>
+      <div id="board"></div>
+      <p class="note">Hintergrund: JLCPCB-Topview Rev 3.0. Stromlinien folgen den echten Kupferbahnen (gepunktet auf B.Cu oder unter Modul/Zähler/Klemmen). Klick auf Bauteil → Detail.</p>
+    </section>
+
+    <aside class="panel">
+      <h2 style="margin:0 0 0.5rem;font-size:1.05rem;">Netze</h2>
+      <div id="nets"></div>
+      <div id="detail"></div>
+      <h2 style="margin:0.8rem 0 0.4rem;font-size:1.05rem;">Bauteile U / I / P</h2>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Ref</th><th>BG</th><th>Wert</th><th>Zustand</th><th>U</th><th>I</th><th>Spec</th></tr>
+          </thead>
+          <tbody id="part-table"></tbody>
+        </table>
+      </div>
+    </aside>
+  </div>
+
+  <div id="help-overlay" class="help-overlay" aria-hidden="true">
+    <div class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <button type="button" class="help-close" id="help-close">Schließen</button>
+      <h3 id="help-title">Erklärung</h3>
+      <p class="help-sub" id="help-sub"></p>
+
+      <h4>System — Hauptbaugruppen</h4>
+      <div class="diag-wrap" id="help-sys-diag"></div>
+
+      <h4>Baugruppe — Funktion &amp; Schnittstellen</h4>
+      <div class="diag-wrap" id="help-inner-diag"></div>
+
+      <h4>Die Baugruppe in Alltagssprache</h4>
+      <p id="help-block"></p>
+      <h4>Dieses Bauteil — wozu und wie</h4>
+      <p id="help-part"></p>
+      <div id="help-trace"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { boot } from "./js/app.js";
+    boot().catch((e) => {
+      document.body.insertAdjacentHTML(
+        "afterbegin",
+        `<p style="background:#5a2020;padding:1rem;margin:0">Start fehlgeschlagen: ${e.message}. Bitte per <code>START.bat</code> / <code>START_SHOWCASE.bat</code> öffnen (lokaler Server), dann Strg+Shift+R.</p>`,
+      );
+      console.error(e);
+    });
+  </script>
+</body>
+</html>

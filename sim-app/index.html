@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#1c2420" />
+  <meta name="sim-rev" content="3.0-mobile" />
+  <title>Vogelstimmen — Platinen-Simulation</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body>
+  <div id="boot-screen" class="boot-screen" aria-live="polite">
+    <p class="boot-title">Platinen-Simulation</p>
+    <p class="boot-sub">Rev 3.0 wird geladen …</p>
+  </div>
+
+  <header class="app-header">
+    <div class="header-top">
+      <h1>Vogelstimmenkasten</h1>
+      <a class="doc-link" href="../showcase/index.html#/twin">Doku</a>
+    </div>
+    <div class="stats-bar">
+      <div><span>Phase</span><strong id="phase">—</strong></div>
+      <div><span>I<sub>BAT</sub></span><strong id="ibat">—</strong></div>
+      <div><span>Track</span><strong id="track">—</strong></div>
+      <div><span>Zähler</span><strong id="counter">0</strong></div>
+    </div>
+    <p id="msg" class="msg-line"></p>
+  </header>
+
+  <main class="app-main">
+    <div id="board" class="board-wrap" aria-label="Platinenansicht"></div>
+    <details class="legend-fold">
+      <summary>Legende Stromfluss</summary>
+      <div class="legend-flow">
+        <span><i class="blue-swatch"></i>blau = Passiv / Klemme</span>
+        <span><i style="background:#7a8c82"></i>grau ≈0</span>
+        <span><i style="background:#2ee66a"></i>&lt;1 mA</span>
+        <span><i style="background:#ffc107"></i>&lt;50 mA</span>
+        <span><i style="background:#ff4d4d"></i>≥50 mA</span>
+      </div>
+    </details>
+  </main>
+
+  <nav class="touch-bar" aria-label="Vogelstimmen-Taster">
+    <div class="touch-row" id="buttons"></div>
+    <div class="touch-ctrl">
+      <button class="ctrl" id="reset" type="button">Reset</button>
+      <button class="ctrl" id="pause" type="button">Pause</button>
+      <button class="ctrl sheet-toggle" id="sheet-open" type="button" aria-expanded="false" aria-controls="detail-sheet">Details</button>
+    </div>
+    <div class="touch-sliders">
+      <label class="chk"><input type="checkbox" id="miss" checked /> Kurzdruck-Miss</label>
+      <label class="rng">Hold <input type="range" id="hold" min="50" max="1200" value="400" step="50" /> <span id="hold-val">400 ms</span></label>
+      <label class="rng">Tempo <input type="range" id="speed" min="0.5" max="20" value="4" step="0.5" /> <span id="speed-val">4.0×</span></label>
+    </div>
+  </nav>
+
+  <div id="detail-sheet" class="detail-sheet" aria-hidden="true">
+    <div class="sheet-backdrop" id="sheet-backdrop"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2 id="sheet-title">Netze &amp; Bauteile</h2>
+        <button type="button" class="sheet-close" id="sheet-close" aria-label="Schließen">×</button>
+      </div>
+      <div class="sheet-tabs" role="tablist">
+        <button type="button" class="tab on" data-tab="detail" role="tab" aria-selected="true">Detail</button>
+        <button type="button" class="tab" data-tab="nets" role="tab">Netze</button>
+        <button type="button" class="tab" data-tab="parts" role="tab">Teile</button>
+      </div>
+      <div class="sheet-body">
+        <div class="tab-panel on" data-panel="detail" id="detail"></div>
+        <div class="tab-panel" data-panel="nets"><div id="nets"></div></div>
+        <div class="tab-panel" data-panel="parts">
+          <div class="scroll">
+            <table>
+              <thead>
+                <tr><th>Ref</th><th>BG</th><th>Wert</th><th>Zustand</th><th>U</th><th>I</th><th>Spec</th></tr>
+              </thead>
+              <tbody id="part-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="help-overlay" class="help-overlay" aria-hidden="true">
+    <div class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <button type="button" class="help-close" id="help-close">Schließen</button>
+      <h3 id="help-title">Erklärung</h3>
+      <p class="help-sub" id="help-sub"></p>
+      <h4>System — Hauptbaugruppen</h4>
+      <div class="diag-wrap" id="help-sys-diag"></div>
+      <h4>Baugruppe — Funktion &amp; Schnittstellen</h4>
+      <div class="diag-wrap" id="help-inner-diag"></div>
+      <h4>Die Baugruppe in Alltagssprache</h4>
+      <p id="help-block"></p>
+      <h4>Dieses Bauteil — wozu und wie</h4>
+      <p id="help-part"></p>
+      <div id="help-trace"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/mobile-shell.js"></script>
+</body>
+</html>
