@@ -14,6 +14,7 @@ simulation/*.op.raw
 
 # Local / heavy artifacts
 dist/
+.tmp_pages/
 .tmp_pymupdf/
 
 # OS files

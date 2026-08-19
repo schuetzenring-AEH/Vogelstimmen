@@ -16,6 +16,8 @@
       <div class="nav-sec">Einstieg</div>
       <a href="#/home" data-route="home">Start</a>
       <a href="#/vmodell" data-route="vmodell">V-Modell &amp; Abdeckung</a>
+      <a href="#/pitch" data-route="pitch">Präsentation</a>
+      <a href="#/copilot" data-route="copilot">Engineering Copilot</a>
 
       <div class="nav-sec">Links spezifizieren</div>
       <a href="#/stakeholder" data-route="stakeholder">Stakeholder</a>
@@ -34,6 +36,7 @@
 
       <div class="nav-sec">Rechts verifizieren</div>
       <a href="#/thread" data-route="thread">Digital Thread</a>
+      <a href="#/copilot" data-route="copilot">Engineering Copilot</a>
       <a href="#/trace" data-route="trace">Traceability</a>
       <a href="#/vv" data-route="vv">V&amp;V Testplan</a>
       <a href="#/fertigung" data-route="fertigung">Fertigung</a>
@@ -54,9 +57,10 @@
               Architektur → Design → Twin → Trace → V&amp;V → Fertigung — ohne Business-Schicht.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#/vmodell">V-Modell öffnen</a>
+              <a class="btn btn-primary" href="#/pitch">MBSE PoC — Präsentation</a>
+              <a class="btn" href="#/vmodell">V-Modell öffnen</a>
               <a class="btn" href="#/twin">Simulation</a>
-              <a class="btn" href="#/bibliothek">27 Dokumente</a>
+              <a class="btn" href="#/bibliothek">Dokumenten-Bibliothek</a>
             </div>
             <div class="pill-row">
               <span class="pill on">Rev 2.5</span>
@@ -70,16 +74,56 @@
         <div class="content content-wide">
           <h2>Was dieses Projekt zeigt</h2>
           <p class="lead">
-            Nicht nur eine JLCPCB-Platine — sondern die Artefaktkette, die in Automotive/Bahn
-            oft 50–200 Dokumente umfasst. Hier: <strong>passend skalierte</strong> Variante
-            für ein Lehrpfad-Gerät. Business, APQP, CE-Vollakte und CAD/FEM bewusst weggelassen.
+            Diese Webseite ist eine <strong>begleitende Dokumentation</strong> zur Entstehung einer
+            Platine — und ein Proof-of-Concept für einen <strong>KI-Engineering-Assistenten</strong>.
+            Der Mehrwert ist nicht die Menge der Dokumente, sondern Konsistenz, Durchgängigkeit
+            und ein Digital Thread: <em>Wenn ich ein Requirement ändere, sehe ich sofort die Wirkungskette.</em>
+            Business, APQP, CE-Vollakte und CAD/FEM bewusst weggelassen.
           </p>
           <div class="grid-2">
             <a class="tile" href="#/vmodell"><h4>Abdeckungskarte</h4><p>Was vorhanden / teilweise / weggelassen / offen</p><div class="meta">mbse_reise.md</div></a>
-            <a class="tile" href="#/stakeholder"><h4>Links den V</h4><p>Stakeholder → Spec → Architektur → Design</p><div class="meta">Spezifikation</div></a>
-            <a class="tile" href="#/vv"><h4>Rechts den V</h4><p>Unit → Integration → Twin → Systemtest → Abnahme</p><div class="meta">V&amp;V</div></a>
+            <a class="tile" href="#/pitch"><h4>Präsentation</h4><p>Vorstand / IM: Impact statt Dokumentenmenge</p><div class="meta">7 Folien</div></a>
+            <a class="tile" href="../mbse/index.html?demo=e03"><h4>Impact-Demo</h4><p>E03: 12 → 18 Monate Batterie — Wirkungskette farbig</p><div class="meta">/mbse/</div></a>
             <a class="tile" href="#/thread"><h4>Digital Thread</h4><p>SH → Req → UC → Funktion → Block → Test</p><div class="meta">Rückverfolgbarkeit</div></a>
           </div>
+        </div>
+      </section>
+
+      <!-- PITCH -->
+      <section id="page-pitch" class="page">
+        <div class="content content-wide">
+          <h2>Präsentation — Engineering Copilot</h2>
+          <p class="lead">Der Mehrwert ist nicht die Menge der Dokumente, sondern Konsistenz, Durchgängigkeit und ein Digital Thread — erstmals wirtschaftlich, weil bei richtiger Tool-Unterstützung kaum Mehraufwand entsteht.</p>
+          <a class="btn btn-primary" href="../mbse/presentation.html" target="_blank" rel="noopener">Vollbild (Beamer)</a>
+          <a class="btn" href="../mbse/index.html?demo=e03" target="_blank" rel="noopener">Live-Demo E03</a>
+          <a class="btn" href="#/bibliothek/mbse_pitch_krones">Sprechertext Krones</a>
+          <div class="iframe-wrap" style="margin-top:1rem;min-height:70vh">
+            <iframe id="pitch-frame" title="MBSE Präsentation" style="min-height:70vh;width:100%;border:0;background:#101610"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- COPILOT -->
+      <section id="page-copilot" class="page">
+        <div class="content content-wide">
+          <h2>Engineering Copilot</h2>
+          <p class="lead">
+            Proof-of-Concept: intern ein Modell, außen Impact-Analyse. Der Aha-Effekt ist nicht
+            „hier steht ein Requirement“, sondern „wenn ich es ändere, sehe ich sofort Architektur,
+            Funktionen, Tests, Risiken und Dokumente“. Vogelstimmen ist der exemplarische Rahmen —
+            klein, vollständig, übertragbar.
+          </p>
+          <div class="grid-2">
+            <div class="tile"><h4>Traceability Coverage</h4><p data-mbse-kpi="coverage">—</p><div class="meta">Requirements mit Downstream</div></div>
+            <div class="tile"><h4>Verwaiste Elemente</h4><p data-mbse-kpi="orphans">—</p><div class="meta">Ziel 0 — Lücken sichtbar</div></div>
+            <div class="tile"><h4>Knoten im Graph</h4><p data-mbse-kpi="nodes">—</p><div class="meta">vs. Dokumente als Metrik</div></div>
+            <div class="tile"><h4>Dokument-Knoten</h4><p data-mbse-kpi="docs">—</p><div class="meta">Menge vs. Verknüpfung</div></div>
+          </div>
+          <p style="margin-top:1rem">
+            <a class="btn btn-primary" href="#/pitch">Präsentation starten</a>
+            <a class="btn" href="../mbse/index.html">Impact-Analyse öffnen</a>
+            <a class="btn" href="../mbse/index.html?demo=e03">What-if E03 (12→18 Monate)</a>
+          </p>
         </div>
       </section>
 

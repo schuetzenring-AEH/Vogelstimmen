@@ -30,10 +30,12 @@ const DOCS = [
   { id: "kicad_anleitung", path: "../docs/kicad_anleitung.md", title: "25 KiCad-Anleitung" },
   { id: "sim_readme", path: "../simulation/README.md", title: "26 Simulation README" },
   { id: "root_readme", path: "../README.md", title: "27 Projekt-README" },
+  { id: "mbse_pitch", path: "../docs/mbse_pitch.md", title: "28 MBSE Pitch" },
+  { id: "mbse_pitch_krones", path: "../docs/mbse_pitch_krones.md", title: "29 Pitch Krones" },
 ];
 
 const ROUTES = new Set([
-  "home", "vmodell", "stakeholder", "requirements", "usecases", "functions",
+  "home", "vmodell", "pitch", "copilot", "stakeholder", "requirements", "usecases", "functions",
   "architektur", "sysml", "interfaces", "entscheidungen", "risiko",
   "design", "twin", "thread", "trace", "vv", "fertigung", "service", "bibliothek",
 ]);
@@ -54,7 +56,9 @@ function route() {
     loadDoc(docId);
   }
   if (name === "twin") ensureSimFrame();
-  window.scrollTo(0, 0);
+  if (name === "pitch") ensurePitchFrame();
+  if (name === "copilot" || name === "home") loadMbseKpis();
+  if (name !== "twin" && name !== "pitch") window.scrollTo(0, 0);
 }
 
 async function loadDoc(id) {
@@ -82,6 +86,42 @@ function ensureSimFrame() {
   if (!frame || frame.dataset.loaded) return;
   frame.src = "../simulation/index.html";
   frame.dataset.loaded = "1";
+}
+
+function ensurePitchFrame() {
+  const frame = $("#pitch-frame");
+  if (!frame || frame.dataset.loaded) return;
+  frame.src = "../mbse/presentation.html";
+  frame.dataset.loaded = "1";
+}
+
+async function loadMbseKpis() {
+  const boxes = $all("[data-mbse-kpi]");
+  if (!boxes.length || window.__mbseKpiLoaded) return;
+  try {
+    const res = await fetch("../mbse/data/mbse-model.json");
+    if (!res.ok) throw new Error(String(res.status));
+    const model = await res.json();
+    const nodes = model.nodes || [];
+    const edges = model.edges || [];
+    const reqs = nodes.filter((n) => n.type === "requirement");
+    const from = new Set(edges.filter((e) => ["satisfies", "allocates", "verifies", "derives"].includes(e.type)).map((e) => e.from));
+    const withDown = reqs.filter((r) => from.has(r.id)).length;
+    const coverage = reqs.length ? Math.round((withDown / reqs.length) * 100) : 0;
+    const linked = new Set();
+    for (const e of edges) { linked.add(e.from); linked.add(e.to); }
+    const orphans = nodes.filter((n) => n.type !== "software" && !linked.has(n.id)).length;
+    window.__mbseKpiLoaded = true;
+    boxes.forEach((el) => {
+      const k = el.dataset.mbseKpi;
+      if (k === "coverage") el.textContent = `${coverage}%`;
+      if (k === "orphans") el.textContent = String(orphans);
+      if (k === "nodes") el.textContent = String(nodes.length);
+      if (k === "docs") el.textContent = String(nodes.filter((n) => n.type === "document").length);
+    });
+  } catch {
+    boxes.forEach((el) => { if (!el.textContent || el.textContent === "—") el.textContent = "n/a"; });
+  }
 }
 
 function initDocSelect() {
