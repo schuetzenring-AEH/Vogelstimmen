@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schuetzenring-aeh.github.io/Vogelstimmen/mbse/data/schema.json",
+  "title": "Vogelstimmen MBSE model",
+  "type": "object",
+  "required": ["meta", "nodes", "edges"],
+  "properties": {
+    "meta": { "type": "object" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "enum": [
+              "stakeholder", "requirement", "usecase", "function", "block",
+              "interface", "adr", "risk", "test", "document", "part", "finding", "software"
+            ]
+          },
+          "title": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "params": { "type": "object" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "type": {
+            "enum": ["derives", "satisfies", "allocates", "verifies", "mitigates", "documents", "interfaces"]
+          }
+        }
+      }
+    }
+  }
+}
