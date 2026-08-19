@@ -34,7 +34,8 @@ Details: **[docs/zwischenstand.md](docs/zwischenstand.md)**
 | `docs/` | Lastenheft, Architektur, ADRs, Traceability, Zwilling, Zwischenstand |
 | `hardware/V2.5-final/` | Fertigungspaket Rev 2.5 (Gerber, BOM, CPL, KiCad, PDFs) |
 | `simulation/` | Interaktive Platinen-Simulation (HTML5) |
-| `showcase/` | **MBSE-Präsentation** (offline Website) — `showcase/START.bat` |
+| `showcase/` | **MBSE-Präsentation** (offline Website) — `START_SHOWCASE.bat` |
+| `mbse-app/` | Impact-Analyse, Audit, SysML/JSON-Export — Pages `/mbse/` |
 | `dist/` | USB-ZIP nach `tools/package_mbse_usb.ps1` |
 | `rev1_archiv/` | Rev-1-Archiv (Lessons Learned) |
 
@@ -60,7 +61,7 @@ Rev 1 hatte Probleme mit Spannungsfestigkeit (U4/U5 Burnout bei 12V), Bauteil-Ve
 ## Voraussetzungen (Entwicklung)
 
 - [KiCad 10](https://www.kicad.org/) – Schaltplan/PCB
-- Python 3 – lokale Simulation (`python simulation/serve.py`)
+- Python 3 – lokale Simulation (`python simulation/serve.py`) oder `START_SHOWCASE.bat` / `START_MBSE.bat`
 - [LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) – analoge Teilschaltungen (optional)
 
 ## Lizenz

@@ -1,0 +1,2593 @@
+{
+  "meta": {
+    "id": "vogelstimmen-mbse",
+    "title": "Vogelstimmenkasten — MBSE Modellkern",
+    "revision": "2.5-poc",
+    "generated": "2026-08-19",
+    "sources": [
+      "docs/traceability.md",
+      "docs/pflichtenheft.md",
+      "docs/vv_testplan.md",
+      "docs/risiko_fmea.md",
+      "docs/use_cases.md",
+      "docs/pbs_icd.md",
+      "docs/stakeholder.md",
+      "docs/systemarchitektur.md"
+    ],
+    "note": "F01 = Lastenheft-Requirement; FIND-F-01 = adversarial Finding. R-10 derived for battery-life impact."
+  },
+  "nodes": [
+    {
+      "id": "SH-01",
+      "type": "stakeholder",
+      "title": "Besucher (Waldlehrpfad)",
+      "need": "Vogelstimmen hören, einfache Bedienung",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "SH-02",
+      "type": "stakeholder",
+      "title": "Betreiber (Kolping / Lehrpfad)",
+      "need": "Zuverlässig, wartungsarm, Batterie hält",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "SH-03",
+      "type": "stakeholder",
+      "title": "Wartung / Service",
+      "need": "Tausch, Audio per USB, Zähler ablesen",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "SH-04",
+      "type": "stakeholder",
+      "title": "Entwicklung",
+      "need": "Nachvollziehbare Spec, Review, Fertigung",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "SH-05",
+      "type": "stakeholder",
+      "title": "Fertigung (JLCPCB + Hand)",
+      "need": "Klare BOM/CPL/Gerber",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "SH-06",
+      "type": "stakeholder",
+      "title": "Reviewer (adversarial)",
+      "need": "Blocker finden vor Serie",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "F01",
+      "type": "requirement",
+      "title": "8 Taster anschließbar",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ],
+      "verification": []
+    },
+    {
+      "id": "F02",
+      "type": "requirement",
+      "title": "Feste Zuordnung Taster→Stimme",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F03",
+      "type": "requirement",
+      "title": "Wiedergabe < 500 ms nach Druck",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "latency"
+      ],
+      "verification": []
+    },
+    {
+      "id": "F04",
+      "type": "requirement",
+      "title": "Tonsequenz ~10 s",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F05",
+      "type": "requirement",
+      "title": "Lautstärke 2–3 m, 3 W",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "audio"
+      ],
+      "verification": []
+    },
+    {
+      "id": "F06",
+      "type": "requirement",
+      "title": "Audio per USB austauschbar",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F07",
+      "type": "requirement",
+      "title": "Retrigger: neue Stimme ersetzt alte",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F08",
+      "type": "requirement",
+      "title": "Keine gleichzeitige Wiedergabe",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F09",
+      "type": "requirement",
+      "title": "Mono-Lautsprecher",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "audio"
+      ],
+      "verification": []
+    },
+    {
+      "id": "F10",
+      "type": "requirement",
+      "title": "Impulszähler zählt Sessions",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "F11",
+      "type": "requirement",
+      "title": "Taster-LEDs während Wiedergabe",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [],
+      "verification": []
+    },
+    {
+      "id": "E01",
+      "type": "requirement",
+      "title": "Betrieb über 12 V Batterie",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "E02",
+      "type": "requirement",
+      "title": "Ruhestrom < 100 µA",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ],
+      "params": {
+        "iIdleMax_uA": 100,
+        "metric": "idle_current"
+      }
+    },
+    {
+      "id": "E03",
+      "type": "requirement",
+      "title": "Batterie ≥ 1 Jahr",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ],
+      "params": {
+        "minMonths": 12,
+        "metric": "battery_life"
+      },
+      "verification": [
+        "V-ANA",
+        "TC-S01"
+      ]
+    },
+    {
+      "id": "E04",
+      "type": "requirement",
+      "title": "Aufwachen per Taster",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "E05",
+      "type": "requirement",
+      "title": "Auto-Abschaltung nach Wiedergabe",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "E06",
+      "type": "requirement",
+      "title": "Verstärker im Modul integriert",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "audio"
+      ]
+    },
+    {
+      "id": "U01",
+      "type": "requirement",
+      "title": "−10 °C bis +60 °C",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "environment"
+      ]
+    },
+    {
+      "id": "U02",
+      "type": "requirement",
+      "title": "Feuchtigkeit tolerieren",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "environment"
+      ]
+    },
+    {
+      "id": "U03",
+      "type": "requirement",
+      "title": "Wartungsfrei ≥ 1 Jahr",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "U04",
+      "type": "requirement",
+      "title": "Keine beweglichen Teile",
+      "namespace": "lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "U05",
+      "type": "requirement",
+      "title": "Kein Netzanschluss",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "H01",
+      "type": "requirement",
+      "title": "Printzähler 12 V DC auf PCB",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ]
+    },
+    {
+      "id": "H02",
+      "type": "requirement",
+      "title": "SMD durch JLCPCB bestückt",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ]
+    },
+    {
+      "id": "H03",
+      "type": "requirement",
+      "title": "Manuell: THT + DY-SV17F + Zähler",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ]
+    },
+    {
+      "id": "H04",
+      "type": "requirement",
+      "title": "4× M3 Montagelöcher",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ]
+    },
+    {
+      "id": "H05",
+      "type": "requirement",
+      "title": "Testpunkte 12 V, 5 V, GND, BUSY, Audio",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "pcb"
+      ]
+    },
+    {
+      "id": "H06",
+      "type": "requirement",
+      "title": "Zähler von oben ablesbar",
+      "namespace": "lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "H07",
+      "type": "requirement",
+      "title": "VGS-Schutz SI2301 per Zener 6,2 V",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy",
+        "pcb"
+      ]
+    },
+    {
+      "id": "M01",
+      "type": "requirement",
+      "title": "BOM vorab bei LCSC verifiziert",
+      "namespace": "lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "M02",
+      "type": "requirement",
+      "title": "Spannungsprüfung aller ICs",
+      "namespace": "lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "M03",
+      "type": "requirement",
+      "title": "LTspice Simulation Stromversorgung",
+      "namespace": "lastenheft",
+      "doc": "anforderungen",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "M04",
+      "type": "requirement",
+      "title": "Review-Checkliste vor Bestellung",
+      "namespace": "lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "SYS-01",
+      "type": "requirement",
+      "title": "Platine speist sich ausschließlich aus 12 V DC an J1",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "SYS-02",
+      "type": "requirement",
+      "title": "Im Idle ist 12V_SW und 5V abgetrennt (Latch AUS)",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": [
+        "energy"
+      ]
+    },
+    {
+      "id": "SYS-03",
+      "type": "requirement",
+      "title": "Tastendruck setzt Latch auch ohne 5 V (Kaltstart Q6)",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "SYS-04",
+      "type": "requirement",
+      "title": "Nach Track-Ende löst BUSY den Latch (mit RC-Blanking)",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "SYS-05",
+      "type": "requirement",
+      "title": "Modul-IOs sehen kein 12-V-OR-Netz",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "SYS-06",
+      "type": "requirement",
+      "title": "Pro Latch-ON genau ein Zählimpuls (~80 ms) an Hengstler",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "SYS-07",
+      "type": "requirement",
+      "title": "SPK-Leiterbahnen ≥ 0,4 mm (Haupt 0,8 mm)",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "SYS-08",
+      "type": "requirement",
+      "title": "USB-Programmierung nur ohne Board-5V / Modul abgezogen",
+      "namespace": "pflichtenheft",
+      "doc": "pflichtenheft",
+      "tags": []
+    },
+    {
+      "id": "UC-01",
+      "type": "usecase",
+      "title": "Vogelstimme starten",
+      "doc": "use_cases"
+    },
+    {
+      "id": "UC-02",
+      "type": "usecase",
+      "title": "Stimme während Play wechseln",
+      "doc": "use_cases"
+    },
+    {
+      "id": "UC-03",
+      "type": "usecase",
+      "title": "Nutzungszähler ablesen",
+      "doc": "use_cases"
+    },
+    {
+      "id": "UC-04",
+      "type": "usecase",
+      "title": "Audiodateien aktualisieren",
+      "doc": "use_cases"
+    },
+    {
+      "id": "UC-05",
+      "type": "usecase",
+      "title": "Batterie warten",
+      "doc": "use_cases"
+    },
+    {
+      "id": "SF-01",
+      "type": "function",
+      "title": "Benutzereingabe erfassen",
+      "detail": "Tastendruck erkennen und Kanal zuordnen",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-02",
+      "type": "function",
+      "title": "System einschalten",
+      "detail": "Latch aktivieren und Versorgung freigeben",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-03",
+      "type": "function",
+      "title": "Versorgungsspannung bereitstellen",
+      "detail": "12 V auf 5 V wandeln für Modul",
+      "tags": [
+        "energy"
+      ],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-04",
+      "type": "function",
+      "title": "Vogelstimme abspielen",
+      "detail": "Zugewiesene Audio-Datei wiedergeben",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-05",
+      "type": "function",
+      "title": "Wiedergabe wechseln",
+      "detail": "Laufende Stimme beenden und neue starten",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-06",
+      "type": "function",
+      "title": "System automatisch abschalten",
+      "detail": "Nach Wiedergabe Latch lösen",
+      "tags": [
+        "energy"
+      ],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-07",
+      "type": "function",
+      "title": "Nutzung zählen",
+      "detail": "Session am Impulszähler erfassen",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-08",
+      "type": "function",
+      "title": "Betriebszustand anzeigen",
+      "detail": "Taster-LEDs während Wiedergabe",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-09",
+      "type": "function",
+      "title": "Audiodateien verwalten",
+      "detail": "MP3/WAV per USB laden",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-10",
+      "type": "function",
+      "title": "Eingangsschutz gewährleisten",
+      "detail": "Verpolung und Überspannung abfangen",
+      "tags": [
+        "energy"
+      ],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-11",
+      "type": "function",
+      "title": "Ruhestrom minimieren",
+      "detail": "Im Idle Verbraucherpfad vollständig trennen",
+      "tags": [
+        "energy"
+      ],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "SF-12",
+      "type": "function",
+      "title": "Schallwandlung",
+      "detail": "Mono-Audio über Lautsprecher",
+      "tags": [],
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "B1",
+      "type": "block",
+      "title": "Eingangsschutz",
+      "detail": "Verpolung, TVS, VGS-Clamp",
+      "tags": [
+        "energy",
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B2",
+      "type": "block",
+      "title": "Latch / Power-Gate",
+      "detail": "Ein/Aus, Hold, Release, Idle 0 µA",
+      "tags": [
+        "energy",
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B3",
+      "type": "block",
+      "title": "Buck 5 V (TPS62163)",
+      "detail": "12 V → 5 V nur bei Latch AN",
+      "tags": [
+        "energy",
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B4",
+      "type": "block",
+      "title": "Audio DY-SV17F",
+      "detail": "Wiedergabe, IO-Trigger, Class-D",
+      "tags": [
+        "audio"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B5",
+      "type": "block",
+      "title": "Zähler Hengstler",
+      "detail": "Session-Impulse an 12V_SW",
+      "tags": [
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B6",
+      "type": "block",
+      "title": "Taster-Interface",
+      "detail": "J3/J4 + Dioden-OR + Serie D15–D22",
+      "tags": [
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B7",
+      "type": "block",
+      "title": "Lautsprecher",
+      "detail": "SPK+/SPK− BTL",
+      "tags": [
+        "audio",
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "B8",
+      "type": "block",
+      "title": "LED-Versorgung",
+      "detail": "12V_SW → R12 → J6",
+      "tags": [
+        "pcb"
+      ],
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "IF-BAT",
+      "type": "interface",
+      "title": "Batterie J1",
+      "tags": [
+        "energy"
+      ],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-SPK",
+      "type": "interface",
+      "title": "Lautsprecher J2",
+      "tags": [
+        "audio"
+      ],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-BTN",
+      "type": "interface",
+      "title": "Taster J3/J4",
+      "tags": [],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-LED",
+      "type": "interface",
+      "title": "LEDs J6",
+      "tags": [],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-USB",
+      "type": "interface",
+      "title": "Micro-USB an U2",
+      "tags": [],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-M3",
+      "type": "interface",
+      "title": "4× M3 Montagelöcher",
+      "tags": [
+        "pcb"
+      ],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "IF-VIEW",
+      "type": "interface",
+      "title": "Zähleranzeige oben",
+      "tags": [],
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "PCB-01",
+      "type": "part",
+      "title": "Leiterplatte Rev 2.5 (2L 1,6 mm)",
+      "tags": [
+        "pcb",
+        "energy"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "SW-NONE",
+      "type": "software",
+      "title": "Keine Firmware (kein MCU)",
+      "tags": [
+        "software"
+      ],
+      "detail": "Bewusst kein Mikrocontroller — Software-Impact bei Energie-Änderungen = 0."
+    },
+    {
+      "id": "U1",
+      "type": "part",
+      "title": "TPS62163 Buck",
+      "tags": [
+        "energy"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "U2",
+      "type": "part",
+      "title": "DY-SV17F",
+      "tags": [
+        "audio"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "Q1",
+      "type": "part",
+      "title": "Latch P-FET",
+      "tags": [
+        "energy"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "Q5",
+      "type": "part",
+      "title": "Verpolungsschutz SI2301",
+      "tags": [
+        "energy"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "J5",
+      "type": "part",
+      "title": "Hengstler 0.635.128",
+      "tags": [],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "J1",
+      "type": "part",
+      "title": "Phoenix MPT 2 — Batterie",
+      "tags": [
+        "energy"
+      ],
+      "doc": "schaltplan"
+    },
+    {
+      "id": "E-LATCH-01",
+      "type": "adr",
+      "title": "MOSFET-Latch statt MCU-Sleep",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-LATCH-02",
+      "type": "adr",
+      "title": "Kaltstart SET über Q6 ohne 5 V",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-BUCK-01",
+      "type": "adr",
+      "title": "TPS62163, EN an 12V_SW, kein UVLO-Teiler",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-UVLO-01",
+      "type": "adr",
+      "title": "Kein UVLO-IC (Lektion Rev 1)",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-CNT-03",
+      "type": "adr",
+      "title": "Hengstler 12 V + One-Shot an 12V_SW",
+      "tags": [],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-CNT-04",
+      "type": "adr",
+      "title": "Idle Spulenstrom 0",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-VGS-01",
+      "type": "adr",
+      "title": "Zener 6,2 V an P-FET Gates",
+      "tags": [
+        "energy"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "E-AUDIO-01",
+      "type": "adr",
+      "title": "DY-SV17F Mode 0, kein eigener MCU",
+      "tags": [
+        "audio"
+      ],
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "FIND-F-01",
+      "type": "finding",
+      "title": "12 V Phantom Supply an Modul-IO",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "FIND-F-02",
+      "type": "finding",
+      "title": "VOS mit 100k → falsche 5 V",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "FIND-F-03",
+      "type": "finding",
+      "title": "Kurzdruck → kein Play",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "FIND-F-04",
+      "type": "finding",
+      "title": "LED-Kurzschluss an J6",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "FIND-F-05",
+      "type": "finding",
+      "title": "SPK zu dünn",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "FIND-F-09",
+      "type": "finding",
+      "title": "USB + Board-5V Backfeed",
+      "namespace": "adversarial",
+      "doc": "adversarial_review_v24"
+    },
+    {
+      "id": "R-01",
+      "type": "risk",
+      "title": "12 V an Modul-IO (Phantom Supply)",
+      "rpn": 216,
+      "status": "behoben",
+      "tags": [],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-02",
+      "type": "risk",
+      "title": "VOS mit 100k → falsche 5 V",
+      "rpn": 224,
+      "status": "behoben",
+      "tags": [
+        "energy"
+      ],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-03",
+      "type": "risk",
+      "title": "Kurzdruck → kein Play / tot",
+      "rpn": 210,
+      "status": "mitigiert",
+      "tags": [],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-04",
+      "type": "risk",
+      "title": "LED-Kurzschluss an J6",
+      "rpn": 96,
+      "status": "mitigiert",
+      "tags": [],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-05",
+      "type": "risk",
+      "title": "SPK zu dünn → Hitze/Drop",
+      "rpn": 100,
+      "status": "behoben",
+      "tags": [
+        "audio"
+      ],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-06",
+      "type": "risk",
+      "title": "SI2301 VDS vs. TVS Clamp",
+      "rpn": 96,
+      "status": "akzeptiert",
+      "tags": [
+        "energy"
+      ],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-07",
+      "type": "risk",
+      "title": "USB + Board-5V Backfeed",
+      "rpn": 72,
+      "status": "prozess",
+      "tags": [],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-08",
+      "type": "risk",
+      "title": "Feuchte / Kondenswasser",
+      "rpn": 150,
+      "status": "auflage",
+      "tags": [
+        "environment"
+      ],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-09",
+      "type": "risk",
+      "title": "Falsche Bestückung Diode",
+      "rpn": 96,
+      "status": "offen",
+      "tags": [
+        "pcb"
+      ],
+      "doc": "risiko_fmea",
+      "derived": false
+    },
+    {
+      "id": "R-10",
+      "type": "risk",
+      "title": "Batterie-Laufzeit unter Plan (Selbstentladung/Nutzung)",
+      "rpn": 80,
+      "status": "analyse",
+      "tags": [
+        "energy"
+      ],
+      "doc": "risiko_fmea",
+      "derived": true
+    },
+    {
+      "id": "TC-U01",
+      "type": "test",
+      "title": "DRC PCB",
+      "level": "unit",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-U02",
+      "type": "test",
+      "title": "ERC Schaltplan",
+      "level": "unit",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-U03",
+      "type": "test",
+      "title": "BOM↔CPL↔PCB Refs",
+      "level": "unit",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-I01",
+      "type": "test",
+      "title": "F-01 Netze IOx_M",
+      "level": "integration",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-I02",
+      "type": "test",
+      "title": "F-02 R5=0R",
+      "level": "integration",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-I03",
+      "type": "test",
+      "title": "Sim Idle-Strom",
+      "level": "integration",
+      "status": "PASS",
+      "tags": [
+        "energy"
+      ],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-T01",
+      "type": "test",
+      "title": "Sim UC-01 Happy Path",
+      "level": "subsystem",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-T02",
+      "type": "test",
+      "title": "Adversarial Disposition",
+      "level": "subsystem",
+      "status": "PASS",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S01",
+      "type": "test",
+      "title": "Idle I_BAT real <100 µA",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [
+        "energy"
+      ],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S02",
+      "type": "test",
+      "title": "Taste halten → Play <0,5 s",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S03",
+      "type": "test",
+      "title": "BUSY/Q3_GATE Oszi Release",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S04",
+      "type": "test",
+      "title": "R12 Temp / I_LED",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S05",
+      "type": "test",
+      "title": "5 V unter Play+LED",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [
+        "energy"
+      ],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S06",
+      "type": "test",
+      "title": "Retrigger UC-02",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-S07",
+      "type": "test",
+      "title": "Zähler +1 pro Session",
+      "level": "system",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-A01",
+      "type": "test",
+      "title": "Abnahme Lastenheft §11",
+      "level": "acceptance",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "TC-A02",
+      "type": "test",
+      "title": "USB-Audio UC-04",
+      "level": "acceptance",
+      "status": "OPEN",
+      "tags": [],
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "V-ANA",
+      "type": "test",
+      "title": "Analyse / Rechnung (Verifikationsmethode)",
+      "level": "analysis",
+      "tags": [
+        "energy"
+      ],
+      "doc": "traceability"
+    },
+    {
+      "id": "DOC-stakeholder",
+      "type": "document",
+      "title": "Stakeholder",
+      "doc": "stakeholder"
+    },
+    {
+      "id": "DOC-anforderungen",
+      "type": "document",
+      "title": "Lastenheft",
+      "doc": "anforderungen"
+    },
+    {
+      "id": "DOC-pflichtenheft",
+      "type": "document",
+      "title": "Pflichtenheft",
+      "doc": "pflichtenheft"
+    },
+    {
+      "id": "DOC-use_cases",
+      "type": "document",
+      "title": "Use Cases",
+      "doc": "use_cases"
+    },
+    {
+      "id": "DOC-funktionsstruktur",
+      "type": "document",
+      "title": "Funktionsstruktur",
+      "doc": "funktionsstruktur"
+    },
+    {
+      "id": "DOC-systemarchitektur",
+      "type": "document",
+      "title": "Systemarchitektur",
+      "doc": "systemarchitektur"
+    },
+    {
+      "id": "DOC-pbs_icd",
+      "type": "document",
+      "title": "PBS & ICD",
+      "doc": "pbs_icd"
+    },
+    {
+      "id": "DOC-entscheidungen",
+      "type": "document",
+      "title": "ADRs",
+      "doc": "entscheidungen"
+    },
+    {
+      "id": "DOC-risiko",
+      "type": "document",
+      "title": "Risiko / FMEA",
+      "doc": "risiko_fmea"
+    },
+    {
+      "id": "DOC-traceability",
+      "type": "document",
+      "title": "Traceability RTM",
+      "doc": "traceability"
+    },
+    {
+      "id": "DOC-digital_thread",
+      "type": "document",
+      "title": "Digital Thread",
+      "doc": "digital_thread"
+    },
+    {
+      "id": "DOC-vv",
+      "type": "document",
+      "title": "V&V Testplan",
+      "doc": "vv_testplan"
+    },
+    {
+      "id": "DOC-schaltplan",
+      "type": "document",
+      "title": "Schaltplan-Doku",
+      "doc": "schaltplan"
+    }
+  ],
+  "edges": [
+    {
+      "from": "E01",
+      "to": "SYS-01",
+      "type": "derives"
+    },
+    {
+      "from": "E02",
+      "to": "SYS-02",
+      "type": "derives"
+    },
+    {
+      "from": "E05",
+      "to": "SYS-02",
+      "type": "derives"
+    },
+    {
+      "from": "E04",
+      "to": "SYS-03",
+      "type": "derives"
+    },
+    {
+      "from": "E05",
+      "to": "SYS-04",
+      "type": "derives"
+    },
+    {
+      "from": "FIND-F-01",
+      "to": "SYS-05",
+      "type": "derives"
+    },
+    {
+      "from": "E-CNT-03",
+      "to": "SYS-06",
+      "type": "derives"
+    },
+    {
+      "from": "FIND-F-05",
+      "to": "SYS-07",
+      "type": "derives"
+    },
+    {
+      "from": "FIND-F-09",
+      "to": "SYS-08",
+      "type": "derives"
+    },
+    {
+      "from": "SYS-01",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-01",
+      "to": "IF-BAT",
+      "type": "interfaces"
+    },
+    {
+      "from": "SYS-02",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "SYS-02",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-03",
+      "to": "SF-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "SYS-03",
+      "to": "E-LATCH-02",
+      "type": "derives"
+    },
+    {
+      "from": "SYS-04",
+      "to": "SF-06",
+      "type": "satisfies"
+    },
+    {
+      "from": "SYS-04",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-05",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-06",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "SYS-06",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-07",
+      "to": "B7",
+      "type": "allocates"
+    },
+    {
+      "from": "SYS-08",
+      "to": "IF-USB",
+      "type": "interfaces"
+    },
+    {
+      "from": "F01",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F02",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F03",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F04",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F05",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "E04",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F07",
+      "to": "UC-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "F08",
+      "to": "UC-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "F10",
+      "to": "UC-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "H06",
+      "to": "UC-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "F06",
+      "to": "UC-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "FIND-F-09",
+      "to": "UC-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "E01",
+      "to": "UC-05",
+      "type": "satisfies"
+    },
+    {
+      "from": "E03",
+      "to": "UC-05",
+      "type": "satisfies"
+    },
+    {
+      "from": "SH-01",
+      "to": "F01",
+      "type": "derives"
+    },
+    {
+      "from": "SH-01",
+      "to": "F03",
+      "type": "derives"
+    },
+    {
+      "from": "SH-01",
+      "to": "F05",
+      "type": "derives"
+    },
+    {
+      "from": "SH-01",
+      "to": "UC-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "SH-02",
+      "to": "E02",
+      "type": "derives"
+    },
+    {
+      "from": "SH-02",
+      "to": "E03",
+      "type": "derives"
+    },
+    {
+      "from": "SH-02",
+      "to": "U03",
+      "type": "derives"
+    },
+    {
+      "from": "SH-02",
+      "to": "F10",
+      "type": "derives"
+    },
+    {
+      "from": "SH-03",
+      "to": "F06",
+      "type": "derives"
+    },
+    {
+      "from": "SH-03",
+      "to": "H01",
+      "type": "derives"
+    },
+    {
+      "from": "SH-03",
+      "to": "H06",
+      "type": "derives"
+    },
+    {
+      "from": "SH-04",
+      "to": "M01",
+      "type": "derives"
+    },
+    {
+      "from": "SH-04",
+      "to": "M04",
+      "type": "derives"
+    },
+    {
+      "from": "SH-05",
+      "to": "H02",
+      "type": "derives"
+    },
+    {
+      "from": "SH-05",
+      "to": "H03",
+      "type": "derives"
+    },
+    {
+      "from": "SH-06",
+      "to": "M04",
+      "type": "derives"
+    },
+    {
+      "from": "F01",
+      "to": "SF-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F02",
+      "to": "SF-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "F02",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "F03",
+      "to": "SF-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "F03",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "F03",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "F04",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "F05",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "F05",
+      "to": "SF-12",
+      "type": "satisfies"
+    },
+    {
+      "from": "F06",
+      "to": "SF-09",
+      "type": "satisfies"
+    },
+    {
+      "from": "F07",
+      "to": "SF-05",
+      "type": "satisfies"
+    },
+    {
+      "from": "F08",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "F08",
+      "to": "SF-05",
+      "type": "satisfies"
+    },
+    {
+      "from": "F09",
+      "to": "SF-12",
+      "type": "satisfies"
+    },
+    {
+      "from": "F10",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "F11",
+      "to": "SF-08",
+      "type": "satisfies"
+    },
+    {
+      "from": "E01",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "E01",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "E02",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "E03",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "E04",
+      "to": "SF-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "E04",
+      "to": "SF-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "E05",
+      "to": "SF-06",
+      "type": "satisfies"
+    },
+    {
+      "from": "E06",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "E06",
+      "to": "SF-12",
+      "type": "satisfies"
+    },
+    {
+      "from": "U01",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "U01",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "U01",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "U01",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "U02",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "U03",
+      "to": "SF-09",
+      "type": "satisfies"
+    },
+    {
+      "from": "U03",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "U04",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "U04",
+      "to": "SF-09",
+      "type": "satisfies"
+    },
+    {
+      "from": "U05",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "U05",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "H01",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "H02",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "H02",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "H02",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "H03",
+      "to": "SF-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "H03",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "H03",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "H04",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "H05",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "H05",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "H05",
+      "to": "SF-06",
+      "type": "satisfies"
+    },
+    {
+      "from": "H06",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "H07",
+      "to": "SF-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "H07",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "M01",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "M01",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "M01",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "M02",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "M02",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "M03",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "M03",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-01",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-02",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-03",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-04",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-05",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-06",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-07",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-08",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-09",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-10",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-11",
+      "type": "satisfies"
+    },
+    {
+      "from": "M04",
+      "to": "SF-12",
+      "type": "satisfies"
+    },
+    {
+      "from": "SF-01",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-01",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-02",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-02",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-03",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-03",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-04",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-05",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-06",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-06",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-07",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-08",
+      "to": "B8",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-09",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-10",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-11",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-12",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "SF-12",
+      "to": "B7",
+      "type": "allocates"
+    },
+    {
+      "from": "F01",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "F02",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F02",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "F03",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "F03",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "F03",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F04",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F05",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F05",
+      "to": "B7",
+      "type": "allocates"
+    },
+    {
+      "from": "F06",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F07",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F08",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "F09",
+      "to": "B7",
+      "type": "allocates"
+    },
+    {
+      "from": "F10",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "F11",
+      "to": "B8",
+      "type": "allocates"
+    },
+    {
+      "from": "E01",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "E01",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "E02",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E03",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E04",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E04",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "E05",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E05",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "E06",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "U04",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "U05",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "H01",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "H03",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "H03",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "H03",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "H06",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "H07",
+      "to": "B1",
+      "type": "allocates"
+    },
+    {
+      "from": "H07",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "M03",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "B1",
+      "to": "IF-BAT",
+      "type": "interfaces"
+    },
+    {
+      "from": "B7",
+      "to": "IF-SPK",
+      "type": "interfaces"
+    },
+    {
+      "from": "B6",
+      "to": "IF-BTN",
+      "type": "interfaces"
+    },
+    {
+      "from": "B8",
+      "to": "IF-LED",
+      "type": "interfaces"
+    },
+    {
+      "from": "B4",
+      "to": "IF-USB",
+      "type": "interfaces"
+    },
+    {
+      "from": "PCB-01",
+      "to": "IF-M3",
+      "type": "interfaces"
+    },
+    {
+      "from": "B5",
+      "to": "IF-VIEW",
+      "type": "interfaces"
+    },
+    {
+      "from": "E01",
+      "to": "IF-BAT",
+      "type": "interfaces"
+    },
+    {
+      "from": "F05",
+      "to": "IF-SPK",
+      "type": "interfaces"
+    },
+    {
+      "from": "F01",
+      "to": "IF-BTN",
+      "type": "interfaces"
+    },
+    {
+      "from": "F11",
+      "to": "IF-LED",
+      "type": "interfaces"
+    },
+    {
+      "from": "F06",
+      "to": "IF-USB",
+      "type": "interfaces"
+    },
+    {
+      "from": "H04",
+      "to": "IF-M3",
+      "type": "interfaces"
+    },
+    {
+      "from": "H06",
+      "to": "IF-VIEW",
+      "type": "interfaces"
+    },
+    {
+      "from": "B1",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B2",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B3",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B5",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B6",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B7",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B8",
+      "to": "PCB-01",
+      "type": "allocates"
+    },
+    {
+      "from": "B3",
+      "to": "U1",
+      "type": "allocates"
+    },
+    {
+      "from": "B4",
+      "to": "U2",
+      "type": "allocates"
+    },
+    {
+      "from": "B2",
+      "to": "Q1",
+      "type": "allocates"
+    },
+    {
+      "from": "B1",
+      "to": "Q5",
+      "type": "allocates"
+    },
+    {
+      "from": "B5",
+      "to": "J5",
+      "type": "allocates"
+    },
+    {
+      "from": "B1",
+      "to": "J1",
+      "type": "allocates"
+    },
+    {
+      "from": "E-LATCH-01",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E-LATCH-02",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E-BUCK-01",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "E-UVLO-01",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "E-CNT-03",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "E-CNT-04",
+      "to": "B5",
+      "type": "allocates"
+    },
+    {
+      "from": "E-VGS-01",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "E-AUDIO-01",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "E02",
+      "to": "E-LATCH-01",
+      "type": "derives"
+    },
+    {
+      "from": "E03",
+      "to": "E-BUCK-01",
+      "type": "derives"
+    },
+    {
+      "from": "E04",
+      "to": "E-LATCH-02",
+      "type": "derives"
+    },
+    {
+      "from": "F10",
+      "to": "E-CNT-03",
+      "type": "derives"
+    },
+    {
+      "from": "FIND-F-01",
+      "to": "R-01",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-01",
+      "to": "B6",
+      "type": "allocates"
+    },
+    {
+      "from": "FIND-F-02",
+      "to": "R-02",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-02",
+      "to": "B3",
+      "type": "allocates"
+    },
+    {
+      "from": "FIND-F-03",
+      "to": "R-03",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-03",
+      "to": "B2",
+      "type": "allocates"
+    },
+    {
+      "from": "FIND-F-04",
+      "to": "R-04",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-04",
+      "to": "B8",
+      "type": "allocates"
+    },
+    {
+      "from": "FIND-F-05",
+      "to": "R-05",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-05",
+      "to": "B7",
+      "type": "allocates"
+    },
+    {
+      "from": "FIND-F-09",
+      "to": "R-07",
+      "type": "mitigates"
+    },
+    {
+      "from": "FIND-F-09",
+      "to": "B4",
+      "type": "allocates"
+    },
+    {
+      "from": "U02",
+      "to": "R-08",
+      "type": "mitigates"
+    },
+    {
+      "from": "E03",
+      "to": "R-10",
+      "type": "mitigates"
+    },
+    {
+      "from": "E02",
+      "to": "R-10",
+      "type": "mitigates"
+    },
+    {
+      "from": "SF-11",
+      "to": "R-10",
+      "type": "mitigates"
+    },
+    {
+      "from": "B2",
+      "to": "R-10",
+      "type": "mitigates"
+    },
+    {
+      "from": "M01",
+      "to": "TC-U03",
+      "type": "verifies"
+    },
+    {
+      "from": "FIND-F-01",
+      "to": "TC-I01",
+      "type": "verifies"
+    },
+    {
+      "from": "SYS-05",
+      "to": "TC-I01",
+      "type": "verifies"
+    },
+    {
+      "from": "FIND-F-02",
+      "to": "TC-I02",
+      "type": "verifies"
+    },
+    {
+      "from": "E02",
+      "to": "TC-I03",
+      "type": "verifies"
+    },
+    {
+      "from": "SYS-02",
+      "to": "TC-I03",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-01",
+      "to": "TC-T01",
+      "type": "verifies"
+    },
+    {
+      "from": "F03",
+      "to": "TC-T01",
+      "type": "verifies"
+    },
+    {
+      "from": "M04",
+      "to": "TC-T02",
+      "type": "verifies"
+    },
+    {
+      "from": "E02",
+      "to": "TC-S01",
+      "type": "verifies"
+    },
+    {
+      "from": "E03",
+      "to": "TC-S01",
+      "type": "verifies"
+    },
+    {
+      "from": "F03",
+      "to": "TC-S02",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-01",
+      "to": "TC-S02",
+      "type": "verifies"
+    },
+    {
+      "from": "E05",
+      "to": "TC-S03",
+      "type": "verifies"
+    },
+    {
+      "from": "FIND-F-03",
+      "to": "TC-S03",
+      "type": "verifies"
+    },
+    {
+      "from": "F11",
+      "to": "TC-S04",
+      "type": "verifies"
+    },
+    {
+      "from": "FIND-F-04",
+      "to": "TC-S04",
+      "type": "verifies"
+    },
+    {
+      "from": "E01",
+      "to": "TC-S05",
+      "type": "verifies"
+    },
+    {
+      "from": "F07",
+      "to": "TC-S06",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-02",
+      "to": "TC-S06",
+      "type": "verifies"
+    },
+    {
+      "from": "F10",
+      "to": "TC-S07",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-03",
+      "to": "TC-S07",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-01",
+      "to": "TC-A01",
+      "type": "verifies"
+    },
+    {
+      "from": "F06",
+      "to": "TC-A02",
+      "type": "verifies"
+    },
+    {
+      "from": "UC-04",
+      "to": "TC-A02",
+      "type": "verifies"
+    },
+    {
+      "from": "E03",
+      "to": "TC-S01",
+      "type": "verifies"
+    },
+    {
+      "from": "E02",
+      "to": "TC-I03",
+      "type": "verifies"
+    },
+    {
+      "from": "E03",
+      "to": "V-ANA",
+      "type": "verifies"
+    },
+    {
+      "from": "U01",
+      "to": "V-ANA",
+      "type": "verifies"
+    },
+    {
+      "from": "E03",
+      "to": "DOC-traceability",
+      "type": "documents"
+    },
+    {
+      "from": "E02",
+      "to": "DOC-traceability",
+      "type": "documents"
+    },
+    {
+      "from": "SF-11",
+      "to": "DOC-funktionsstruktur",
+      "type": "documents"
+    },
+    {
+      "from": "B2",
+      "to": "DOC-systemarchitektur",
+      "type": "documents"
+    },
+    {
+      "from": "R-10",
+      "to": "DOC-risiko",
+      "type": "documents"
+    },
+    {
+      "from": "TC-S01",
+      "to": "DOC-vv",
+      "type": "documents"
+    },
+    {
+      "from": "SH-02",
+      "to": "DOC-stakeholder",
+      "type": "documents"
+    }
+  ]
+}

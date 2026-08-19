@@ -44,6 +44,7 @@ if (-not $listener) {
 
 $url = "http://127.0.0.1:$port/showcase/"
 $sim = "http://127.0.0.1:$port/simulation/"
+$mbse = "http://127.0.0.1:$port/mbse/"
 Write-Host ''
 Write-Host '========================================================' -ForegroundColor DarkYellow
 Write-Host ' Vogelstimmen MBSE Showcase' -ForegroundColor Yellow
@@ -52,6 +53,7 @@ Write-Host ''
 Write-Host " Root:   $Root"
 Write-Host " URL:    $url"
 Write-Host " Sim:    $sim"
+Write-Host " MBSE:   $mbse"
 Write-Host ''
 Write-Host ' Keep this window OPEN.' -ForegroundColor Green
 Write-Host ' Stop: Ctrl+C or close window.'
@@ -66,6 +68,8 @@ $mime = @{
   '.css'  = 'text/css; charset=utf-8'
   '.js'   = 'application/javascript; charset=utf-8'
   '.json' = 'application/json; charset=utf-8'
+  '.sysml' = 'text/plain; charset=utf-8'
+  '.puml' = 'text/plain; charset=utf-8'
   '.md'   = 'text/markdown; charset=utf-8'
   '.txt'  = 'text/plain; charset=utf-8'
   '.svg'  = 'image/svg+xml'
@@ -89,6 +93,10 @@ function Get-SafePath([string]$urlPath) {
   if ([string]::IsNullOrWhiteSpace($rel)) { $rel = 'showcase/index.html' }
   $q = $rel.IndexOf('?')
   if ($q -ge 0) { $rel = $rel.Substring(0, $q) }
+  if ($rel -eq 'mbse' -or $rel.StartsWith('mbse/')) {
+    $rel = 'mbse-app' + $rel.Substring('mbse'.Length)
+    if ([string]::IsNullOrWhiteSpace($rel)) { $rel = 'mbse-app/index.html' }
+  }
   $full = [System.IO.Path]::GetFullPath((Join-Path $Root ($rel -replace '/', [IO.Path]::DirectorySeparatorChar)))
   $rootFull = [System.IO.Path]::GetFullPath($Root)
   if (-not $full.StartsWith($rootFull, [StringComparison]::OrdinalIgnoreCase)) {

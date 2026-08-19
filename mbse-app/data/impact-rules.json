@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "metrics": {
+    "battery_life": {
+      "label": "Batterielaufzeit (Monate)",
+      "baselineParam": "minMonths",
+      "increaseMeans": "harder",
+      "direct": ["E03", "E02", "SF-11", "SF-03", "B2", "B3", "PCB-01", "TC-S01", "V-ANA", "R-10", "E-BUCK-01"],
+      "review": ["U03", "SYS-02", "IF-BAT", "U1", "Q1", "DOC-traceability", "TC-I03", "E-LATCH-01", "SH-02", "UC-05"],
+      "untouchedHint": ["SW-NONE", "B4", "U2"]
+    },
+    "idle_current": {
+      "label": "Ruhestrom (µA)",
+      "baselineParam": "iIdleMax_uA",
+      "increaseMeans": "easier",
+      "direct": ["E02", "SF-11", "B2", "Q1", "TC-I03", "TC-S01", "SYS-02"],
+      "review": ["E03", "R-10", "E-LATCH-01"]
+    }
+  },
+  "tagImpact": {
+    "energy": "review",
+    "pcb": "review",
+    "software": "untouched"
+  }
+}
