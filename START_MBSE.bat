@@ -6,10 +6,10 @@ echo  Vogelstimmen MBSE Impact-App
 echo  http://127.0.0.1:8877/mbse/  (wenn Showcase-Server laeuft)
 echo.
 where python >nul 2>&1 && (
-  echo Starte python -m http.server 8781 im Ordner mbse-app
-  cd mbse-app
+  echo Starte python -m http.server 8781 im Ordner mbse
+  cd mbse
   python -m http.server 8781
   exit /b
 )
-echo Python nicht gefunden — starte Showcase-Server mit /mbse/-Alias
+echo Python nicht gefunden — starte Showcase-Server (URL /mbse/)
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0showcase\serve.ps1"

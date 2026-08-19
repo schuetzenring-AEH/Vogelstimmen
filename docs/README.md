@@ -7,7 +7,7 @@ Stand: **3. August 2026**
 | Dokument / Ort | Inhalt |
 |----------------|--------|
 | **[../showcase/](../showcase/)** | Interaktive V-Modell-/MBSE-Website (`START_SHOWCASE.bat`) |
-| **[../mbse-app/](../mbse-app/)** | Impact-Analyse, Audit, Export (`/mbse/` auf Pages) |
+| **[../mbse/](../mbse/)** | Impact-Analyse, Audit, Export (`/mbse/`) |
 | **[mbse_pitch.md](mbse_pitch.md)** · **[mbse_pitch_krones.md](mbse_pitch_krones.md)** | Präsentation / Vorstand-Pitch |
 | **[mbse_reise.md](mbse_reise.md)** | Abdeckungskarte: vorhanden / teilweise / weggelassen / offen |
 

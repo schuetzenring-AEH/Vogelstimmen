@@ -35,7 +35,7 @@ Details: **[docs/zwischenstand.md](docs/zwischenstand.md)**
 | `hardware/V2.5-final/` | Fertigungspaket Rev 2.5 (Gerber, BOM, CPL, KiCad, PDFs) |
 | `simulation/` | Interaktive Platinen-Simulation (HTML5) |
 | `showcase/` | **MBSE-Präsentation** (offline Website) — `START_SHOWCASE.bat` |
-| `mbse-app/` | Impact-Analyse, Audit, SysML/JSON-Export — Pages `/mbse/` |
+| `mbse/` | Impact-Analyse, Audit, SysML/JSON-Export — URL `/mbse/` |
 | `dist/` | USB-ZIP nach `tools/package_mbse_usb.ps1` |
 | `rev1_archiv/` | Rev-1-Archiv (Lessons Learned) |
 

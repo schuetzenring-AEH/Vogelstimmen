@@ -5,7 +5,7 @@
 **Demo:** Vogelstimmenkasten als **exemplarischer Referenz-Rahmen** — nicht als Produkt  
 **Live-Moment:** 1× Impact-Demo (Requirement E03: 12 → 18 Monate)
 
-Vollbild: [`../mbse-app/presentation.html`](../mbse-app/presentation.html)
+Vollbild: [`../mbse/presentation.html`](../mbse/presentation.html)
 
 ---
 
@@ -99,7 +99,7 @@ Der Mehrwert ist nicht die Menge der Dokumente, sondern Konsistenz und ein Digit
 - 🔴 PCB / Ruhestrom / relevante Tests  
 - 🟢 Software nicht betroffen  
 
-Demo: [`../mbse-app/index.html?demo=e03`](../mbse-app/index.html?demo=e03)
+Demo: [`../mbse/index.html?demo=e03`](../mbse/index.html?demo=e03)
 
 ---
 

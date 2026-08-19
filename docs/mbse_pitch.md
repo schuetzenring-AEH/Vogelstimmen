@@ -2,7 +2,7 @@
 
 Der Mehrwert ist **nicht die Menge der Dokumente**, sondern dass ein **KI-Engineering-Assistent** Konsistenz, Durchgängigkeit und einen Digital Thread aufbaut — und dass das erstmals wirtschaftlich sinnvoll ist, weil bei richtiger Tool-Unterstützung kaum Mehraufwand entsteht.
 
-Vollbild-Deck: [`../mbse-app/presentation.html`](../mbse-app/presentation.html) · Krones-Variante: [`mbse_pitch_krones.md`](mbse_pitch_krones.md)
+Vollbild-Deck: [`../mbse/presentation.html`](../mbse/presentation.html) · Krones-Variante: [`mbse_pitch_krones.md`](mbse_pitch_krones.md)
 
 ---
 
@@ -23,7 +23,7 @@ Nicht Ersatz des Engineers — **Co-Pilot für Konsistenz**. Generiert und verkn
 Requirement **E03 „Batterie ≥ 12 Monate“** → **18 Monate**.  
 Graph: Architektur 🟡, PCB/Energie 🔴, Software 🟢, Tests ungültig 🔴.
 
-[Demo starten](../mbse-app/index.html?demo=e03)
+[Demo starten](../mbse/index.html?demo=e03)
 
 ## 5. Digital Thread
 

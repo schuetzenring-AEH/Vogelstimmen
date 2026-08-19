@@ -93,9 +93,9 @@ function Get-SafePath([string]$urlPath) {
   if ([string]::IsNullOrWhiteSpace($rel)) { $rel = 'showcase/index.html' }
   $q = $rel.IndexOf('?')
   if ($q -ge 0) { $rel = $rel.Substring(0, $q) }
-  if ($rel -eq 'mbse' -or $rel.StartsWith('mbse/')) {
-    $rel = 'mbse-app' + $rel.Substring('mbse'.Length)
-    if ([string]::IsNullOrWhiteSpace($rel)) { $rel = 'mbse-app/index.html' }
+  # Legacy folder name
+  if ($rel -eq 'mbse-app' -or $rel.StartsWith('mbse-app/')) {
+    $rel = 'mbse' + $rel.Substring('mbse-app'.Length)
   }
   $full = [System.IO.Path]::GetFullPath((Join-Path $Root ($rel -replace '/', [IO.Path]::DirectorySeparatorChar)))
   $rootFull = [System.IO.Path]::GetFullPath($Root)

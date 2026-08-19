@@ -1,5 +1,5 @@
 # Deploy static GitHub Pages tree (Windows helper)
-# Copies showcase, docs, simulation, mbse-app → /mbse/
+# Copies showcase, docs, simulation, mbse → /mbse/
 # Usage: powershell -ExecutionPolicy Bypass -File tools/deploy_pages.ps1
 # Optional: set $env:VOGELSTIMMEN_PAGES_DIR to a staging folder.
 
@@ -24,7 +24,7 @@ Set-Content "$site\.nojekyll" "" -Encoding Ascii
 robocopy "$root\showcase" "$site\showcase" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
 robocopy "$root\docs" "$site\docs" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
 robocopy "$root\simulation" "$site\simulation" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
-robocopy "$root\mbse-app" "$site\mbse" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
+robocopy "$root\mbse" "$site\mbse" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
 if (Test-Path "$root\hardware\V3.0\docs") {
   robocopy "$root\hardware\V3.0\docs" "$site\hardware\V3.0\docs" /E /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
 }

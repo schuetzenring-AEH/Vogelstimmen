@@ -26,7 +26,7 @@ What-if-Demo: [`index.html?demo=e03`](index.html?demo=e03) (E03: 12 → 18 Monat
 | `tools/build-model.mjs` | Regeneriert das JSON aus strukturierten Artefakten |
 
 ```bash
-node mbse-app/tools/build-model.mjs
+node mbse/tools/build-model.mjs
 ```
 
 **IDs:** `F01` = Lastenheft-Requirement; `FIND-F-01` = adversarial Finding.
