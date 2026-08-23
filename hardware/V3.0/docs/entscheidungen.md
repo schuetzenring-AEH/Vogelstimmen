@@ -123,12 +123,14 @@ Optional robuster: 12 V-Typ an 12V_SW.
 
 **Entscheidung:** Leiterplatten-Schraubklemmen Phoenix **MPT 0,5** (Raster 2,54 mm, max. 0,5 mm², 6 A / 160 V).
 
-| Stecker | Polzahl | Artikel (Beispiel) | Footprint (KiCad) |
-|---------|---------|--------------------|-------------------|
-| J3 (IO), J4 (GND) | 8-pol | **1725711** MPT 0,5/8-2,54 | `TerminalBlock_Phoenix_MPT-0,5-8-2.54_…` |
-| J1 Batterie | 2-pol | MPT 0,5/2-2,54 | `…MPT-0,5-2-2.54_…` |
-| J2 Lautsprecher | 2-pol | MPT 0,5/2-2,54 | dito |
-| J6 Taster-LEDs | 2-pol | MPT 0,5/2-2,54 | dito |
+| Stecker | Polzahl | Artikel | RS | Footprint (KiCad) |
+|---------|---------|---------|----|-------------------|
+| J3 (IO), J4 (GND) | 8-pol | **1725711** MPT 0,5/8-2,54 | **220-4327** | `TerminalBlock_Phoenix_MPT-0,5-8-2.54_…` |
+| J1 Batterie | 2-pol | **1725656** MPT 0,5/2-2,54 | **220-4260** | `…MPT-0,5-2-2.54_…` |
+| J2 Lautsprecher | 2-pol | **1725656** | **220-4260** | dito |
+| J6 Taster-LEDs | 2-pol | **1725656** | **220-4260** | dito |
+
+Bezug: `docs/rs_bestellliste.md` (kein Reichelt).
 
 **Hinweis:** „0,5“ = Aderquerschnitt, nicht Pitch. Routing nach Footprint-Wechsel manuell.
 

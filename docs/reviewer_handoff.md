@@ -65,9 +65,9 @@ Simulation: `python simulation/serve.py` → http://127.0.0.1:8765/
 
 ### Manuell (nicht JLCPCB-SMD)
 
-- DY-SV17F (+ optional 2×9 Sockel)
-- Hengstler **0.635.128** (+ One-Shot C20/R20/R21/D23/Q7/D10) — siehe `hardware/V3.0/docs/entscheidungen_v30.md`
-- Phoenix MPT 0,5/8 ×2 (z. B. 1725711), MPT 0,5/2 ×3
+- DY-SV17F (+ optional 2×9 Sockel) — nicht bei RS
+- Hengstler **0.635.128** = **RS 312-022** (+ One-Shot) — `hardware/V3.0/docs/rs_bestellliste.md`
+- Phoenix MPT: **RS 220-4327** (8-pol ×2), **RS 220-4260** (2-pol ×3)
 
 ---
 

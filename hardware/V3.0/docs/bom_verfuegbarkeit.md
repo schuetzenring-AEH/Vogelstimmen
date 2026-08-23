@@ -23,13 +23,17 @@
 | Q7 | AO3400 N-MOS | SOT-23 | **C20917** | SOT-23 Basic |
 | D23 | 1N4148WS | SOD-323 | **C118873** | (wie D10) |
 
-## Zähler (Hand)
+## Zähler + Klemmen (Hand) — alles bei **RS**
 
-| Priorität | Teil | Größe | Bezug |
-|-----------|------|-------|-------|
-| **1** | **Hengstler 0.635.128** (Typ 635.1, 12 V PCB) | Body **25,2×31 mm**, Pins 15,24×25,4 | Mercateo / RS / Farnell |
-| — | 0.635.132 (5 V) | — | **nicht** (Buck-Race) |
-| — | CSK / 875 Panel | ~46×74 mm | **gestrichen** |
+Liste + Schnellbestellung: **`docs/rs_bestellliste.md`**, CSV `../RS_SCHNELLBESTELLUNG.csv`.
+
+| Ref | Teil | RS-Best.-Nr. | Link |
+|-----|------|--------------|------|
+| J5 | **Hengstler 0.635.128** (Typ 635.1, 12 V PCB) | **312-022** | [RS](https://de.rs-online.com/web/p/zahler-ic/0312022) |
+| J1, J2, J6 | Phoenix MPT 0,5/2-2,54 **1725656** | **220-4260** | [RS](https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204260) |
+| J3, J4 | Phoenix MPT 0,5/8-2,54 **1725711** | **220-4327** | [RS](https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204327) |
+| — | 0.635.132 (5 V) / RS **312-016** | — | **nicht** (Buck-Race) |
+| U2 | DY-SV17F | — | **nicht bei RS** (AliExpress) |
 
 J5 = Footprint `CNT_HENGSTLER_635`, Pitch 15,24 mm. One-Shot auf der Platine.
 
@@ -39,6 +43,6 @@ J5 = Footprint `CNT_HENGSTLER_635`, Pitch 15,24 mm. One-Shot auf der Platine.
 - [x] Widerstände: PCB = **R_0603_1608Metric**, Pitch 1,65 mm (kein 0402)
 - [ ] Jede LCSC-Seite: Package == Footprint (Parts Matching im JLCPCB-Upload)
 - [ ] Parts Matching: 0× „Soldering area too small“
-- [ ] **Hengstler 0.635.128** parallel bestellt (Lieferzeit oft Wochen)
-- [ ] MPT-Klemmen + DY-SV17F parallel bestellt
+- [ ] **RS:** Hengstler **312-022** + MPT **220-4260** / **220-4327** (`docs/rs_bestellliste.md`)
+- [ ] DY-SV17F parallel (nicht RS — AliExpress)
 - [x] DRC: 0 open / 0 short (`DRC_v3.0_final.rpt`)

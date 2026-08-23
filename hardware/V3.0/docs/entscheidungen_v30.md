@@ -19,7 +19,7 @@
 | One-Shot | `12V_SW` → C20 1 µF → R21 100 Ω → Q7.G; R20 100 k + D23 Clamp → GND |
 | Freilauf | D10 parallel Spule |
 | Idle | Latch aus → `12V_SW` tot → Zähler 0 mA |
-| Bezug | Mercateo / RS / Farnell (~35–40 €) |
+| Bezug | **RS 312-022** (~32 € netto) — [Liste](rs_bestellliste.md); nicht 312-016 |
 
 Schaltungsfunktion sonst = Rev 2.5 (Latch, Buck, Audio).
 

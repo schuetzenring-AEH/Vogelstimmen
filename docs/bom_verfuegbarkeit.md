@@ -67,12 +67,15 @@ Stehen **nicht** in der SMT-BOM. Liste: `hardware/V2.5-final/HAND_BESTUECKUNG.cs
 
 | Bauteil | Quelle | Assembly |
 |---------|--------|----------|
-| DY-SV17F U2 | AliExpress / eBay | HAND |
-| Hengstler 0.635.128 | Fachhandel (Mercateo/RS/Farnell) | HAND — siehe V3.0 |
+| DY-SV17F U2 | AliExpress / eBay (**nicht RS**) | HAND |
+| Hengstler 0.635.128 | **RS 312-022** | HAND — V3.0 |
 | ~~Kübler 1.130.900.008~~ | — | gestrichen E-CNT-02 |
-| Phoenix MPT Klemmen J1–J6 | Phoenix / Reichelt | HAND |
+| Phoenix MPT J1/J2/J6 (1725656) | **RS 220-4260** | HAND |
+| Phoenix MPT J3/J4 (1725711) | **RS 220-4327** | HAND |
 | TP1–TP5 Testpads | — | DNP |
 | Metzler-Taster P19-TF-W (Gehäuse) | Amazon B01HQDH2OK | extern / Bestand |
+
+RS-Warenkorb: `hardware/V3.0/docs/rs_bestellliste.md`
 
 | Datei | Inhalt |
 |-------|--------|
