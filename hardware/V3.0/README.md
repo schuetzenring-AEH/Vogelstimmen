@@ -28,15 +28,15 @@
 
 ## Handbestückung (nicht in JLCPCB-BOM)
 
-Datei: **`HAND_BESTUECKUNG.csv`**
+Datei: **`HAND_BESTUECKUNG.csv`** · RS-Warenkorb: **`docs/rs_bestellliste.md`**
 
-| Ref | Teil | Assembly |
-|-----|------|----------|
-| **U2** | DY-SV17F | HAND |
-| **J5** | Hengstler **0.635.128** (nicht 0.635.132) | HAND |
-| **J1, J2, J6** | Phoenix MPT 0,5/2 | HAND |
-| **J3, J4** | Phoenix MPT 0,5/8 | HAND |
-| **TP1–TP5** | Testpads | DNP |
+| Ref | Teil | Assembly | RS |
+|-----|------|----------|-----|
+| **U2** | DY-SV17F | HAND | nicht bei RS |
+| **J5** | Hengstler **0.635.128** (nicht 0.635.132) | HAND | **312-022** |
+| **J1, J2, J6** | Phoenix MPT 0,5/2 **1725656** | HAND | **220-4260** |
+| **J3, J4** | Phoenix MPT 0,5/8 **1725711** | HAND | **220-4327** |
+| **TP1–TP5** | Testpads | DNP | — |
 
 ## Widerstände — Package-Check (E-R0603)
 
@@ -69,6 +69,8 @@ Pads gemessen: **0,80×0,95 mm**, Mittenabstand **1,65 mm** → passt zu 060
 | `vogelstimmen_v3.0-Gerber.zip` | **Upload-Paket** |
 | `JLCPCB_BOM.csv` / `JLCPCB_CPL.csv` | SMT Assembly |
 | `HAND_BESTUECKUNG.csv` | Handteile |
+| `RS_SCHNELLBESTELLUNG.csv` | RS-Warenkorb 1 Platine |
+| `docs/rs_bestellliste.md` | RS-Links, Warnungen, 10× |
 | `vogelstimmen_v3.0-schematic.pdf` | Schaltplan |
 | `vogelstimmen_v3.0-pcb.pdf` | Layout |
 | `docs/` | ADRs, Schaltplan, BOM-Checkliste |
@@ -83,5 +85,5 @@ Pads gemessen: **0,80×0,95 mm**, Mittenabstand **1,65 mm** → passt zu 060
 ## Parallel bestellen
 
 1. JLCPCB: Gerber.zip + BOM + CPL (SMD Assembly)
-2. Hengstler 0.635.128 (Mercateo/RS/Farnell) — Lieferzeit oft Wochen
-3. DY-SV17F + Phoenix MPT-Klemmen
+2. **RS** Schnellbestellung: `RS_SCHNELLBESTELLUNG.csv` (Hengstler 312-022 + MPT) — Zähler oft Wochen
+3. DY-SV17F (AliExpress; nicht bei RS)

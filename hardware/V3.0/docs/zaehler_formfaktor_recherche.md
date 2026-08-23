@@ -26,7 +26,7 @@ Platinen-Layout bewusst **nicht** als Filter; Auswahl zuerst nach Größe/Anschl
 | **Impuls** | min. **50 ms**, max. 10 Hz — One-Shot ~80 ms ok |
 | **Reset** | keiner |
 | **Bestellbeispiel 12 V PCB** | **0.635.128** (6 Stellen, Typ 635.1) |
-| **Bezug DE/EU** | [Mercateo ~37 €](https://www.mercateo.com/p/139-925573/HENGSTLER_0_635_128_SUMMENZAeHLER_PCB.html), RS, Farnell/Unite, [Impulse UK](https://www.impulseautomation.co.uk/hengstler-timers-and-counters/hengstler-634-635-totalising-counter/) |
+| **Bezug DE/EU** | **Primär [RS 312-022](https://de.rs-online.com/web/p/zahler-ic/0312022)** (~32 €); Alt. Mercateo / Farnell / [Impulse UK](https://www.impulseautomation.co.uk/hengstler-timers-and-counters/hengstler-634-635-totalising-counter/) |
 | **Datenblatt** | [PDF Impulse](https://www.impulseautomation.co.uk/assets/pdf/Hengstler-634-635-Totalising-Counter-Datasheet.pdf) |
 | **Hinweis** | Variante .1 vs .3 = **Blickrichtung** der Ziffern (Seite/oben) — vor Kauf Zeichnung prüfen |
 

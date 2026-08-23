@@ -1,9 +1,9 @@
 Designator,Comment,Footprint,Assembly,Notes,Order / Link
-U2,DY-SV17F,vogelstimmen:DY-SV17F,HAND,Modul stecken/löten; ~10 Stk,AliExpress
-J1,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol,Reichelt/RS/Phoenix
-J2,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol,Reichelt/RS/Phoenix
-J6,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol LED,Reichelt/RS/Phoenix
-J3,MPT 0.5/8 1725711,Phoenix MPT,HAND,8-pol Taster,Reichelt/RS/Phoenix
-J4,MPT 0.5/8 1725711,Phoenix MPT,HAND,8-pol Taster,Reichelt/RS/Phoenix
-J5,"Hengstler 0.635.128",vogelstimmen:CNT_HENGSTLER_635,HAND,"Typ 635.1 PCB 12V; 4 Pins Pitch 15.24x25.4mm Ø0.6; Pad1=+ Pad2=- (je 2x parallel). NICHT 0.635.132 (5V).",Mercateo/RS/Farnell ~37EUR
+U2,DY-SV17F,vogelstimmen:DY-SV17F,HAND,Modul stecken/loeten; ~10 Stk — nicht bei RS,AliExpress / eBay
+J1,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol Batterie 12V,RS 220-4260 https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204260
+J2,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol Lautsprecher BTL,RS 220-4260 https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204260
+J6,MPT 0.5/2 1725656,Phoenix MPT,HAND,2-pol Taster-LEDs 12V_LED,RS 220-4260 https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204260
+J3,MPT 0.5/8 1725711,Phoenix MPT,HAND,8-pol Taster IO1-IO8,RS 220-4327 https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204327
+J4,MPT 0.5/8 1725711,Phoenix MPT,HAND,8-pol Taster GND x8,RS 220-4327 https://de.rs-online.com/web/p/leiterplattensteckverbinder/2204327
+J5,"Hengstler 0.635.128",vogelstimmen:CNT_HENGSTLER_635,HAND,"Typ 635.1 PCB 12V; 4 Pins Pitch 15.24x25.4mm. NICHT 0.635.132 / RS 312-016.",RS 312-022 https://de.rs-online.com/web/p/zahler-ic/0312022
 TP1-TP5,Testpad,—,DNP,,

@@ -26,9 +26,10 @@
 
 | Teil | Hinweis |
 |------|---------|
-| DY-SV17F | Sockel erleichtert Tausch |
-| Hengstler 0.635.128 | gleicher Typ (12 V PCB) |
-| MPT-Klemmen | Phoenix 0,5 Raster 2,54 |
+| DY-SV17F | Sockel erleichtert Tausch; nicht bei RS |
+| Hengstler 0.635.128 | **RS 312-022** (12 V PCB; nicht 312-016) |
+| MPT 2-pol 1725656 | **RS 220-4260** |
+| MPT 8-pol 1725711 | **RS 220-4327** |
 | SMD-Platine | Kompletttausch bei Defekt (JLCPCB-Nachbestellung) |
 
 ---

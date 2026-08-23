@@ -1,6 +1,9 @@
 # Lieferanten — PCB-Mini 12 V Impulszähler (V3.0)
 
-Zielteil: **~30×42 mm**, **12 V DC**, Litzen oder PCB-Pins → J5 (One-Shot).  
+**Aktuell bestellen:** Hengstler **0.635.128** bei **RS 312-022** — `docs/rs_bestellliste.md`.  
+Die folgenden Alternativen (Trumeter / Yaoye / Line Seiki) sind Archiv, falls RS nicht liefert.
+
+Zielteil historisch: **~30×42 mm**, **12 V DC**, Litzen oder PCB-Pins → J5 (One-Shot).  
 **Nicht** Panel-CSK/875.
 
 ## Sofort bestellbar (kleine Stückzahl)
