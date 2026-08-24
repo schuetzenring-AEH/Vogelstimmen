@@ -16,7 +16,7 @@
 1. Sichtprüfung SMD (**D9 Polarität!**, D15–D22 Polarität, R5=0R, R12, R13, C4)  
 2. THT-Klemmen löten (Orientierung: J3 Kabelzugang beachten)  
 3. Hengstler J5 (Anzeige zum Sichtfenster; Polarität Pad1=+ / Pad2=−)  
-4. **C4 von 4,7 µF auf 22 µF tauschen** (0805, ≥10 V, X5R/X7R) — siehe §5 Errata  
+4. **C4 von 4,7 µF auf 47 µF tauschen** (0805, ≥10 V, X5R/X7R) — siehe §5 Errata  
 5. Modul U2 auf Sockel / löten (**Orientierung beachten!** siehe §5 Errata)  
 6. Optional: Conformal Coating (außer Stecker, Sockel, Zählerfenster)  
 7. Einbau Gehäuse, M3, Verkabelung ≤30 cm  
@@ -84,8 +84,9 @@ Loslassen des Tasters; Platine schaltet sich nicht sauber ab.
 ~0,25 s. Die Boot-Zeit des DY-SV17F (~300 ms) plus BUSY-HIGH-Phase übersteigt das
 Blanking-Fenster → Q3 killt den Latch bevor das Modul den Ton starten kann.
 
-**Fix:** C4 ersetzen: **22 µF / ≥ 10 V / 0805 / X5R oder X7R**. Neues Blanking ≈ 1,1 s —
-genug Puffer für Boot + erste Flanke.
+**Fix:** C4 ersetzen: **47 µF / ≥ 10 V / 0805 / X5R oder X7R** (z. B. Murata GRM21BR61A476ME15L,
+Conrad 3425091, LCSC C19666). Neues Blanking ≈ 2,4 s — sichere Reserve für Boot + erste Flanke.
+Abschaltung nach Track-Ende verzögert sich um ~2,4 s (akzeptabel).
 
 **Prüfung:** Taste 2 s halten → loslassen → Ton spielt ~10 s weiter → Platine geht aus.
 
