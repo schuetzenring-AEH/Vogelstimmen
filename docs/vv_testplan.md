@@ -42,15 +42,17 @@
 | TC-I03 | Integration | Sim Idle-Strom | ~10–20 µA Latch aus | PASS (Sim) |
 | TC-T01 | Teilsystem | Sim UC-01 Happy Path | SET→Play→Release | PASS (Sim) |
 | TC-T02 | Teilsystem | Adversarial Disposition | F-01…F-09 geschlossen/akzeptiert | PASS Doku |
-| TC-S01 | System | Idle I_BAT real | <100 µA | **OFFEN Proto** |
-| TC-S02 | System | Taste halten → Play | Audio <0,5 s nach Boot | **OFFEN** |
-| TC-S03 | System | BUSY/Q3_GATE Oszi | Release verzögert, kein Sofort-Kill Boot | **OFFEN A-03** |
-| TC-S04 | System | R12 Temp / I_LED | unkritisch heiß | **OFFEN A-02** |
-| TC-S05 | System | 5 V unter Play+LED | 5,0±0,25 V | **OFFEN F-08** |
-| TC-S06 | System | Retrigger UC-02 | neue Stimme ersetzt alte | **OFFEN** |
+| TC-S01 | System | Idle I_BAT real | <100 µA | **OFFEN** (nach C4-Tausch) |
+| TC-S02 | System | Taste halten → Play | Audio <0,5 s nach Boot | **PASS** (Proto 24.08.26, mit C4-Brücke; Retest nach C4=47µF) |
+| TC-S03 | System | BUSY/Q3_GATE Oszi | Release verzögert, kein Sofort-Kill Boot | **FAIL → E-IBN-03** (C4=4,7µF zu kurz; Fix: 47µF) |
+| TC-S04 | System | R12 Temp / I_LED | unkritisch heiß | **OFFEN** |
+| TC-S05 | System | 5 V unter Play+LED | 5,0±0,25 V | **PASS** (Proto: TP2=4,82–4,9 V unter Play) |
+| TC-S06 | System | Retrigger UC-02 | neue Stimme ersetzt alte | **PASS** (Proto 24.08.26, alle 8 Kanäle wechseln) |
 | TC-S07 | System | Zähler +1 pro Session | mechanisch sichtbar | **OFFEN** |
+| TC-S08 | System | D9 Polarität | TP1≈12V, F1 kalt | **FAIL → E-IBN-01** (JLCPCB 180° falsch; Fix: D9 drehen) |
+| TC-S09 | System | U2 Steckrichtung | TP4 wechselt 0/5V | **FAIL → E-IBN-02** (Reihen vertauschbar; Doku ergänzt) |
 | TC-A01 | Abnahme | Lastenheft §11.1–4 | Betreiber OK | **OFFEN** |
-| TC-A02 | Abnahme | USB-Audio UC-04 | Dateien abspielbar | **OFFEN** |
+| TC-A02 | Abnahme | USB-Audio UC-04 | Dateien abspielbar | **PASS** (Proto: 8× Testtöne per USB geladen, spielen korrekt) |
 
 ---
 
@@ -81,3 +83,34 @@
 ## 6. Ehrlichkeit
 
 Design-Verifikation (links+Mitte V) ist stark. **Validierung am realen Kasten steht aus** — daher Fertigungsfreigabe „mit Auflagen“, nicht „serie-fertig ohne Proto“.
+
+---
+
+## 7. Proto-Testprotokoll (24. August 2026)
+
+**Platine:** Rev 2.5, JLCPCB-Bestückung, 2 Exemplare.
+**Versorgung:** Netzteil 12,4 V / 5 A.
+**Audio:** 8× 10-s-Testtöne (440–1047 Hz) per USB auf DY-SV17F.
+
+### Befunde
+
+| # | Befund | Schwere | Fix | Errata |
+|---|--------|---------|-----|--------|
+| 1 | D9 (SMAJ15A) 180° falsch bestückt (beide Platinen). F1 heiß, 0,7 V hinter F1. | **Blocker** | D9 drehen | E-IBN-01 |
+| 2 | U2 (DY-SV17F) Reihen vertauschbar (kein mech. Verpolschutz). Kein Ton, TP4≈2,5 V. | **Blocker** | Orientierungstabelle + Doku | E-IBN-02 |
+| 3 | C4 = 4,7 µF: Blanking zu kurz. Latch oszilliert, Q3 killt Versorgung vor Play-Start. | **Blocker** | C4 → 47 µF (0805) | E-IBN-03 |
+
+### Bestandene Tests (nach Fixes)
+
+- TP1 = 12,3 V (Eingangsschutz B1) ✓
+- TP2 = 4,82–4,9 V unter Last (Buck B3) ✓
+- Alle 8 IO-Kanäle triggern korrekten Ton (B4/B6) ✓
+- Retrigger: Stimme wechselt sofort (UC-02) ✓
+- USB-Dateien abspielen korrekt (UC-04) ✓
+
+### Offene Tests (nach C4-Tausch)
+
+- TC-S01: Idle-Strom < 100 µA
+- TC-S03: Retest BUSY/Blanking mit C4 = 47 µF
+- TC-S04: R12 Temperatur / LED-Strom
+- TC-S07: Zähler +1 pro Session (Hengstler nicht bestückt im Test)

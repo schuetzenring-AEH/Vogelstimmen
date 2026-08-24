@@ -93,7 +93,7 @@ Q2.Drain = LATCH_GATE → R8 → Q1_GATE → Q1 → 12V_SW
 | Q2 | 2N7002 | SOT-23 | N-FET Latch-Logik |
 | Q3 | 2N7002 | SOT-23 | BUSY → LATCH_SET (Release) |
 | **R13** | **100 kΩ** | **0402** | **BUSY → Q3_GATE (Serie, F-03)** |
-| **C4** | **4,7 µF/16 V** | **0805** | **Q3_GATE → GND (Blanking, F-03)** |
+| **C4** | **47 µF/10 V** | **0805** | **Q3_GATE → GND (Blanking, F-03; Proto: 4,7 µF zu kurz → E-IBN-03)** |
 | Q6 | SI2301 | SOT-23 | P-FET Kaltstart-SET |
 | D14 | BZX84C6V2 | SOT-23 | VGS-Clamp Q6 |
 | R1 | 100 kΩ | 0402 | Q1 Gate Pull-up |
